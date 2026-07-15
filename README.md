@@ -62,6 +62,7 @@ The full local application remains the source of truth for fixture execution and
 
 ```bash
 npm run build:site
+npm run build:pages
 ```
 
 ## DataHub modes

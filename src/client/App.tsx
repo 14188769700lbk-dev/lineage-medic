@@ -29,12 +29,18 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import {
+  createHostedInitialCampaign,
+  createHostedReplayCampaign,
+} from "../server/fixtures/replay-campaign.js";
 import type {
   AffectedAsset,
   PatchArtifact,
   RepairCampaign,
   RunCampaignResponse,
 } from "../shared/types.js";
+
+const staticReplay = import.meta.env.VITE_HOSTED_REPLAY === "true";
 
 const runningPhases = [
   "Tracing column-level lineage",
@@ -53,6 +59,13 @@ const platformIcon: Record<AffectedAsset["type"], typeof Database> = {
 };
 
 async function loadCampaign(): Promise<RunCampaignResponse> {
+  if (staticReplay) {
+    return {
+      campaign: createHostedInitialCampaign(),
+      message: "Breaking change loaded from the recorded Fiction Retail scenario.",
+    };
+  }
+
   const response = await fetch("/api/campaign");
   if (!response.ok) throw new Error("Could not load the repair campaign");
   return response.json() as Promise<RunCampaignResponse>;
@@ -725,10 +738,14 @@ export function App() {
         await wait(index === 0 ? 500 : 380);
       }
 
-      const response = await fetch("/api/campaign/run", { method: "POST" });
-      if (!response.ok) throw new Error("Repair run failed");
-      const result = (await response.json()) as RunCampaignResponse;
-      setCampaign(result.campaign);
+      if (staticReplay) {
+        setCampaign(createHostedReplayCampaign());
+      } else {
+        const response = await fetch("/api/campaign/run", { method: "POST" });
+        if (!response.ok) throw new Error("Repair run failed");
+        const result = (await response.json()) as RunCampaignResponse;
+        setCampaign(result.campaign);
+      }
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Repair run failed");
     } finally {
@@ -739,6 +756,11 @@ export function App() {
 
   async function resetCampaign() {
     setError(null);
+    if (staticReplay) {
+      setCampaign(createHostedInitialCampaign());
+      return;
+    }
+
     const response = await fetch("/api/campaign/reset", { method: "POST" });
     if (!response.ok) {
       setError("Could not reset the demo");
@@ -752,6 +774,11 @@ export function App() {
     setIsWritingBack(true);
     setError(null);
     try {
+      if (staticReplay) {
+        setCampaign(createHostedReplayCampaign());
+        return;
+      }
+
       const response = await fetch("/api/campaign/writeback", { method: "POST" });
       if (!response.ok) throw new Error("DataHub writeback failed");
       const result = (await response.json()) as RunCampaignResponse;
