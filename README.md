@@ -54,6 +54,16 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173), then select **Run guided re
 
 The scenario is based on DataHub's official [Fiction Retail datapack](https://github.com/datahub-project/static-assets/tree/main/datasets/fiction-retail). The small code repositories in this project are original, synthetic consumers created for the migration demonstration.
 
+## Hosted replay
+
+The deployable web build is an interactive replay of the checked-in DataHub MCP fixture. It returns the same four patches and validation evidence produced by the local engine, while remaining stateless and safe for public judging. The interface labels the context as a hosted replay, never claims a live tenant connection, and keeps `save_document` disabled.
+
+The full local application remains the source of truth for fixture execution and live MCP modes. Build the hosted replay with:
+
+```bash
+npm run build:site
+```
+
 ## DataHub modes
 
 Fixture mode is the default and requires no account. It replays a checked-in snapshot of the official MCP tool contract, never claims a live connection, and never performs a DataHub mutation.

@@ -1,6 +1,9 @@
 node_modules/
 dist/
 dist-server/
+.next/
+.wrangler/
+tsconfig.tsbuildinfo
 .env
 .env.local
 .lineage-medic/
