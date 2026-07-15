@@ -56,6 +56,8 @@ The scenario is based on DataHub's official [Fiction Retail datapack](https://gi
 
 ## Hosted replay
 
+[Open the public hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/).
+
 The deployable web build is an interactive replay of the checked-in DataHub MCP fixture. It returns the same four patches and validation evidence produced by the local engine, while remaining stateless and safe for public judging. The interface labels the context as a hosted replay, never claims a live tenant connection, and keeps `save_document` disabled.
 
 The full local application remains the source of truth for fixture execution and live MCP modes. Build the hosted replay with:
