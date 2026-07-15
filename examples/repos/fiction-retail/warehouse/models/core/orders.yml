@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: orders
+    description: Curated retail orders used by fulfillment and finance.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: integer
+        data_tests: [not_null, unique]
+      - name: customer_id
+        data_type: integer
+      - name: shipping_country
+        data_type: text
+      - name: total_amount
+        data_type: numeric
+      - name: delivery_days
+        data_type: integer

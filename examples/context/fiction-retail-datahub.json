@@ -1,0 +1,176 @@
+{
+  "mode": "fixture",
+  "label": "Recorded DataHub MCP fixture",
+  "recordedAt": "2026-07-15T09:42:02.000Z",
+  "assets": [
+    {
+      "id": "orders",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+      "name": "orders",
+      "type": "dataset",
+      "platform": "dbt",
+      "owner": "Retail Platform",
+      "domain": "Commerce",
+      "hops": 0,
+      "risk": "critical",
+      "usesChangedField": true,
+      "usageEvidence": "Producer PR removes the public shipping_country output",
+      "repository": "fiction-retail/warehouse",
+      "file": "models/core/orders.sql",
+      "x": 13,
+      "y": 42
+    },
+    {
+      "id": "shipping-performance",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+      "name": "shipping_performance",
+      "type": "dataset",
+      "platform": "dbt",
+      "owner": "Fulfillment Analytics",
+      "domain": "Operations",
+      "hops": 1,
+      "risk": "critical",
+      "usesChangedField": true,
+      "usageEvidence": "GROUP BY shipping_country in a daily production model",
+      "repository": "fiction-retail/fulfillment-analytics",
+      "file": "models/marts/shipping_performance.sql",
+      "x": 39,
+      "y": 22
+    },
+    {
+      "id": "revenue-market",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+      "name": "revenue_by_market",
+      "type": "dataset",
+      "platform": "dbt",
+      "owner": "Finance Data",
+      "domain": "Finance",
+      "hops": 1,
+      "risk": "high",
+      "usesChangedField": true,
+      "usageEvidence": "Public finance mart exposes shipping_country to board reporting",
+      "repository": "fiction-retail/finance-metrics",
+      "file": "models/revenue/revenue_by_market.sql",
+      "x": 39,
+      "y": 64
+    },
+    {
+      "id": "fulfillment-job",
+      "urn": "urn:li:dataJob:(airflow,fiction-retail.fulfillment_daily)",
+      "name": "fulfillment_daily",
+      "type": "dataJob",
+      "platform": "Airflow",
+      "owner": "Fulfillment Platform",
+      "domain": "Operations",
+      "hops": 2,
+      "risk": "high",
+      "usesChangedField": false,
+      "usageEvidence": "Schedules shipping_performance before the 06:00 SLA",
+      "x": 63,
+      "y": 22
+    },
+    {
+      "id": "delivery-dashboard",
+      "urn": "urn:li:dashboard:(looker,fulfillment_delivery_health)",
+      "name": "Delivery health",
+      "type": "dashboard",
+      "platform": "Looker",
+      "owner": "Ops Leadership",
+      "domain": "Operations",
+      "hops": 3,
+      "risk": "high",
+      "usesChangedField": false,
+      "usageEvidence": "46 weekly viewers; reads shipping_performance",
+      "x": 87,
+      "y": 22
+    },
+    {
+      "id": "finance-dashboard",
+      "urn": "urn:li:dashboard:(powerbi,global_revenue_pulse)",
+      "name": "Global revenue pulse",
+      "type": "dashboard",
+      "platform": "Power BI",
+      "owner": "FP&A",
+      "domain": "Finance",
+      "hops": 2,
+      "risk": "high",
+      "usesChangedField": false,
+      "usageEvidence": "Board reporting asset; 19 weekly viewers",
+      "x": 87,
+      "y": 64
+    }
+  ],
+  "bindings": [
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+      "repository": "fiction-retail/warehouse",
+      "file": "models/core/orders.sql",
+      "contractFile": "models/core/orders.yml",
+      "policy": "producer-compatibility"
+    },
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+      "repository": "fiction-retail/fulfillment-analytics",
+      "file": "models/marts/shipping_performance.sql",
+      "policy": "migrate-consumer"
+    },
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+      "repository": "fiction-retail/finance-metrics",
+      "file": "models/revenue/revenue_by_market.sql",
+      "policy": "preserve-output"
+    }
+  ],
+  "queries": [
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+      "sql": "select shipping_country, count(*) from analytics.orders group by 1",
+      "source": "SYSTEM",
+      "lastSeenAt": "2026-07-14T18:04:00.000Z"
+    },
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+      "sql": "select shipping_country, avg_delivery_days from analytics.shipping_performance",
+      "source": "SYSTEM",
+      "lastSeenAt": "2026-07-15T05:57:00.000Z"
+    },
+    {
+      "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+      "sql": "select shipping_country, gross_revenue from finance.revenue_by_market",
+      "source": "MANUAL",
+      "lastSeenAt": "2026-07-12T11:31:00.000Z"
+    }
+  ],
+  "toolCalls": [
+    {
+      "name": "get_lineage",
+      "arguments": {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+        "column": "shipping_country",
+        "upstream": false,
+        "max_hops": 3,
+        "max_results": 50
+      },
+      "responseSummary": "5 downstream assets across dbt, Airflow, Looker and Power BI",
+      "status": "complete"
+    },
+    {
+      "name": "get_entities",
+      "arguments": {
+        "urns": "6 affected asset URNs"
+      },
+      "responseSummary": "Resolved owners, domains, platforms and usage metadata for 6 assets",
+      "status": "complete"
+    },
+    {
+      "name": "get_dataset_queries",
+      "arguments": {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+        "column": "shipping_country",
+        "count": 20
+      },
+      "responseSummary": "3 relevant production query examples retained in the fixture",
+      "status": "complete"
+    }
+  ]
+}

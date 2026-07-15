@@ -1,0 +1,9 @@
+LineageMedic
+Copyright 2026 LineageMedic contributors
+
+The demonstration scenario is inspired by the DataHub Fiction Retail datapack,
+which is published under CC0-1.0 at:
+https://github.com/datahub-project/static-assets/tree/main/datasets/fiction-retail
+
+The synthetic dbt repositories and all LineageMedic source code in this project
+are original works licensed under Apache License 2.0.

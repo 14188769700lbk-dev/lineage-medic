@@ -1,0 +1,13 @@
+{
+  "id": "change-orders-country",
+  "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+  "datasetName": "fiction_retail.orders",
+  "platform": "dbt",
+  "field": "shipping_country",
+  "kind": "rename",
+  "before": "shipping_country",
+  "after": "country_code",
+  "pullRequest": "#204",
+  "repository": "fiction-retail/warehouse",
+  "detectedAt": "2026-07-15T09:42:00.000Z"
+}
