@@ -6,6 +6,8 @@ This document maps each official criterion to concrete, inspectable evidence. It
 
 **Claim:** DataHub is the decision context, not a decorative catalog screenshot.
 
+**Counterfactual:** without DataHub the application could only attempt a global rename. Column lineage, ownership, schemas, domains, and observed-query evidence determine which files receive direct migrations, where compatibility must remain, and who owns the review.
+
 - Live `get_lineage` traces a renamed schema field through three hops.
 - Live `get_entities` grounds six assets in schemas, platforms, owners, and domains.
 - Live `get_dataset_queries` returns SQL attached to the `shipping_country` schema-field subject.

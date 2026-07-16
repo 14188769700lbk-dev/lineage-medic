@@ -32,6 +32,17 @@ LineageMedic also satisfies the read-act-write loop from Agents That Do Real Wor
 
 LineageMedic is Renovate for breaking data changes. It uses DataHub column lineage, schemas, ownership, and observed-query evidence to turn a proposed schema rename into validated SQL and YAML repairs across every affected repository—before the breaking PR merges.
 
+## Judge-first summary
+
+One guided run turns a risky `shipping_country → country_code` proposal into:
+
+- three real DataHub MCP reads: three-hop column lineage, six entity records, and observed production SQL;
+- four validated SQL/YAML changes across three repository workspaces;
+- four deterministic gates covering SQL parsing, dbt refs, contract compatibility, and lineage repair coverage;
+- one auditable manifest plus an approval-gated DataHub Decision writeback.
+
+**The DataHub counterfactual:** without the context graph this is a global rename. With DataHub, LineageMedic knows which owners and assets are affected, which consumers still execute the legacy field, and where a public output contract must remain stable. That context changes the generated code, not just the explanation around it.
+
 ## Inspiration
 
 A column rename is rarely hard in the producer repository. The real cost appears downstream: a dbt model owned by fulfillment, a finance mart with a public output contract, an Airflow SLA, and dashboards nobody remembered to check. Existing impact tools surface the blast radius but leave humans to coordinate and implement every repair.
@@ -91,7 +102,7 @@ We also learned that a trustworthy agent needs two independent gates: validation
 
 ## Data and licensing
 
-The metadata scenario is based on DataHub's CC0 Fiction Retail datapack. The three dbt repositories and all migration code in this submission are original synthetic examples created during the hackathon. LineageMedic is released under Apache 2.0. No private tenant metadata or credentials are included in the live evidence capture.
+The metadata scenario is based on DataHub's pre-existing CC0 Fiction Retail datapack. The LineageMedic application, the three synthetic dbt repositories, and all migration code were created during the July 6–August 10, 2026 submission period; the first repository commit is dated July 15, 2026. Standard open-source libraries and the official DataHub MCP server are the only incorporated software dependencies. LineageMedic is released under Apache 2.0. No private tenant metadata or credentials are included in the live evidence capture.
 
 ## Testing
 
