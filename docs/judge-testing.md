@@ -35,5 +35,7 @@ Follow [`live-datahub-setup.md`](live-datahub-setup.md). The checked-in seed cre
 - affected assets: 6;
 - generated patches: 4 across 3 repositories;
 - validators: 4 passed, 0 failed;
+- checked-in generated files: byte-identical to a fresh engine run;
+- public live MCP evidence: complete and free of local endpoints, host paths, and authentication material;
 - public replay writeback: never persisted;
 - live writeback: persisted only after explicit approval.

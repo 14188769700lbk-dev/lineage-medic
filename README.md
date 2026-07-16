@@ -140,7 +140,9 @@ Current automated checks cover:
 - cross-project dbt reference resolution;
 - YAML contract compatibility and deprecation metadata;
 - one repair for every code-bound lineage asset;
-- fixture versus live writeback semantics.
+- fixture versus live writeback semantics;
+- byte-for-byte parity between engine output and the checked-in sample campaign;
+- live MCP evidence completeness and rejection of local endpoints, host paths, and authentication material.
 
 The project deliberately labels its dbt check **dbt ref resolution**, not `dbt compile`. A full adapter can invoke `dbt compile` in repositories that provide profiles and warehouse credentials; the included offline demo makes no such claim.
 
