@@ -195,7 +195,10 @@ export class McpDataHubProvider implements DataHubContextProvider {
       command: this.config.command ?? "uvx",
       args: this.config.args ?? ["mcp-server-datahub@latest"],
       env,
-      stderr: "pipe",
+      // The DataHub MCP server logs startup and tool activity to stderr. If the
+      // stream is piped but never drained, a verbose run can fill the OS pipe
+      // buffer and stall otherwise healthy MCP requests.
+      stderr: "inherit",
     });
   }
 }

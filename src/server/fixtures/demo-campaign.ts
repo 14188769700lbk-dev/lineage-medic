@@ -75,7 +75,7 @@ export function createDemoCampaign(): RepairCampaign {
       },
       {
         id: "fulfillment-job",
-        urn: "urn:li:dataJob:(airflow,fiction-retail.fulfillment_daily)",
+        urn: "urn:li:dataJob:(urn:li:dataFlow:(airflow,fiction-retail,prod),fulfillment_daily)",
         name: "fulfillment_daily",
         type: "dataJob",
         platform: "Airflow",
