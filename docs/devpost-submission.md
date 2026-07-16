@@ -134,7 +134,7 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [x] Final testing instructions
 - [x] Real generated-repair pull request URL
 - [x] Public YouTube video URL under three minutes
-- [ ] Project thumbnail and ordered screenshot gallery uploaded
+- [x] Project thumbnail and ordered screenshot gallery uploaded
 - [x] DataHub Decision document screenshot and sanitized persisted-URN proof
 - [x] Most Valuable Feedback survey completed and opted in
 - [ ] Team, country, age, eligibility, and entrant attestations completed by the entrant
