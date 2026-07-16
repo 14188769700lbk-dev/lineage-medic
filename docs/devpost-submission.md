@@ -133,7 +133,7 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [ ] Public YouTube, Vimeo, or Youku video URL under three minutes
 - [ ] Project thumbnail and ordered screenshot gallery uploaded
 - [ ] DataHub Decision document screenshot/URL
-- [ ] Most Valuable Feedback survey completed and opted in
+- [x] Most Valuable Feedback survey completed and opted in
 - [ ] Team, country, age, eligibility, and entrant attestations completed by the entrant
 - [ ] Final Devpost submission confirmation
 - [ ] Public demo, repository, and video kept available through the judging period
