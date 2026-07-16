@@ -1,6 +1,6 @@
 select
-  shipping_country,
+  country_code,
   avg(delivery_days) as avg_delivery_days,
   count(*) as order_count
 from {{ ref('orders') }}
-group by shipping_country
+group by country_code
