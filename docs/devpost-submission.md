@@ -119,9 +119,18 @@ Judges can use the public replay with no login, run the deterministic engine wit
 
 - [x] Public GitHub repository URL
 - [x] Hosted demo URL
-- [ ] 2–3 minute public video URL
+- [x] Apache 2.0 license detected in the repository About panel
+- [x] Project history begins inside the official submission period
+- [x] English README, testing guide, submission copy, narration, and captions
 - [x] Live DataHub MCP read-run evidence
-- [ ] DataHub Decision document screenshot/URL
+- [x] Checked-in sample outputs with automated parity and sanitation tests
 - [x] Upstream open-source contribution URL
 - [x] Final testing instructions
-- [ ] Team and eligibility fields completed by entrant
+- [ ] Real generated-repair pull request URL
+- [ ] Public YouTube, Vimeo, or Youku video URL under three minutes
+- [ ] Project thumbnail and ordered screenshot gallery uploaded
+- [ ] DataHub Decision document screenshot/URL
+- [ ] Most Valuable Feedback survey completed and opted in
+- [ ] Team, country, age, eligibility, and entrant attestations completed by the entrant
+- [ ] Final Devpost submission confirmation
+- [ ] Public demo, repository, and video kept available through the judging period
