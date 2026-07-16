@@ -8,6 +8,14 @@ LineageMedic
 
 Renovate for breaking data changes.
 
+## Submission links
+
+- Public demo: <https://14188769700lbk-dev.github.io/lineage-medic/>
+- Source repository: <https://github.com/14188769700lbk-dev/lineage-medic>
+- Judge testing guide: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/judge-testing.md>
+- Sanitized live MCP evidence: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-read-run.json>
+- Upstream DataHub contribution: <https://github.com/datahub-project/datahub-skills/pull/36>
+
 ## Short description
 
 LineageMedic uses DataHub column lineage, ownership, and production-query evidence to turn a proposed schema change into a validated, cross-repository repair campaign before the breaking PR merges.
@@ -47,6 +55,7 @@ The hardest design problem was not generating a string replacement. It was decid
 - Live and fixture DataHub MCP adapters with identical semantics.
 - Explicit writeback approval aligned with the `save_document` safety contract.
 - Machine-readable evidence manifest and automated CI.
+- A sanitized self-hosted DataHub MCP capture with live lineage, entity, and query responses.
 
 ## What we learned
 
@@ -61,11 +70,11 @@ Metadata-aware code generation becomes much more useful when lineage is treated 
 
 ## Submission checklist
 
-- [ ] Public GitHub repository URL
-- [ ] Hosted demo URL
+- [x] Public GitHub repository URL
+- [x] Hosted demo URL
 - [ ] 2–3 minute public video URL
-- [ ] Live DataHub MCP recording
+- [x] Live DataHub MCP read-run evidence
 - [ ] DataHub Decision document screenshot/URL
-- [ ] Upstream open-source contribution URL
-- [ ] Final testing instructions
+- [x] Upstream open-source contribution URL
+- [x] Final testing instructions
 - [ ] Team and eligibility fields completed by entrant

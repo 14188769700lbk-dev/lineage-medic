@@ -14,7 +14,7 @@ Show the lineage graph.
 
 > This graph is not inferred from filenames. The agent calls DataHub column lineage for three hops, resolves owners and domains, and retrieves production queries that still use the field.
 
-In the public fallback recording, point out the visible **MCP fixture replay** label. In the live recording, show **MCP connected**.
+In the public version, point out the visible **Recorded MCP run** label and the checked-in sanitized manifest. In the live recording, show **MCP connected**.
 
 ## 0:45–1:25 — Do the work
 

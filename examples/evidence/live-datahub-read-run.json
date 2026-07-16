@@ -1,0 +1,1241 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "LM-204",
+  "generatedAt": "2026-07-16T03:59:18.423Z",
+  "context": {
+    "mode": "mcp-stdio",
+    "label": "Live self-hosted DataHub MCP",
+    "recordedAt": "2026-07-16T03:59:18.054Z",
+    "toolCalls": [
+      {
+        "name": "get_lineage",
+        "arguments": {
+          "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+          "column": "shipping_country",
+          "upstream": false,
+          "max_hops": 3,
+          "max_results": 50
+        },
+        "responseSummary": "Live column-lineage response matched 5 downstream assets",
+        "status": "complete"
+      },
+      {
+        "name": "get_entities",
+        "arguments": {
+          "urns": [
+            "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+            "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+            "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+            "urn:li:dataJob:(urn:li:dataFlow:(airflow,fiction-retail,prod),fulfillment_daily)",
+            "urn:li:dashboard:(looker,fulfillment_delivery_health)",
+            "urn:li:dashboard:(powerbi,global_revenue_pulse)"
+          ]
+        },
+        "responseSummary": "Live entity metadata requested for 6 assets",
+        "status": "complete"
+      },
+      {
+        "name": "get_dataset_queries",
+        "arguments": {
+          "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+          "column": "shipping_country",
+          "count": 20
+        },
+        "responseSummary": "Live MCP returned 1 production-query example for the renamed field",
+        "status": "complete"
+      }
+    ],
+    "queries": [
+      {
+        "assetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+        "sql": "select shipping_country, count(*) from analytics.orders group by 1",
+        "source": "SYSTEM",
+        "lastSeenAt": "2026-07-16T03:59:18.054Z"
+      }
+    ],
+    "rawResponses": {
+      "lineage": {
+        "downstreams": {
+          "total": 3,
+          "facets": [
+            {
+              "field": "degree",
+              "displayName": "Degree of Dependencies",
+              "aggregations": [
+                {
+                  "value": "1",
+                  "count": 0
+                },
+                {
+                  "value": "2",
+                  "count": 0
+                },
+                {
+                  "value": "3+",
+                  "count": 0
+                }
+              ]
+            },
+            {
+              "field": "_entityType",
+              "displayName": "Type",
+              "aggregations": [
+                {
+                  "value": "DATASET",
+                  "count": 2
+                },
+                {
+                  "value": "DATA_JOB",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "field": "typeNames",
+              "displayName": "Sub Type",
+              "aggregations": [
+                {
+                  "value": "dbt",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "field": "platform",
+              "displayName": "Platform",
+              "aggregations": [
+                {
+                  "value": "urn:li:dataPlatform:dbt",
+                  "count": 2,
+                  "entity": {
+                    "urn": "urn:li:dataPlatform:dbt"
+                  }
+                },
+                {
+                  "value": "urn:li:dataPlatform:airflow",
+                  "count": 1,
+                  "entity": {
+                    "urn": "urn:li:dataPlatform:airflow"
+                  }
+                }
+              ]
+            },
+            {
+              "field": "domains",
+              "displayName": "Domain",
+              "aggregations": [
+                {
+                  "value": "urn:li:domain:operations",
+                  "count": 2,
+                  "entity": {
+                    "urn": "urn:li:domain:operations"
+                  }
+                },
+                {
+                  "value": "urn:li:domain:finance",
+                  "count": 1,
+                  "entity": {
+                    "urn": "urn:li:domain:finance"
+                  }
+                }
+              ]
+            },
+            {
+              "field": "owners",
+              "displayName": "Owned By",
+              "aggregations": [
+                {
+                  "value": "urn:li:corpGroup:fulfillment-analytics",
+                  "count": 1,
+                  "entity": {
+                    "urn": "urn:li:corpGroup:fulfillment-analytics"
+                  }
+                },
+                {
+                  "value": "urn:li:corpGroup:fulfillment-platform",
+                  "count": 1,
+                  "entity": {
+                    "urn": "urn:li:corpGroup:fulfillment-platform"
+                  }
+                },
+                {
+                  "value": "urn:li:corpGroup:finance-data",
+                  "count": 1,
+                  "entity": {
+                    "urn": "urn:li:corpGroup:finance-data"
+                  }
+                }
+              ]
+            },
+            {
+              "field": "origin",
+              "displayName": "Environment",
+              "aggregations": [
+                {
+                  "value": "PROD",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "field": "_entityType␞typeNames",
+              "displayName": "Type␞Sub Type",
+              "aggregations": [
+                {
+                  "value": "DATASET␞dbt",
+                  "count": 2
+                },
+                {
+                  "value": "DATASET",
+                  "count": 2
+                },
+                {
+                  "value": "DATA_JOB",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "field": "removed",
+              "displayName": "removed",
+              "aggregations": [
+                {
+                  "value": "true",
+                  "count": 0
+                }
+              ]
+            },
+            {
+              "field": "env",
+              "displayName": "Environment",
+              "aggregations": [
+                {
+                  "value": "PROD",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "field": "entity",
+              "displayName": "Type",
+              "aggregations": [
+                {
+                  "value": "DATASET",
+                  "count": 2
+                },
+                {
+                  "value": "DATA_JOB",
+                  "count": 1
+                }
+              ]
+            }
+          ],
+          "searchResults": [
+            {
+              "entity": {
+                "urn": "urn:li:dataJob:(urn:li:dataFlow:(airflow,fiction-retail,prod),fulfillment_daily)",
+                "type": "DATA_JOB",
+                "dataFlow": {
+                  "urn": "urn:li:dataFlow:(airflow,fiction-retail,prod)",
+                  "orchestrator": "airflow",
+                  "flowId": "fiction-retail",
+                  "cluster": "prod",
+                  "properties": {
+                    "name": "Fiction Retail",
+                    "description": "Daily Fiction Retail analytics orchestration",
+                    "project": "fiction-retail"
+                  },
+                  "platform": {
+                    "urn": "urn:li:dataPlatform:airflow",
+                    "name": "airflow"
+                  }
+                },
+                "jobId": "fulfillment_daily",
+                "ownership": {
+                  "owners": [
+                    {
+                      "owner": {
+                        "urn": "urn:li:corpGroup:fulfillment-platform",
+                        "name": "fulfillment-platform",
+                        "properties": {
+                          "displayName": "Fulfillment Platform"
+                        },
+                        "info": {
+                          "displayName": "Fulfillment Platform"
+                        }
+                      },
+                      "type": "TECHNICAL_OWNER",
+                      "ownershipType": {
+                        "urn": "urn:li:ownershipType:__system__technical_owner",
+                        "type": "CUSTOM_OWNERSHIP_TYPE",
+                        "info": {
+                          "name": "Technical Owner",
+                          "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                        }
+                      }
+                    }
+                  ]
+                },
+                "properties": {
+                  "name": "fulfillment_daily",
+                  "description": "Runs shipping_performance before the 06:00 SLA",
+                  "customProperties": [
+                    {
+                      "key": "sla",
+                      "value": "06:00 UTC"
+                    },
+                    {
+                      "key": "schedule",
+                      "value": "0 5 * * *"
+                    }
+                  ]
+                },
+                "domain": {
+                  "domain": {
+                    "urn": "urn:li:domain:operations",
+                    "properties": {
+                      "name": "Operations",
+                      "description": "Fiction Retail Operations domain"
+                    },
+                    "parentDomains": {
+                      "count": 0
+                    },
+                    "entities": {
+                      "total": 3
+                    },
+                    "dataProducts": {
+                      "total": 0
+                    },
+                    "children": {
+                      "total": 0
+                    }
+                  }
+                },
+                "health": [
+                  {
+                    "type": "INCIDENTS",
+                    "status": "PASS"
+                  }
+                ]
+              },
+              "degree": 1
+            },
+            {
+              "entity": {
+                "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+                "type": "DATASET",
+                "name": "revenue_by_market",
+                "platform": {
+                  "urn": "urn:li:dataPlatform:dbt",
+                  "name": "dbt"
+                },
+                "properties": {
+                  "name": "revenue_by_market",
+                  "description": "Board-reporting finance model that publishes revenue by shipping_country.",
+                  "customProperties": [
+                    {
+                      "key": "repository",
+                      "value": "fiction-retail/finance-metrics"
+                    },
+                    {
+                      "key": "demo",
+                      "value": "LineageMedic Fiction Retail"
+                    },
+                    {
+                      "key": "file",
+                      "value": "models/revenue/revenue_by_market.sql"
+                    }
+                  ]
+                },
+                "ownership": {
+                  "owners": [
+                    {
+                      "owner": {
+                        "urn": "urn:li:corpGroup:finance-data",
+                        "name": "finance-data",
+                        "properties": {
+                          "displayName": "Finance Data"
+                        },
+                        "info": {
+                          "displayName": "Finance Data"
+                        }
+                      },
+                      "type": "TECHNICAL_OWNER",
+                      "ownershipType": {
+                        "urn": "urn:li:ownershipType:__system__technical_owner",
+                        "type": "CUSTOM_OWNERSHIP_TYPE",
+                        "info": {
+                          "name": "Technical Owner",
+                          "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                        }
+                      }
+                    }
+                  ]
+                },
+                "subTypes": {
+                  "typeNames": [
+                    "dbt"
+                  ]
+                },
+                "domain": {
+                  "domain": {
+                    "urn": "urn:li:domain:finance",
+                    "properties": {
+                      "name": "Finance",
+                      "description": "Fiction Retail Finance domain"
+                    },
+                    "parentDomains": {
+                      "count": 0
+                    },
+                    "entities": {
+                      "total": 2
+                    },
+                    "dataProducts": {
+                      "total": 0
+                    },
+                    "children": {
+                      "total": 0
+                    }
+                  }
+                },
+                "health": [
+                  {
+                    "type": "INCIDENTS",
+                    "status": "PASS"
+                  }
+                ]
+              },
+              "degree": 1,
+              "lineageColumns": [
+                "shipping_country"
+              ]
+            },
+            {
+              "entity": {
+                "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+                "type": "DATASET",
+                "name": "shipping_performance",
+                "platform": {
+                  "urn": "urn:li:dataPlatform:dbt",
+                  "name": "dbt"
+                },
+                "properties": {
+                  "name": "shipping_performance",
+                  "description": "Daily fulfillment model grouped by shipping_country and consumed by operations leadership.",
+                  "customProperties": [
+                    {
+                      "key": "repository",
+                      "value": "fiction-retail/fulfillment-analytics"
+                    },
+                    {
+                      "key": "demo",
+                      "value": "LineageMedic Fiction Retail"
+                    },
+                    {
+                      "key": "file",
+                      "value": "models/marts/shipping_performance.sql"
+                    }
+                  ]
+                },
+                "ownership": {
+                  "owners": [
+                    {
+                      "owner": {
+                        "urn": "urn:li:corpGroup:fulfillment-analytics",
+                        "name": "fulfillment-analytics",
+                        "properties": {
+                          "displayName": "Fulfillment Analytics"
+                        },
+                        "info": {
+                          "displayName": "Fulfillment Analytics"
+                        }
+                      },
+                      "type": "TECHNICAL_OWNER",
+                      "ownershipType": {
+                        "urn": "urn:li:ownershipType:__system__technical_owner",
+                        "type": "CUSTOM_OWNERSHIP_TYPE",
+                        "info": {
+                          "name": "Technical Owner",
+                          "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                        }
+                      }
+                    }
+                  ]
+                },
+                "subTypes": {
+                  "typeNames": [
+                    "dbt"
+                  ]
+                },
+                "domain": {
+                  "domain": {
+                    "urn": "urn:li:domain:operations",
+                    "properties": {
+                      "name": "Operations",
+                      "description": "Fiction Retail Operations domain"
+                    },
+                    "parentDomains": {
+                      "count": 0
+                    },
+                    "entities": {
+                      "total": 3
+                    },
+                    "dataProducts": {
+                      "total": 0
+                    },
+                    "children": {
+                      "total": 0
+                    }
+                  }
+                },
+                "health": [
+                  {
+                    "type": "INCIDENTS",
+                    "status": "PASS"
+                  }
+                ]
+              },
+              "degree": 1,
+              "lineageColumns": [
+                "shipping_country"
+              ]
+            }
+          ],
+          "offset": 0,
+          "returned": 3,
+          "hasMore": false
+        },
+        "metadata": {
+          "queryType": "column-level-lineage",
+          "groupedBy": "dataset",
+          "fields": {
+            "lineageColumns": {
+              "description": "Columns in each dataset that have a lineage relationship with the source column",
+              "semantics": {
+                "downstream": "Columns derived from the source column",
+                "upstream": "Columns that the source column depends on"
+              }
+            }
+          }
+        }
+      },
+      "entities": {
+        "result": [
+          {
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+            "name": "orders",
+            "platform": {
+              "urn": "urn:li:dataPlatform:dbt",
+              "name": "dbt"
+            },
+            "properties": {
+              "name": "orders",
+              "description": "Canonical Fiction Retail order model. The proposed change renames shipping_country to country_code.",
+              "customProperties": [
+                {
+                  "key": "repository",
+                  "value": "fiction-retail/warehouse"
+                },
+                {
+                  "key": "demo",
+                  "value": "LineageMedic Fiction Retail"
+                },
+                {
+                  "key": "file",
+                  "value": "models/core/orders.sql"
+                }
+              ]
+            },
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:retail-platform",
+                    "name": "retail-platform",
+                    "properties": {
+                      "displayName": "Retail Platform"
+                    },
+                    "info": {
+                      "displayName": "Retail Platform"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "subTypes": {
+              "typeNames": [
+                "dbt"
+              ]
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:commerce",
+                "properties": {
+                  "name": "Commerce",
+                  "description": "Fiction Retail Commerce domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 1
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "schemaMetadata": {
+              "name": "orders",
+              "platformUrn": "urn:li:dataPlatform:dbt",
+              "platformSchema": {
+                "schema": "order_id BIGINT\ncustomer_id BIGINT\norder_ts TIMESTAMP\nshipping_country VARCHAR\ngross_revenue DECIMAL"
+              },
+              "fields": [
+                {
+                  "fieldPath": "order_id",
+                  "nativeDataType": "BIGINT",
+                  "description": "Unique order identifier",
+                  "nullable": false,
+                  "isPartOfKey": true
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "nativeDataType": "BIGINT",
+                  "description": "Customer identifier",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "gross_revenue",
+                  "nativeDataType": "DECIMAL",
+                  "description": "Gross order revenue",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "order_ts",
+                  "nativeDataType": "TIMESTAMP",
+                  "description": "Order creation timestamp",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "shipping_country",
+                  "nativeDataType": "VARCHAR",
+                  "description": "Current public shipping-country contract",
+                  "nullable": true
+                }
+              ]
+            },
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          },
+          {
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fulfillment.shipping_performance,PROD)",
+            "name": "shipping_performance",
+            "platform": {
+              "urn": "urn:li:dataPlatform:dbt",
+              "name": "dbt"
+            },
+            "properties": {
+              "name": "shipping_performance",
+              "description": "Daily fulfillment model grouped by shipping_country and consumed by operations leadership.",
+              "customProperties": [
+                {
+                  "key": "repository",
+                  "value": "fiction-retail/fulfillment-analytics"
+                },
+                {
+                  "key": "demo",
+                  "value": "LineageMedic Fiction Retail"
+                },
+                {
+                  "key": "file",
+                  "value": "models/marts/shipping_performance.sql"
+                }
+              ]
+            },
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:fulfillment-analytics",
+                    "name": "fulfillment-analytics",
+                    "properties": {
+                      "displayName": "Fulfillment Analytics"
+                    },
+                    "info": {
+                      "displayName": "Fulfillment Analytics"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "subTypes": {
+              "typeNames": [
+                "dbt"
+              ]
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:operations",
+                "properties": {
+                  "name": "Operations",
+                  "description": "Fiction Retail Operations domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 3
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "schemaMetadata": {
+              "name": "shipping_performance",
+              "platformUrn": "urn:li:dataPlatform:dbt",
+              "platformSchema": {
+                "schema": "shipping_country VARCHAR\norders_count BIGINT\navg_delivery_days DOUBLE"
+              },
+              "fields": [
+                {
+                  "fieldPath": "avg_delivery_days",
+                  "nativeDataType": "DOUBLE",
+                  "description": "Average delivery duration",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "orders_count",
+                  "nativeDataType": "BIGINT",
+                  "description": "Orders shipped",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "shipping_country",
+                  "nativeDataType": "VARCHAR",
+                  "description": "Public grouping dimension",
+                  "nullable": true
+                }
+              ]
+            },
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          },
+          {
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)",
+            "name": "revenue_by_market",
+            "platform": {
+              "urn": "urn:li:dataPlatform:dbt",
+              "name": "dbt"
+            },
+            "properties": {
+              "name": "revenue_by_market",
+              "description": "Board-reporting finance model that publishes revenue by shipping_country.",
+              "customProperties": [
+                {
+                  "key": "repository",
+                  "value": "fiction-retail/finance-metrics"
+                },
+                {
+                  "key": "demo",
+                  "value": "LineageMedic Fiction Retail"
+                },
+                {
+                  "key": "file",
+                  "value": "models/revenue/revenue_by_market.sql"
+                }
+              ]
+            },
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:finance-data",
+                    "name": "finance-data",
+                    "properties": {
+                      "displayName": "Finance Data"
+                    },
+                    "info": {
+                      "displayName": "Finance Data"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "subTypes": {
+              "typeNames": [
+                "dbt"
+              ]
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:finance",
+                "properties": {
+                  "name": "Finance",
+                  "description": "Fiction Retail Finance domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 2
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "schemaMetadata": {
+              "name": "revenue_by_market",
+              "platformUrn": "urn:li:dataPlatform:dbt",
+              "platformSchema": {
+                "schema": "shipping_country VARCHAR\ngross_revenue DECIMAL\norders_count BIGINT"
+              },
+              "fields": [
+                {
+                  "fieldPath": "gross_revenue",
+                  "nativeDataType": "DECIMAL",
+                  "description": "Gross revenue by market",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "orders_count",
+                  "nativeDataType": "BIGINT",
+                  "description": "Order count by market",
+                  "nullable": true
+                },
+                {
+                  "fieldPath": "shipping_country",
+                  "nativeDataType": "VARCHAR",
+                  "description": "Market dimension retained for compatibility",
+                  "nullable": true
+                }
+              ]
+            },
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          },
+          {
+            "urn": "urn:li:dataJob:(urn:li:dataFlow:(airflow,fiction-retail,prod),fulfillment_daily)",
+            "type": "DATA_JOB",
+            "dataFlow": {
+              "urn": "urn:li:dataFlow:(airflow,fiction-retail,prod)",
+              "orchestrator": "airflow",
+              "flowId": "fiction-retail",
+              "cluster": "prod",
+              "properties": {
+                "name": "Fiction Retail",
+                "description": "Daily Fiction Retail analytics orchestration",
+                "project": "fiction-retail"
+              },
+              "platform": {
+                "urn": "urn:li:dataPlatform:airflow",
+                "name": "airflow"
+              }
+            },
+            "jobId": "fulfillment_daily",
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:fulfillment-platform",
+                    "name": "fulfillment-platform",
+                    "properties": {
+                      "displayName": "Fulfillment Platform"
+                    },
+                    "info": {
+                      "displayName": "Fulfillment Platform"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "properties": {
+              "name": "fulfillment_daily",
+              "description": "Runs shipping_performance before the 06:00 SLA",
+              "customProperties": [
+                {
+                  "key": "sla",
+                  "value": "06:00 UTC"
+                },
+                {
+                  "key": "schedule",
+                  "value": "0 5 * * *"
+                }
+              ]
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:operations",
+                "properties": {
+                  "name": "Operations",
+                  "description": "Fiction Retail Operations domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 3
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          },
+          {
+            "urn": "urn:li:dashboard:(looker,fulfillment_delivery_health)",
+            "type": "DASHBOARD",
+            "tool": "looker",
+            "dashboardId": "fulfillment_delivery_health",
+            "properties": {
+              "name": "Delivery health",
+              "description": "Operations dashboard with 46 weekly viewers",
+              "lastModified": {
+                "time": 1784174259521
+              }
+            },
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:ops-leadership",
+                    "name": "ops-leadership",
+                    "properties": {
+                      "displayName": "Ops Leadership"
+                    },
+                    "info": {
+                      "displayName": "Ops Leadership"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "platform": {
+              "urn": "urn:li:dataPlatform:looker",
+              "name": "looker"
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:operations",
+                "properties": {
+                  "name": "Operations",
+                  "description": "Fiction Retail Operations domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 3
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          },
+          {
+            "urn": "urn:li:dashboard:(powerbi,global_revenue_pulse)",
+            "type": "DASHBOARD",
+            "tool": "powerbi",
+            "dashboardId": "global_revenue_pulse",
+            "properties": {
+              "name": "Global revenue pulse",
+              "description": "Board-reporting dashboard with 19 weekly viewers",
+              "lastModified": {
+                "time": 1784174259521
+              }
+            },
+            "ownership": {
+              "owners": [
+                {
+                  "owner": {
+                    "urn": "urn:li:corpGroup:fpa",
+                    "name": "fpa",
+                    "properties": {
+                      "displayName": "FP&A"
+                    },
+                    "info": {
+                      "displayName": "FP&A"
+                    }
+                  },
+                  "type": "TECHNICAL_OWNER",
+                  "ownershipType": {
+                    "urn": "urn:li:ownershipType:__system__technical_owner",
+                    "type": "CUSTOM_OWNERSHIP_TYPE",
+                    "info": {
+                      "name": "Technical Owner",
+                      "description": "Involved in the production, maintenance, or distribution of the asset(s)."
+                    }
+                  }
+                }
+              ]
+            },
+            "platform": {
+              "urn": "urn:li:dataPlatform:powerbi",
+              "name": "powerbi"
+            },
+            "domain": {
+              "domain": {
+                "urn": "urn:li:domain:finance",
+                "properties": {
+                  "name": "Finance",
+                  "description": "Fiction Retail Finance domain"
+                },
+                "parentDomains": {
+                  "count": 0
+                },
+                "entities": {
+                  "total": 2
+                },
+                "dataProducts": {
+                  "total": 0
+                },
+                "children": {
+                  "total": 0
+                }
+              }
+            },
+            "health": [
+              {
+                "type": "INCIDENTS",
+                "status": "PASS"
+              }
+            ],
+            "relatedDocuments": {
+              "start": 0,
+              "count": 10,
+              "total": 0
+            }
+          }
+        ]
+      },
+      "queries": {
+        "start": 0,
+        "total": 1,
+        "count": 20,
+        "queries": [
+          {
+            "urn": "urn:li:query:lineage-medic-orders-country-usage",
+            "properties": {
+              "name": "Orders grouped by shipping country",
+              "description": "Synthetic observed-query evidence for the LineageMedic Fiction Retail hackathon scenario.",
+              "source": "SYSTEM",
+              "statement": {
+                "value": "select shipping_country, count(*) from analytics.orders group by 1",
+                "language": "SQL"
+              },
+              "lastModified": {
+                "actor": "urn:li:corpuser:datahub"
+              }
+            },
+            "subjects": [
+              "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "change": {
+    "id": "change-orders-country",
+    "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,fiction_retail.orders,PROD)",
+    "datasetName": "fiction_retail.orders",
+    "platform": "dbt",
+    "field": "shipping_country",
+    "kind": "rename",
+    "before": "shipping_country",
+    "after": "country_code",
+    "pullRequest": "#204",
+    "repository": "fiction-retail/warehouse",
+    "detectedAt": "2026-07-15T09:42:00.000Z"
+  },
+  "patches": [
+    {
+      "id": "patch-producer-shim",
+      "repository": "fiction-retail/warehouse",
+      "file": "models/core/orders.sql",
+      "title": "Keep a producer compatibility alias",
+      "rationale": "Column lineage still contains active consumers. Expose country_code now, but retain shipping_country through 2026-09-01.",
+      "before": "-- Proposed output in warehouse PR #204: shipping_country -> country_code.\nselect\n  order_id,\n  customer_id,\n  upper(shipping_country) as country_code,\n  total_amount,\n  delivery_days\nfrom {{ source('retail', 'orders') }}\n",
+      "after": "-- Proposed output in warehouse PR #204: shipping_country -> country_code.\nselect\n  order_id,\n  customer_id,\n  upper(shipping_country) as country_code,\n  shipping_country as shipping_country, -- compatibility until 2026-09-01\n  total_amount,\n  delivery_days\nfrom {{ source('retail', 'orders') }}\n",
+      "status": "validated"
+    },
+    {
+      "id": "patch-contract",
+      "repository": "fiction-retail/warehouse",
+      "file": "models/core/orders.yml",
+      "title": "Encode the compatibility window in the dbt contract",
+      "rationale": "The producer contract now exposes the replacement field while explicitly deprecating the legacy field, preventing an accidental early removal.",
+      "before": "version: 2\n\nmodels:\n  - name: orders\n    description: Curated retail orders used by fulfillment and finance.\n    config:\n      contract:\n        enforced: true\n    columns:\n      - name: order_id\n        data_type: integer\n        data_tests: [not_null, unique]\n      - name: customer_id\n        data_type: integer\n      - name: shipping_country\n        data_type: text\n      - name: total_amount\n        data_type: numeric\n      - name: delivery_days\n        data_type: integer\n",
+      "after": "version: 2\nmodels:\n  - name: orders\n    description: Curated retail orders used by fulfillment and finance.\n    config:\n      contract:\n        enforced: true\n    columns:\n      - name: order_id\n        data_type: integer\n        data_tests:\n          - not_null\n          - unique\n      - name: customer_id\n        data_type: integer\n      - name: country_code\n        data_type: text\n        data_tests:\n          - not_null\n      - name: shipping_country\n        data_type: text\n        meta:\n          lifecycle: deprecated\n          remove_after: 2026-09-01\n      - name: total_amount\n        data_type: numeric\n      - name: delivery_days\n        data_type: integer\n",
+      "status": "validated"
+    },
+    {
+      "id": "patch-migrate-shipping-performance",
+      "repository": "fiction-retail/fulfillment-analytics",
+      "file": "models/marts/shipping_performance.sql",
+      "title": "Move shipping_performance to country_code",
+      "rationale": "GROUP BY shipping_country in a daily production model",
+      "before": "select\n  shipping_country,\n  avg(delivery_days) as avg_delivery_days,\n  count(*) as order_count\nfrom {{ ref('orders') }}\ngroup by shipping_country\n",
+      "after": "select\n  country_code,\n  avg(delivery_days) as avg_delivery_days,\n  count(*) as order_count\nfrom {{ ref('orders') }}\ngroup by country_code\n",
+      "status": "validated"
+    },
+    {
+      "id": "patch-preserve-revenue-by-market",
+      "repository": "fiction-retail/finance-metrics",
+      "file": "models/revenue/revenue_by_market.sql",
+      "title": "Migrate the input without breaking the public output",
+      "rationale": "Public finance mart exposes shipping_country to board reporting Read country_code, while preserving shipping_country as the published column name.",
+      "before": "-- The public output name is consumed by board reporting and must not change yet.\nselect\n  shipping_country,\n  sum(total_amount) as gross_revenue\nfrom {{ ref('orders') }}\ngroup by 1\n",
+      "after": "-- The public output name is consumed by board reporting and must not change yet.\nselect\n  country_code as shipping_country,\n  sum(total_amount) as gross_revenue\nfrom {{ ref('orders') }}\ngroup by 1\n",
+      "status": "validated"
+    }
+  ],
+  "validations": [
+    {
+      "id": "sql-parse",
+      "label": "SQL parse",
+      "detail": "3 modified SQL artifacts parse after deterministic dbt rendering",
+      "status": "passed",
+      "durationMs": 9
+    },
+    {
+      "id": "dbt-refs",
+      "label": "dbt ref resolution",
+      "detail": "2 ref() calls resolve across the three copied projects",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "id": "contract-check",
+      "label": "Contract compatibility",
+      "detail": "Producer and dbt contract expose both fields through the removal window",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "id": "lineage-coverage",
+      "label": "Lineage coverage",
+      "detail": "3/3 code-bound lineage assets have a generated repair",
+      "status": "passed",
+      "durationMs": 1
+    }
+  ],
+  "writeback": {
+    "persisted": false,
+    "urn": "urn:li:document:lineage-medic-preview-1784174358423",
+    "message": "Live DataHub writeback is staged behind explicit approval.",
+    "decisionFile": ".lineage-medic/runs/LM-204/datahub-decision.md"
+  }
+}

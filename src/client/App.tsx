@@ -62,7 +62,7 @@ async function loadCampaign(): Promise<RunCampaignResponse> {
   if (staticReplay) {
     return {
       campaign: createHostedInitialCampaign(),
-      message: "Breaking change loaded from the recorded Fiction Retail scenario.",
+      message: "Breaking change loaded from the captured live Fiction Retail run.",
     };
   }
 
@@ -91,6 +91,7 @@ function Logo() {
 function Sidebar({ campaign }: { campaign: RepairCampaign }) {
   const platforms = new Set(campaign.assets.map((asset) => asset.platform)).size;
   const live = campaign.execution.contextMode !== "fixture";
+  const capturedLiveRun = campaign.execution.contextLabel.startsWith("Captured live");
 
   return (
     <aside className="sidebar">
@@ -136,14 +137,14 @@ function Sidebar({ campaign }: { campaign: RepairCampaign }) {
           {campaign.assets.length} assets · {platforms} platforms
         </span>
         <div className="context-status">
-          <span /> {live ? "MCP connected" : "MCP fixture replay"}
+          <span /> {live ? "MCP connected" : capturedLiveRun ? "Recorded MCP run" : "MCP fixture replay"}
         </div>
       </div>
       <div className="user-chip">
         <div className="avatar">LM</div>
         <div>
           <strong>Repair agent</strong>
-          <span>{live ? "live workspace" : "fixture workspace"}</span>
+          <span>{live ? "live workspace" : capturedLiveRun ? "public replay" : "fixture workspace"}</span>
         </div>
       </div>
     </aside>
@@ -355,6 +356,8 @@ function LineageGraph({ assets }: { assets: AffectedAsset[] }) {
 }
 
 function GraphPanel({ campaign }: { campaign: RepairCampaign }) {
+  const capturedLiveRun = campaign.execution.contextLabel.startsWith("Captured live");
+
   return (
     <section className="panel graph-panel" id="lineage">
       <div className="panel-heading">
@@ -364,7 +367,11 @@ function GraphPanel({ campaign }: { campaign: RepairCampaign }) {
         </div>
         <span className="tool-badge">
           <Database size={13} /> get_lineage · 3 hops
-          {campaign.execution.contextMode === "fixture" ? " · replay" : " · live"}
+          {campaign.execution.contextMode === "fixture"
+            ? capturedLiveRun
+              ? " · recorded live"
+              : " · replay"
+            : " · live"}
         </span>
       </div>
       <LineageGraph assets={campaign.assets} />
@@ -434,7 +441,7 @@ function WorkflowPanel({
                   {index === 1 && "Schemas, owners and real query evidence"}
                   {index === 2 && "Producer shim + consumer migration order"}
                   {index === 3 && "Reviewable patches, not prose suggestions"}
-                  {index === 4 && "Parse, compile, contract and coverage checks"}
+                  {index === 4 && "Parse, refs, contract and coverage checks"}
                   {index === 5 && "Shared document + lifecycle proposal"}
                 </small>
               </div>

@@ -18,9 +18,15 @@ The public demo defaults to fixture mode so every judge can reproduce it without
 
 ## Self-hosted DataHub
 
-1. Run a DataHub instance and create a personal access token.
+1. Run a DataHub Quickstart instance and create a personal access token.
 2. Install [`uv`](https://docs.astral.sh/uv/).
-3. Set:
+3. Seed the six-asset Fiction Retail graph and observed query evidence:
+
+   ```bash
+   python scripts/seed-fiction-retail.py
+   ```
+
+4. Set:
 
    ```bash
    LINEAGE_MEDIC_MODE=mcp-stdio
@@ -29,7 +35,7 @@ The public demo defaults to fixture mode so every judge can reproduce it without
    DATAHUB_MCP_COMMAND=uvx
    ```
 
-4. Start LineageMedic. It launches `uvx mcp-server-datahub@latest` and communicates over stdio.
+5. Start LineageMedic. It launches `uvx mcp-server-datahub@latest` and communicates over stdio.
 
 ## Required catalog shape
 
@@ -40,7 +46,9 @@ The included repository map expects these URNs:
 - `urn:li:dataset:(urn:li:dataPlatform:dbt,finance.revenue_by_market,PROD)`
 - the Airflow job and two dashboard URNs recorded in the fixture
 
-For the final hackathon recording, these assets will be loaded from the Fiction Retail demo and the live raw MCP responses will be retained as submission evidence.
+The seed also creates three DataHub Query entities, including a schema-field subject for `shipping_country`, so the official `get_dataset_queries` MCP tool returns real catalog evidence instead of a fixture fallback.
+
+The sanitized capture from the verified self-hosted run is checked in at [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json). It records the raw lineage, entity, and query responses plus the generated patches and validators, without credentials or machine-specific paths.
 
 ## Mutation behavior
 

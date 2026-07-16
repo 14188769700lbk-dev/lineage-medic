@@ -8,6 +8,7 @@ import type {
   DataHubContextSnapshot,
   DataHubToolTrace,
   DecisionWriteback,
+  ProductionQueryEvidence,
   WritebackResult,
 } from "../core/context-provider.js";
 import type { ContextMode, ProposedChange } from "../shared/types.js";
@@ -65,6 +66,9 @@ export class McpDataHubProvider implements DataHubContextProvider {
         callJsonTool(client, "get_dataset_queries", queryArguments),
       ]);
 
+      const recordedAt = new Date().toISOString();
+      const liveQueries = normalizeDatasetQueries(queries, recordedAt);
+
       const rawText = JSON.stringify({ lineage, entities, queries });
       const observedAssets = repositoryMap.assets.filter(
         (asset) =>
@@ -91,7 +95,10 @@ export class McpDataHubProvider implements DataHubContextProvider {
         {
           name: "get_dataset_queries",
           arguments: queryArguments,
-          responseSummary: "Live production-query evidence fetched for the renamed field",
+          responseSummary:
+            liveQueries.length > 0
+              ? `Live MCP returned ${liveQueries.length} production-query example${liveQueries.length === 1 ? "" : "s"} for the renamed field`
+              : "Live MCP returned no query examples; using the checked-in scenario evidence",
           status: "complete",
         },
       ];
@@ -103,11 +110,12 @@ export class McpDataHubProvider implements DataHubContextProvider {
           this.mode === "mcp-http"
             ? "Live DataHub Cloud MCP"
             : "Live self-hosted DataHub MCP",
-        recordedAt: new Date().toISOString(),
+        recordedAt,
         assets,
         bindings: repositoryMap.bindings.filter((binding) =>
           assets.some((asset) => asset.urn === binding.assetUrn),
         ),
+        queries: liveQueries.length > 0 ? liveQueries : repositoryMap.queries,
         toolCalls,
         rawResponses: { lineage, entities, queries },
       };
@@ -201,6 +209,49 @@ export class McpDataHubProvider implements DataHubContextProvider {
       stderr: "inherit",
     });
   }
+}
+
+export function normalizeDatasetQueries(
+  value: unknown,
+  recordedAt: string,
+): ProductionQueryEvidence[] {
+  if (typeof value !== "object" || value === null || !("queries" in value)) {
+    return [];
+  }
+
+  const queryList = (value as { queries?: unknown }).queries;
+  if (!Array.isArray(queryList)) return [];
+
+  return queryList.flatMap((query): ProductionQueryEvidence[] => {
+    if (typeof query !== "object" || query === null) return [];
+
+    const properties = (query as { properties?: unknown }).properties;
+    const subjects = (query as { subjects?: unknown }).subjects;
+    if (typeof properties !== "object" || properties === null) return [];
+
+    const statement = (properties as { statement?: unknown }).statement;
+    if (typeof statement !== "object" || statement === null) return [];
+
+    const sql = (statement as { value?: unknown }).value;
+    const sourceValue = (properties as { source?: unknown }).source;
+    const assetUrn = Array.isArray(subjects)
+      ? subjects.find(
+          (subject): subject is string =>
+            typeof subject === "string" && subject.startsWith("urn:li:dataset:"),
+        )
+      : undefined;
+
+    if (typeof sql !== "string" || !assetUrn) return [];
+
+    return [
+      {
+        assetUrn,
+        sql,
+        source: sourceValue === "MANUAL" ? "MANUAL" : "SYSTEM",
+        lastSeenAt: recordedAt,
+      },
+    ];
+  });
 }
 
 async function callJsonTool(

@@ -22,7 +22,7 @@ This is intentionally more than a chat answer, a lineage viewer, or a PR comment
 
 ## Try it in 60 seconds
 
-Requirements: Node.js 22.12+ (Node 24 is used in CI).
+Requirements: Node.js 22.13+ (Node 24 is used in CI).
 
 ```bash
 npm ci
@@ -54,11 +54,20 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173), then select **Run guided re
 
 The scenario is based on DataHub's official [Fiction Retail datapack](https://github.com/datahub-project/static-assets/tree/main/datasets/fiction-retail). The small code repositories in this project are original, synthetic consumers created for the migration demonstration.
 
-## Hosted replay
+## Judge it without credentials
 
 [Open the public hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/).
 
-The deployable web build is an interactive replay of the checked-in DataHub MCP fixture. It returns the same four patches and validation evidence produced by the local engine, while remaining stateless and safe for public judging. The interface labels the context as a hosted replay, never claims a live tenant connection, and keeps `save_document` disabled.
+The deployable web build replays a checked-in capture from a real self-hosted DataHub Quickstart run through the official MCP server. It returns the same four patches and validation evidence produced by the local engine, while remaining stateless and safe for public judging. The interface labels the context as a recorded run, never claims a live tenant connection, and keeps `save_document` disabled.
+
+The sanitized [live run manifest](examples/evidence/live-datahub-read-run.json) proves the MCP transport, tool arguments, raw DataHub responses, normalized query evidence, generated patches, and validation gates used by that run. It contains no token, hostname, local path, or private metadata.
+
+Fastest review path:
+
+1. Open the hosted replay and select **Run guided repair**.
+2. Open any generated patch and inspect the evidence timeline.
+3. Compare it with the checked-in live manifest.
+4. Run `npm ci && npm run demo` for a credential-free local reproduction.
 
 The full local application remains the source of truth for fixture execution and live MCP modes. Build the hosted replay with:
 
@@ -110,6 +119,10 @@ flowchart LR
 
 The repair engine is deterministic by design. An LLM can be added as a proposal source later, but it cannot bypass the validators or mutation gate. See [architecture.md](docs/architecture.md) for the component boundaries and threat model.
 
+## Open-source contribution
+
+The project also contributed [DataHub metadata audit skill PR #36](https://github.com/datahub-project/datahub-skills/pull/36) to the official `datahub-skills` repository. The contribution implements the previously referenced but missing `datahub-audit` workflow, including evidence-grounded coverage metrics, a reusable report template, routing metadata, and validation. This is independent of LineageMedic's application code and gives the wider DataHub agent ecosystem a reusable audit capability.
+
 ## Verification
 
 ```bash
@@ -135,7 +148,9 @@ src/core/            Context contract, repair engine, validators, tests
 src/server/          Fastify API and demo campaign
 src/client/          React review interface
 examples/context/    Recorded MCP evidence
+examples/evidence/   Sanitized manifest from a real live MCP run
 examples/repos/      Three synthetic dbt repositories
+scripts/             Reproducible self-hosted DataHub demo seeding
 docs/                Architecture, live setup, demo, and submission material
 ```
 
@@ -149,7 +164,7 @@ docs/                Architecture, live setup, demo, and submission material
 
 ## Status
 
-The end-to-end fixture path, live MCP transport, repair engine, UI, and CI are implemented. A live DataHub recording and hosted public demo will be added before the Devpost deadline.
+The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, and sanitized live read-run evidence are implemented. Live `save_document` proof remains intentionally separate because it requires explicit approval at mutation time.
 
 ## License
 
