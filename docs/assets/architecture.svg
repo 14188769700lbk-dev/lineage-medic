@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">LineageMedic architecture</title>
+  <desc id="desc">A schema change flows through live DataHub MCP context, an isolated repair agent, deterministic validation, mergeable repository patches, and an approval-gated DataHub Decision writeback.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090b0a"/>
+      <stop offset="1" stop-color="#101512"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a7f"/>
+      <stop offset="1" stop-color="#ef664d"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9af2d1"/>
+      <stop offset="1" stop-color="#45b990"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c4a6ff"/>
+      <stop offset="1" stop-color="#8266d8"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".035"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowCoral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#f47d61"/>
+    </marker>
+    <marker id="arrowMint" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#6dd6b0"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1280" cy="110" r="300" fill="#56d4a0" fill-opacity=".045"/>
+  <circle cx="360" cy="720" r="360" fill="#f47d61" fill-opacity=".035"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="80" y="84" fill="#f2f1eb" font-size="44" font-weight="750" letter-spacing="-1.2">From metadata context to mergeable repairs</text>
+    <text x="80" y="124" fill="#929b96" font-size="19">LineageMedic turns a breaking schema proposal into an evidence-backed migration campaign.</text>
+    <g transform="translate(1320 58)">
+      <rect width="200" height="52" rx="16" fill="#141a17" stroke="#2b3932"/>
+      <circle cx="27" cy="26" r="8" fill="#6dd6b0" filter="url(#glow)"/>
+      <text x="48" y="33" fill="#b8c7bf" font-size="16" font-weight="650">LIVE DATAHUB MCP</text>
+    </g>
+
+    <!-- Trigger -->
+    <g transform="translate(80 202)" filter="url(#shadow)">
+      <rect width="240" height="480" rx="28" fill="#111513" stroke="#2a302d"/>
+      <text x="30" y="44" fill="#858e89" font-size="13" font-weight="700" letter-spacing="1.8">CHANGE TRIGGER</text>
+      <rect x="30" y="78" width="180" height="114" rx="18" fill="#1c1513" stroke="#753b30"/>
+      <circle cx="62" cy="112" r="15" fill="#ef664d" fill-opacity=".18" stroke="#f47d61"/>
+      <path d="M58 104L66 112L58 120" fill="none" stroke="#ff9a7f" stroke-width="2.5"/>
+      <text x="88" y="109" fill="#f0e9e5" font-size="15" font-weight="700">PR #204</text>
+      <text x="88" y="131" fill="#a7958f" font-size="12">warehouse / orders</text>
+      <text x="30" y="242" fill="#7f8883" font-size="13">BREAKING RENAME</text>
+      <text x="30" y="284" fill="#ff8f78" font-size="18" font-family="Consolas, monospace">− shipping_country</text>
+      <path d="M32 306H208" stroke="#353a37"/>
+      <text x="30" y="340" fill="#7de0ba" font-size="18" font-family="Consolas, monospace">+ country_code</text>
+      <rect x="30" y="388" width="180" height="56" rx="14" fill="#181c1a" stroke="#303733"/>
+      <text x="50" y="412" fill="#b7bdb9" font-size="12">Risk before context</text>
+      <text x="50" y="434" fill="#f47d61" font-size="15" font-weight="700">UNKNOWN BLAST RADIUS</text>
+    </g>
+
+    <!-- DataHub context -->
+    <g transform="translate(386 202)" filter="url(#shadow)">
+      <rect width="314" height="480" rx="28" fill="#101513" stroke="#2d3a34"/>
+      <text x="30" y="44" fill="#6dd6b0" font-size="13" font-weight="700" letter-spacing="1.8">DATAHUB CONTEXT</text>
+      <text x="30" y="78" fill="#eef2ef" font-size="23" font-weight="720">Ground truth, live</text>
+      <g transform="translate(30 110)">
+        <rect width="254" height="78" rx="16" fill="#151c19" stroke="#30433a"/>
+        <circle cx="32" cy="39" r="17" fill="#6dd6b0" fill-opacity=".14"/>
+        <path d="M23 39H41M32 30V48" stroke="#76e0b8" stroke-width="2"/>
+        <text x="62" y="34" fill="#eef2ef" font-size="15" font-weight="700">get_lineage</text>
+        <text x="62" y="55" fill="#8e9b94" font-size="12">3 hops · column-level</text>
+      </g>
+      <g transform="translate(30 204)">
+        <rect width="254" height="78" rx="16" fill="#151a18" stroke="#343d38"/>
+        <circle cx="32" cy="39" r="17" fill="#a689ef" fill-opacity=".14"/>
+        <circle cx="32" cy="34" r="6" fill="none" stroke="#bca6f7" stroke-width="2"/>
+        <path d="M21 49C23 41 41 41 43 49" fill="none" stroke="#bca6f7" stroke-width="2"/>
+        <text x="62" y="34" fill="#eef2ef" font-size="15" font-weight="700">get_entities</text>
+        <text x="62" y="55" fill="#8e9b94" font-size="12">schemas · owners · domains</text>
+      </g>
+      <g transform="translate(30 298)">
+        <rect width="254" height="78" rx="16" fill="#1b1812" stroke="#4b4026"/>
+        <circle cx="32" cy="39" r="17" fill="#e9bc58" fill-opacity=".14"/>
+        <path d="M23 31H41M23 39H37M23 47H34" stroke="#e8bf6c" stroke-width="2"/>
+        <text x="62" y="34" fill="#eef2ef" font-size="15" font-weight="700">get_dataset_queries</text>
+        <text x="62" y="55" fill="#9e9580" font-size="12">observed field usage</text>
+      </g>
+      <text x="30" y="422" fill="#7f8983" font-size="12">6 assets · 4 platforms · 6 owners</text>
+      <text x="30" y="446" fill="#a9b5ae" font-size="13" font-weight="650">No filename guessing.</text>
+    </g>
+
+    <!-- Agent -->
+    <g transform="translate(766 202)" filter="url(#shadow)">
+      <rect width="354" height="480" rx="28" fill="#131311" stroke="#49372f"/>
+      <text x="30" y="44" fill="#f47d61" font-size="13" font-weight="700" letter-spacing="1.8">REPAIR AGENT</text>
+      <text x="30" y="78" fill="#f5f0ec" font-size="23" font-weight="720">Plan before patch</text>
+      <g transform="translate(30 110)">
+        <rect width="294" height="56" rx="15" fill="#1c1714" stroke="#51352c"/>
+        <text x="22" y="24" fill="#ff9a7f" font-size="12" font-weight="700">01  NORMALIZE</text>
+        <text x="22" y="43" fill="#9e918a" font-size="11">typed assets + explicit repo bindings</text>
+      </g>
+      <path d="M177 166V184" stroke="#6c4a3e" stroke-width="2" marker-end="url(#arrowCoral)"/>
+      <g transform="translate(30 190)">
+        <rect width="294" height="76" rx="15" fill="#1c1714" stroke="#51352c"/>
+        <text x="22" y="25" fill="#ff9a7f" font-size="12" font-weight="700">02  CHOOSE POLICY</text>
+        <text x="22" y="47" fill="#d4c8c1" font-size="12">producer shim · migrate consumer</text>
+        <text x="22" y="63" fill="#9e918a" font-size="11">preserve public output contract</text>
+      </g>
+      <path d="M177 266V284" stroke="#6c4a3e" stroke-width="2" marker-end="url(#arrowCoral)"/>
+      <g transform="translate(30 290)">
+        <rect width="294" height="56" rx="15" fill="#1c1714" stroke="#51352c"/>
+        <text x="22" y="24" fill="#ff9a7f" font-size="12" font-weight="700">03  PATCH ISOLATED COPIES</text>
+        <text x="22" y="43" fill="#9e918a" font-size="11">owned workspace · path containment</text>
+      </g>
+      <g transform="translate(30 374)">
+        <rect width="294" height="68" rx="17" fill="#17231e" stroke="#38624f"/>
+        <text x="22" y="26" fill="#77ddb7" font-size="12" font-weight="700">DETERMINISTIC GATE</text>
+        <text x="22" y="48" fill="#c3d2ca" font-size="12">parse · refs · contract · coverage</text>
+      </g>
+    </g>
+
+    <!-- Outputs -->
+    <g transform="translate(1186 202)" filter="url(#shadow)">
+      <rect width="334" height="480" rx="28" fill="#101513" stroke="#2e3d36"/>
+      <text x="28" y="44" fill="#6dd6b0" font-size="13" font-weight="700" letter-spacing="1.8">MERGEABLE OUTPUT</text>
+      <text x="28" y="78" fill="#eef2ef" font-size="23" font-weight="720">4 validated patches</text>
+      <g transform="translate(28 110)">
+        <rect width="278" height="74" rx="16" fill="#151c19" stroke="#30433a"/>
+        <circle cx="28" cy="37" r="14" fill="#6dd6b0" fill-opacity=".16"/>
+        <path d="M21 37L26 42L36 31" fill="none" stroke="#7be0ba" stroke-width="2.4"/>
+        <text x="54" y="31" fill="#eaf1ed" font-size="14" font-weight="700">Producer compatibility</text>
+        <text x="54" y="51" fill="#8e9b94" font-size="11">SQL alias + dbt deprecation</text>
+      </g>
+      <g transform="translate(28 200)">
+        <rect width="278" height="74" rx="16" fill="#151c19" stroke="#30433a"/>
+        <circle cx="28" cy="37" r="14" fill="#6dd6b0" fill-opacity=".16"/>
+        <path d="M21 37L26 42L36 31" fill="none" stroke="#7be0ba" stroke-width="2.4"/>
+        <text x="54" y="31" fill="#eaf1ed" font-size="14" font-weight="700">Fulfillment migration</text>
+        <text x="54" y="51" fill="#8e9b94" font-size="11">direct internal consumer update</text>
+      </g>
+      <g transform="translate(28 290)">
+        <rect width="278" height="74" rx="16" fill="#151c19" stroke="#30433a"/>
+        <circle cx="28" cy="37" r="14" fill="#6dd6b0" fill-opacity=".16"/>
+        <path d="M21 37L26 42L36 31" fill="none" stroke="#7be0ba" stroke-width="2.4"/>
+        <text x="54" y="31" fill="#eaf1ed" font-size="14" font-weight="700">Finance stable output</text>
+        <text x="54" y="51" fill="#8e9b94" font-size="11">new input · old public contract</text>
+      </g>
+      <g transform="translate(28 388)">
+        <rect width="278" height="54" rx="15" fill="#201815" stroke="#633e31" stroke-dasharray="5 4"/>
+        <text x="18" y="23" fill="#f4ae9b" font-size="11" font-weight="700">APPROVAL-GATED WRITEBACK</text>
+        <text x="18" y="41" fill="#a9948b" font-size="10">DataHub Decision + removal date</text>
+      </g>
+    </g>
+
+    <!-- flow arrows -->
+    <path d="M326 442H372" fill="none" stroke="#f47d61" stroke-width="3" marker-end="url(#arrowCoral)"/>
+    <path d="M706 442H752" fill="none" stroke="#f47d61" stroke-width="3" marker-end="url(#arrowCoral)"/>
+    <path d="M1126 442H1172" fill="none" stroke="#6dd6b0" stroke-width="3" marker-end="url(#arrowMint)"/>
+
+    <!-- footer -->
+    <g transform="translate(80 750)">
+      <rect width="1440" height="86" rx="24" fill="#101412" stroke="#29312d"/>
+      <text x="34" y="34" fill="#7f8983" font-size="12" font-weight="700" letter-spacing="1.8">EXECUTION CONTRACT</text>
+      <text x="34" y="62" fill="#f0f1ec" font-size="19" font-weight="700">READ</text>
+      <text x="100" y="62" fill="#5a625e" font-size="19">→</text>
+      <text x="132" y="62" fill="#f0f1ec" font-size="19" font-weight="700">PLAN</text>
+      <text x="205" y="62" fill="#5a625e" font-size="19">→</text>
+      <text x="237" y="62" fill="#f0f1ec" font-size="19" font-weight="700">PATCH</text>
+      <text x="321" y="62" fill="#5a625e" font-size="19">→</text>
+      <text x="353" y="62" fill="#f0f1ec" font-size="19" font-weight="700">PROVE</text>
+      <text x="438" y="62" fill="#5a625e" font-size="19">→</text>
+      <text x="470" y="62" fill="#77ddb7" font-size="19" font-weight="700">WRITE BACK</text>
+      <text x="1380" y="36" text-anchor="end" fill="#a8b2ad" font-size="13">No source edits · no invented PRs</text>
+      <text x="1380" y="60" text-anchor="end" fill="#a8b2ad" font-size="13">No mutation without approval</text>
+    </g>
+  </g>
+</svg>

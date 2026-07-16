@@ -10,16 +10,45 @@ import {
   resetRepairCampaign,
   runRepairCampaign,
 } from "../core/repair-campaign.js";
-import type { RunCampaignResponse } from "../shared/types.js";
+import type {
+  ContextMode,
+  RepairCampaign,
+  RunCampaignResponse,
+} from "../shared/types.js";
 import { createDemoCampaign } from "./fixtures/demo-campaign.js";
+
+function parseMode(value: string | undefined): ContextMode {
+  const mode = value ?? "fixture";
+  if (mode === "fixture" || mode === "mcp-http" || mode === "mcp-stdio") {
+    return mode;
+  }
+
+  throw new Error(
+    `Unsupported LINEAGE_MEDIC_MODE "${mode}". Expected fixture, mcp-http, or mcp-stdio.`,
+  );
+}
+
+function createInitialCampaign(mode: ContextMode): RepairCampaign {
+  const campaign = createDemoCampaign();
+  if (mode === "fixture") return campaign;
+
+  return {
+    ...campaign,
+    execution: {
+      ...campaign.execution,
+      contextMode: mode,
+      contextLabel: `DataHub MCP ${mode === "mcp-http" ? "HTTP" : "stdio"} configured`,
+    },
+  };
+}
 
 export function buildServer() {
   const app = Fastify({
     logger: true,
   });
 
-  let campaign = createDemoCampaign();
-  const mode = process.env.LINEAGE_MEDIC_MODE ?? "fixture";
+  const mode = parseMode(process.env.LINEAGE_MEDIC_MODE);
+  let campaign = createInitialCampaign(mode);
   const provider =
     mode === "fixture"
       ? new FixtureDataHubProvider()
@@ -93,7 +122,7 @@ export function buildServer() {
   );
 
   app.post("/api/campaign/reset", async (): Promise<RunCampaignResponse> => {
-    campaign = resetRepairCampaign(createDemoCampaign());
+    campaign = resetRepairCampaign(createInitialCampaign(mode));
 
     return {
       campaign,

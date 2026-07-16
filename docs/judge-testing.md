@@ -9,7 +9,7 @@ LineageMedic is designed for a self-hosted or cloud DataHub environment. The pub
 3. Confirm six affected assets, four generated patches, and four passed validators.
 4. Open a patch to inspect the complete before/after SQL or YAML.
 5. Review the DataHub MCP evidence timeline.
-6. Compare the result with [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json).
+6. Compare the result with [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json) and the [checked-in generated files](../examples/generated/LM-204/).
 
 The public build cannot write to DataHub and does not claim a live connection.
 

@@ -88,10 +88,24 @@ function Logo() {
   );
 }
 
+function hasLiveMcpEvidence(campaign: RepairCampaign) {
+  return campaign.evidence.some(
+    (event) => event.actor === "DataHub MCP" && event.tool === "get_lineage",
+  );
+}
+
 function Sidebar({ campaign }: { campaign: RepairCampaign }) {
   const platforms = new Set(campaign.assets.map((asset) => asset.platform)).size;
   const live = campaign.execution.contextMode !== "fixture";
+  const liveEvidenceLoaded = hasLiveMcpEvidence(campaign);
   const capturedLiveRun = campaign.execution.contextLabel.startsWith("Captured live");
+  const contextStatus = live
+    ? liveEvidenceLoaded
+      ? "MCP connected"
+      : "MCP live mode"
+    : capturedLiveRun
+      ? "Recorded MCP run"
+      : "MCP fixture replay";
 
   return (
     <aside className="sidebar">
@@ -137,7 +151,7 @@ function Sidebar({ campaign }: { campaign: RepairCampaign }) {
           {campaign.assets.length} assets · {platforms} platforms
         </span>
         <div className="context-status">
-          <span /> {live ? "MCP connected" : capturedLiveRun ? "Recorded MCP run" : "MCP fixture replay"}
+          <span /> {contextStatus}
         </div>
       </div>
       <div className="user-chip">
@@ -357,6 +371,7 @@ function LineageGraph({ assets }: { assets: AffectedAsset[] }) {
 
 function GraphPanel({ campaign }: { campaign: RepairCampaign }) {
   const capturedLiveRun = campaign.execution.contextLabel.startsWith("Captured live");
+  const liveEvidenceLoaded = hasLiveMcpEvidence(campaign);
 
   return (
     <section className="panel graph-panel" id="lineage">
@@ -371,7 +386,9 @@ function GraphPanel({ campaign }: { campaign: RepairCampaign }) {
             ? capturedLiveRun
               ? " · recorded live"
               : " · replay"
-            : " · live"}
+            : liveEvidenceLoaded
+              ? " · live"
+              : " · live ready"}
         </span>
       </div>
       <LineageGraph assets={campaign.assets} />

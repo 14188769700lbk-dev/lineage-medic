@@ -8,23 +8,47 @@ LineageMedic
 
 Renovate for breaking data changes.
 
+## Challenge category
+
+**Primary:** Metadata-Aware Code Generation & Development
+
+LineageMedic also satisfies the read-act-write loop from Agents That Do Real Work, but the primary submission category is code generation: it converts DataHub context into four validated SQL/YAML repair artifacts across three repositories.
+
+## DataHub technologies
+
+- DataHub OSS / Core Platform
+- DataHub MCP Server
+
 ## Submission links
 
 - Public demo: <https://14188769700lbk-dev.github.io/lineage-medic/>
 - Source repository: <https://github.com/14188769700lbk-dev/lineage-medic>
 - Judge testing guide: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/judge-testing.md>
 - Sanitized live MCP evidence: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-read-run.json>
+- Generated sample outputs: <https://github.com/14188769700lbk-dev/lineage-medic/tree/main/examples/generated/LM-204>
 - Upstream DataHub contribution: <https://github.com/datahub-project/datahub-skills/pull/36>
 
 ## Short description
 
-LineageMedic uses DataHub column lineage, ownership, and production-query evidence to turn a proposed schema change into a validated, cross-repository repair campaign before the breaking PR merges.
+LineageMedic is Renovate for breaking data changes. It uses DataHub column lineage, schemas, ownership, and observed-query evidence to turn a proposed schema rename into validated SQL and YAML repairs across every affected repository—before the breaking PR merges.
 
 ## Inspiration
 
 A column rename is rarely hard in the producer repository. The real cost appears downstream: a dbt model owned by fulfillment, a finance mart with a public output contract, an Airflow SLA, and dashboards nobody remembered to check. Existing impact tools surface the blast radius but leave humans to coordinate and implement every repair.
 
 We wanted an agent that does the next responsible thing: preserve compatibility, generate reviewable code changes for each owner, prove coverage, and leave the decision beside the affected assets in DataHub.
+
+## Why it is different
+
+DataHub already answers **what will break**. LineageMedic answers **what each owning team should merge, in what order, and why it is safe**.
+
+It does not perform a global string replacement. DataHub identifies the affected assets and their operational context; explicit repository contract bindings then produce three different repair policies for the same rename:
+
+- the producer keeps a temporary compatibility alias;
+- an internal fulfillment model migrates directly;
+- a board-reporting finance model reads the new field while preserving its public output contract.
+
+Every code-bound lineage asset must receive a repair, and every generated artifact must pass deterministic validation before the campaign becomes reviewable.
 
 ## What it does
 
@@ -40,13 +64,13 @@ Given `shipping_country → country_code`, LineageMedic:
 
 ## How we built it
 
-The review application uses React, TypeScript, Vite, Fastify, and the official Model Context Protocol TypeScript SDK. A live adapter supports DataHub Cloud over Streamable HTTP and self-hosted DataHub through the official `mcp-server-datahub` stdio package. The same typed provider contract powers a credential-free recorded fixture for reproducible judging.
+The review application uses React, TypeScript, Vite, Fastify, and the official Model Context Protocol TypeScript SDK. A live adapter supports DataHub Cloud over Streamable HTTP and self-hosted DataHub through the official `mcp-server-datahub` stdio package. A sanitized live-run capture powers the public replay, while a checked-in fixture keeps the repair engine reproducible without credentials.
 
 The repair engine is deterministic. It works on isolated repository copies, applies an explicit policy per lineage-bound asset, and blocks review status unless all validators pass. Full before/after patches and raw live MCP responses are retained in the run manifest.
 
 ## Challenges
 
-The hardest design problem was not generating a string replacement. It was deciding when a rename may propagate and when a public downstream contract must remain stable. DataHub's transitive lineage and query evidence provide that distinction. A second challenge was keeping the demo honest: fixture evidence is visibly labeled, `dbt ref resolution` is not misrepresented as a warehouse-backed compile, and no PR or DataHub write is claimed until it exists.
+The hardest design problem was not generating a string replacement. It was deciding when a rename may propagate and when a public downstream contract must remain stable. DataHub's transitive lineage and query evidence provide that distinction. A second challenge was keeping the demo honest: recorded and live modes are visibly distinct, `dbt ref resolution` is not misrepresented as a warehouse-backed compile, and no PR or DataHub write is claimed until it exists.
 
 ## Accomplishments
 
@@ -56,10 +80,22 @@ The hardest design problem was not generating a string replacement. It was decid
 - Explicit writeback approval aligned with the `save_document` safety contract.
 - Machine-readable evidence manifest and automated CI.
 - A sanitized self-hosted DataHub MCP capture with live lineage, entity, and query responses.
+- Checked-in generated SQL/YAML outputs that judges can inspect without running the application.
+- An upstream contribution implementing the missing `datahub-audit` workflow in the official DataHub Skills repository.
 
 ## What we learned
 
 Metadata-aware code generation becomes much more useful when lineage is treated as an execution plan rather than a diagram. Ownership tells us who must review, observed queries reveal compatibility obligations, and a catalog document can carry migration memory across agents and teams.
+
+We also learned that a trustworthy agent needs two independent gates: validation proves that a proposed change is structurally safe, while explicit approval controls external mutations. A larger model cannot replace either gate.
+
+## Data and licensing
+
+The metadata scenario is based on DataHub's CC0 Fiction Retail datapack. The three dbt repositories and all migration code in this submission are original synthetic examples created during the hackathon. LineageMedic is released under Apache 2.0. No private tenant metadata or credentials are included in the live evidence capture.
+
+## Testing
+
+Judges can use the public replay with no login, run the deterministic engine with `npm ci && npm run demo`, or connect the application to DataHub OSS/Cloud through the documented MCP modes. The full test path and expected invariants are in `docs/judge-testing.md`.
 
 ## What's next
 

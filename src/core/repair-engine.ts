@@ -447,6 +447,7 @@ function createDecision(
   patches: PatchArtifact[],
   validations: ValidationCheck[],
 ): DecisionWriteback {
+  const queryCount = context.queries.length;
   const content = [
     `# ${campaign.writeback.documentTitle}`,
     "",
@@ -457,7 +458,7 @@ function createDecision(
     "## Evidence",
     "",
     `- DataHub column lineage identified ${context.assets.length - 1} downstream assets.`,
-    `- ${context.queries.length} production query examples still reference the legacy field.`,
+    `- ${queryCount} production query ${queryCount === 1 ? "example" : "examples"} still ${queryCount === 1 ? "references" : "reference"} the legacy field.`,
     `- Owners span ${new Set(context.assets.map((asset) => asset.owner)).size} teams or stakeholder groups.`,
     "",
     "## Repair artifacts",

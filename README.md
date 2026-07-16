@@ -54,6 +54,8 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173), then select **Run guided re
 
 The scenario is based on DataHub's official [Fiction Retail datapack](https://github.com/datahub-project/static-assets/tree/main/datasets/fiction-retail). The small code repositories in this project are original, synthetic consumers created for the migration demonstration.
 
+[Browse the checked-in generated campaign](examples/generated/LM-204/) to inspect the final SQL, dbt contract, and DataHub Decision document without running the application. Complete before/after patches remain in the [live evidence manifest](examples/evidence/live-datahub-read-run.json).
+
 ## Judge it without credentials
 
 [Open the public hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/).
@@ -103,6 +105,8 @@ The adapter launches `mcp-server-datahub@latest`. See [DataHub's MCP guide](http
 
 ## Architecture
 
+![LineageMedic architecture: DataHub context becomes isolated, validated repository repairs and an approval-gated Decision writeback](docs/assets/architecture.png)
+
 ```mermaid
 flowchart LR
     A["Schema change proposal"] --> B["DataHub MCP context"]
@@ -149,6 +153,7 @@ src/server/          Fastify API and demo campaign
 src/client/          React review interface
 examples/context/    Recorded MCP evidence
 examples/evidence/   Sanitized manifest from a real live MCP run
+examples/generated/  Reviewable SQL, YAML, and Decision outputs
 examples/repos/      Three synthetic dbt repositories
 scripts/             Reproducible self-hosted DataHub demo seeding
 docs/                Architecture, live setup, demo, and submission material
