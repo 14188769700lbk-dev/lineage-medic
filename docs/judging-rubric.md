@@ -12,11 +12,9 @@ This document maps each official criterion to concrete, inspectable evidence. It
 - Live `get_entities` grounds six assets in schemas, platforms, owners, and domains.
 - Live `get_dataset_queries` returns SQL attached to the `shipping_country` schema-field subject.
 - DataHub asset identities and metadata are joined to explicit repository contract bindings, producing different repair policies for the producer, an internal consumer, and a public-contract consumer.
-- `save_document` stages a Decision containing the evidence, patches, validation results, related asset URNs, and removal date.
+- `save_document` persists a Decision containing the evidence, patches, validation results, related asset URNs, and removal date only after a separate explicit approval.
 
-**Evidence:** `examples/evidence/live-datahub-read-run.json`, `scripts/seed-fiction-retail.py`, and the live-mode recording.
-
-**Remaining gate:** capture a persisted `save_document` result and DataHub document view after explicit approval.
+**Evidence:** `examples/evidence/live-datahub-read-run.json`, `examples/evidence/live-datahub-writeback.json`, `docs/assets/datahub-writeback.jpg`, `docs/assets/datahub-decision.jpg`, `scripts/seed-fiction-retail.py`, and the live-mode recording.
 
 ## 2. Technical execution
 

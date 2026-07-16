@@ -171,7 +171,7 @@ docs/                Architecture, live setup, demo, and submission material
 
 ## Status
 
-The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, sanitized live read-run evidence, and a real generated-repair pull request are implemented. Live `save_document` proof remains intentionally separate because it requires explicit approval at mutation time.
+The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, sanitized live read-run evidence, and a real generated-repair pull request are implemented. A separate explicit approval also completed a real `save_document` call; the [sanitized writeback proof](examples/evidence/live-datahub-writeback.json), [LineageMedic result](docs/assets/datahub-writeback.jpg), and [published DataHub Decision](docs/assets/datahub-decision.jpg) record the returned document URN while the hosted replay remains stateless.
 
 ## License
 

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "LM-204",
+  "capturedAt": "2026-07-16T10:44:02.226Z",
+  "context": {
+    "mode": "mcp-stdio",
+    "label": "Live self-hosted DataHub MCP"
+  },
+  "approval": {
+    "required": true,
+    "explicitlyGranted": true,
+    "afterValidation": true
+  },
+  "toolCall": {
+    "name": "save_document",
+    "status": "complete",
+    "responseSummary": "Decision document saved to DataHub after explicit approval."
+  },
+  "result": {
+    "status": "written",
+    "persisted": true,
+    "documentTitle": "Migration campaign LM-204: orders country code",
+    "documentUrn": "urn:li:document:shared-2daff315-7440-4ffb-b1db-2fe18c765c30",
+    "lifecycleProposal": "Deprecate shipping_country after 2026-09-01"
+  },
+  "campaignSummary": {
+    "affectedAssets": 6,
+    "repositories": 3,
+    "patches": 4,
+    "owners": 6,
+    "validationsPassed": 4,
+    "validationsFailed": 0
+  },
+  "catalog": {
+    "scenario": "Synthetic Fiction Retail",
+    "containsPrivateMetadata": false
+  }
+}

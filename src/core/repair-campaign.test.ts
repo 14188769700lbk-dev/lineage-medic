@@ -155,6 +155,63 @@ describe("repair campaign", () => {
     }
   });
 
+  it("publishes sanitized proof of the approval-gated DataHub writeback", async () => {
+    const raw = await readFile(
+      path.resolve(
+        process.cwd(),
+        "examples/evidence/live-datahub-writeback.json",
+      ),
+      "utf8",
+    );
+    const evidence = JSON.parse(raw) as {
+      schemaVersion: number;
+      context: { mode: string };
+      approval: {
+        required: boolean;
+        explicitlyGranted: boolean;
+        afterValidation: boolean;
+      };
+      toolCall: { name: string; status: string };
+      result: {
+        persisted: boolean;
+        status: string;
+        documentUrn: string;
+      };
+      campaignSummary: {
+        validationsPassed: number;
+        validationsFailed: number;
+      };
+    };
+
+    expect(evidence.schemaVersion).toBe(1);
+    expect(evidence.context.mode).toBe("mcp-stdio");
+    expect(evidence.approval).toEqual({
+      required: true,
+      explicitlyGranted: true,
+      afterValidation: true,
+    });
+    expect(evidence.toolCall).toEqual(
+      expect.objectContaining({ name: "save_document", status: "complete" }),
+    );
+    expect(evidence.result.persisted).toBe(true);
+    expect(evidence.result.status).toBe("written");
+    expect(evidence.result.documentUrn).toMatch(/^urn:li:document:shared-/);
+    expect(evidence.result.documentUrn).not.toContain("preview");
+    expect(evidence.campaignSummary.validationsPassed).toBe(4);
+    expect(evidence.campaignSummary.validationsFailed).toBe(0);
+
+    for (const forbidden of [
+      /DATAHUB_(?:MCP|GMS)_TOKEN/i,
+      /authorization\s*[:=]/i,
+      /bearer\s+[A-Za-z0-9._-]+/i,
+      /https?:\/\/(?:127\.0\.0\.1|localhost)/i,
+      /[A-Za-z]:\\\\Users\\\\/i,
+      /\/home\/[^/]+/i,
+    ]) {
+      expect(raw).not.toMatch(forbidden);
+    }
+  });
+
   it("records the real MCP tool contract even when replaying a fixture", async () => {
     const { result } = await execute();
 

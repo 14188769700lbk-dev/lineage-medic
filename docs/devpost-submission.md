@@ -25,6 +25,8 @@ LineageMedic also satisfies the read-act-write loop from Agents That Do Real Wor
 - Source repository: <https://github.com/14188769700lbk-dev/lineage-medic>
 - Judge testing guide: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/judge-testing.md>
 - Sanitized live MCP evidence: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-read-run.json>
+- Sanitized live writeback proof: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-writeback.json>
+- Published DataHub Decision screenshot: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg>
 - Generated sample outputs: <https://github.com/14188769700lbk-dev/lineage-medic/tree/main/examples/generated/LM-204>
 - Generated repair pull request: <https://github.com/14188769700lbk-dev/lineage-medic/pull/1>
 - Upstream DataHub contribution: <https://github.com/datahub-project/datahub-skills/pull/36>
@@ -132,7 +134,7 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [x] Real generated-repair pull request URL
 - [ ] Public YouTube, Vimeo, or Youku video URL under three minutes
 - [ ] Project thumbnail and ordered screenshot gallery uploaded
-- [ ] DataHub Decision document screenshot/URL
+- [x] DataHub Decision document screenshot and sanitized persisted-URN proof
 - [x] Most Valuable Feedback survey completed and opted in
 - [ ] Team, country, age, eligibility, and entrant attestations completed by the entrant
 - [ ] Final Devpost submission confirmation

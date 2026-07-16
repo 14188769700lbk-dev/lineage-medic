@@ -48,7 +48,7 @@ The included repository map expects these URNs:
 
 The seed also creates three DataHub Query entities, including a schema-field subject for `shipping_country`, so the official `get_dataset_queries` MCP tool returns real catalog evidence instead of a fixture fallback.
 
-The sanitized capture from the verified self-hosted run is checked in at [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json). It records the raw lineage, entity, and query responses plus the generated patches and validators, without credentials or machine-specific paths.
+The sanitized capture from the verified self-hosted read run is checked in at [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json). It records the raw lineage, entity, and query responses plus the generated patches and validators, without credentials or machine-specific paths. The later approval-gated write is recorded separately in [`examples/evidence/live-datahub-writeback.json`](../examples/evidence/live-datahub-writeback.json), preserving the distinction between read execution and external mutation.
 
 ## Mutation behavior
 

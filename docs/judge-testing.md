@@ -9,7 +9,7 @@ LineageMedic is designed for a self-hosted or cloud DataHub environment. The pub
 3. Confirm six affected assets, four generated patches, and four passed validators.
 4. Open a patch to inspect the complete before/after SQL or YAML.
 5. Review the DataHub MCP evidence timeline.
-6. Compare the result with [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json) and the [checked-in generated files](../examples/generated/LM-204/).
+6. Compare the result with [`examples/evidence/live-datahub-read-run.json`](../examples/evidence/live-datahub-read-run.json), the separate [`save_document` proof](../examples/evidence/live-datahub-writeback.json), and the [checked-in generated files](../examples/generated/LM-204/).
 
 The public build cannot write to DataHub and does not claim a live connection.
 
@@ -38,4 +38,4 @@ Follow [`live-datahub-setup.md`](live-datahub-setup.md). The checked-in seed cre
 - checked-in generated files: byte-identical to a fresh engine run;
 - public live MCP evidence: complete and free of local endpoints, host paths, and authentication material;
 - public replay writeback: never persisted;
-- live writeback: persisted only after explicit approval.
+- live writeback: persisted only after explicit approval, with the returned non-preview URN recorded in the separate proof.
