@@ -1,5 +1,4 @@
 version: 2
-
 models:
   - name: orders
     description: Curated retail orders used by fulfillment and finance.
@@ -9,11 +8,20 @@ models:
     columns:
       - name: order_id
         data_type: integer
-        data_tests: [not_null, unique]
+        data_tests:
+          - not_null
+          - unique
       - name: customer_id
         data_type: integer
+      - name: country_code
+        data_type: text
+        data_tests:
+          - not_null
       - name: shipping_country
         data_type: text
+        meta:
+          lifecycle: deprecated
+          remove_after: 2026-09-01
       - name: total_amount
         data_type: numeric
       - name: delivery_days
