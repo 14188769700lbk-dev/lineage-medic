@@ -24,7 +24,7 @@
     "verify": "npm run typecheck && npm test && npm run build"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
+    "@cloudflare/vite-plugin": "1.45.0",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -35,7 +35,7 @@
     "tsx": "latest",
     "typescript": "latest",
     "vinext": "0.0.50",
-    "vite": "8.0.13",
+    "vite": "8.1.4",
     "vitest": "latest"
   },
   "dependencies": {
@@ -44,12 +44,18 @@
     "@modelcontextprotocol/sdk": "^1.29.0",
     "fastify": "latest",
     "lucide-react": "latest",
-    "next": "16.2.6",
+    "next": "16.2.10",
     "node-sql-parser": "^5.4.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-server-dom-webpack": "19.2.6",
     "yaml": "^2.9.0",
     "zod": "latest"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "next": {
+      "postcss": "8.5.19"
+    }
   }
 }
