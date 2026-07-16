@@ -24,7 +24,7 @@ This document maps each official criterion to concrete, inspectable evidence. It
 - Path resolution prevents writes outside the owned workspace.
 - Four deterministic validators gate `ready-for-review`.
 - Live HTTP and stdio MCP transports share one typed provider contract.
-- CI executes type checking, six tests, and production builds.
+- CI executes type checking, the full Vitest suite, and production builds.
 - The hosted replay is stateless and cannot persist a DataHub mutation.
 
 **Evidence:** `src/core`, `src/adapters`, `.github/workflows`, `docs/judge-testing.md`, and green GitHub Actions runs.

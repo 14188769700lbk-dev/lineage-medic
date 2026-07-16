@@ -74,6 +74,87 @@ describe("repair campaign", () => {
     expect(manifest.patches).toHaveLength(4);
   });
 
+  it("keeps checked-in sample artifacts byte-identical to engine output", async () => {
+    const { runRoot } = await execute();
+    const generatedRoot = path.resolve(
+      process.cwd(),
+      "examples/generated/LM-204/fiction-retail",
+    );
+    const artifactPaths = [
+      "warehouse/models/core/orders.sql",
+      "warehouse/models/core/orders.yml",
+      "fulfillment-analytics/models/marts/shipping_performance.sql",
+      "finance-metrics/models/revenue/revenue_by_market.sql",
+    ];
+
+    for (const artifactPath of artifactPaths) {
+      const actual = await readFile(
+        path.join(runRoot, "workspace/fiction-retail", artifactPath),
+        "utf8",
+      );
+      const published = await readFile(
+        path.join(generatedRoot, artifactPath),
+        "utf8",
+      );
+      expect(actual, artifactPath).toBe(published);
+    }
+  });
+
+  it("publishes complete live MCP evidence without local endpoints or secrets", async () => {
+    const raw = await readFile(
+      path.resolve(
+        process.cwd(),
+        "examples/evidence/live-datahub-read-run.json",
+      ),
+      "utf8",
+    );
+    const evidence = JSON.parse(raw) as {
+      schemaVersion: number;
+      context: {
+        mode: string;
+        toolCalls: Array<{ name: string; arguments: Record<string, unknown> }>;
+        rawResponses: Record<string, unknown>;
+      };
+      patches: unknown[];
+      validations: Array<{ status: string }>;
+      writeback: { persisted: boolean };
+    };
+
+    expect(evidence.schemaVersion).toBe(1);
+    expect(evidence.context.mode).toBe("mcp-stdio");
+    expect(evidence.context.toolCalls.map((call) => call.name)).toEqual([
+      "get_lineage",
+      "get_entities",
+      "get_dataset_queries",
+    ]);
+    expect(
+      evidence.context.toolCalls[1]?.arguments.urns,
+    ).toHaveLength(6);
+    expect(evidence.context.rawResponses).toEqual(
+      expect.objectContaining({
+        lineage: expect.any(Object),
+        entities: expect.any(Object),
+        queries: expect.any(Object),
+      }),
+    );
+    expect(evidence.patches).toHaveLength(4);
+    expect(
+      evidence.validations.every((validation) => validation.status === "passed"),
+    ).toBe(true);
+    expect(evidence.writeback.persisted).toBe(false);
+
+    for (const forbidden of [
+      /DATAHUB_(?:MCP|GMS)_TOKEN/i,
+      /authorization\s*[:=]/i,
+      /bearer\s+[A-Za-z0-9._-]+/i,
+      /https?:\/\/(?:127\.0\.0\.1|localhost)/i,
+      /[A-Za-z]:\\\\Users\\\\/i,
+      /\/home\/[^/]+/i,
+    ]) {
+      expect(raw).not.toMatch(forbidden);
+    }
+  });
+
   it("records the real MCP tool contract even when replaying a fixture", async () => {
     const { result } = await execute();
 
