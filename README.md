@@ -60,6 +60,8 @@ The scenario is based on DataHub's official [Fiction Retail datapack](https://gi
 
 [Open the public hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/).
 
+[Watch the 2:45 public demo video](https://youtu.be/WohjWxcAYfo) for the judge-first walkthrough of live DataHub MCP reads, generated repairs, validation, the real GitHub pull request, and the approval-gated DataHub Decision writeback.
+
 The deployable web build replays a checked-in capture from a real self-hosted DataHub Quickstart run through the official MCP server. It returns the same four patches and validation evidence produced by the local engine, while remaining stateless and safe for public judging. The interface labels the context as a recorded run, never claims a live tenant connection, and keeps `save_document` disabled.
 
 The sanitized [live run manifest](examples/evidence/live-datahub-read-run.json) proves the MCP transport, tool arguments, raw DataHub responses, normalized query evidence, generated patches, and validation gates used by that run. It contains no token, hostname, local path, or private metadata.

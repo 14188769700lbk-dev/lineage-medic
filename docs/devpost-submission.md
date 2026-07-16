@@ -22,6 +22,7 @@ LineageMedic also satisfies the read-act-write loop from Agents That Do Real Wor
 ## Submission links
 
 - Public demo: <https://14188769700lbk-dev.github.io/lineage-medic/>
+- Public 2:45 demo video: <https://youtu.be/WohjWxcAYfo>
 - Source repository: <https://github.com/14188769700lbk-dev/lineage-medic>
 - Judge testing guide: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/judge-testing.md>
 - Sanitized live MCP evidence: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-read-run.json>
@@ -132,7 +133,7 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [x] Upstream open-source contribution URL
 - [x] Final testing instructions
 - [x] Real generated-repair pull request URL
-- [ ] Public YouTube, Vimeo, or Youku video URL under three minutes
+- [x] Public YouTube video URL under three minutes
 - [ ] Project thumbnail and ordered screenshot gallery uploaded
 - [x] DataHub Decision document screenshot and sanitized persisted-URN proof
 - [x] Most Valuable Feedback survey completed and opted in
