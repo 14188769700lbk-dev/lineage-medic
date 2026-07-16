@@ -26,6 +26,7 @@ LineageMedic also satisfies the read-act-write loop from Agents That Do Real Wor
 - Judge testing guide: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/judge-testing.md>
 - Sanitized live MCP evidence: <https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-read-run.json>
 - Generated sample outputs: <https://github.com/14188769700lbk-dev/lineage-medic/tree/main/examples/generated/LM-204>
+- Generated repair pull request: <https://github.com/14188769700lbk-dev/lineage-medic/pull/1>
 - Upstream DataHub contribution: <https://github.com/datahub-project/datahub-skills/pull/36>
 
 ## Short description
@@ -39,6 +40,7 @@ One guided run turns a risky `shipping_country → country_code` proposal into:
 - three real DataHub MCP reads: three-hop column lineage, six entity records, and observed production SQL;
 - four validated SQL/YAML changes across three repository workspaces;
 - four deterministic gates covering SQL parsing, dbt refs, contract compatibility, and lineage repair coverage;
+- one real, CI-verified GitHub pull request containing the four generated changes;
 - one auditable manifest plus an approval-gated DataHub Decision writeback.
 
 **The DataHub counterfactual:** without the context graph this is a global rename. With DataHub, LineageMedic knows which owners and assets are affected, which consumers still execute the legacy field, and where a public output contract must remain stable. That context changes the generated code, not just the explanation around it.
@@ -92,6 +94,7 @@ The hardest design problem was not generating a string replacement. It was decid
 - Machine-readable evidence manifest and automated CI.
 - A sanitized self-hosted DataHub MCP capture with live lineage, entity, and query responses.
 - Checked-in generated SQL/YAML outputs that judges can inspect without running the application.
+- A real generated-repair pull request with a successful CI check and reviewable four-file diff.
 - An upstream contribution implementing the missing `datahub-audit` workflow in the official DataHub Skills repository.
 
 ## What we learned
@@ -126,7 +129,7 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [x] Checked-in sample outputs with automated parity and sanitation tests
 - [x] Upstream open-source contribution URL
 - [x] Final testing instructions
-- [ ] Real generated-repair pull request URL
+- [x] Real generated-repair pull request URL
 - [ ] Public YouTube, Vimeo, or Youku video URL under three minutes
 - [ ] Project thumbnail and ordered screenshot gallery uploaded
 - [ ] DataHub Decision document screenshot/URL

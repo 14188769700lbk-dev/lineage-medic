@@ -41,6 +41,8 @@ import type {
 } from "../shared/types.js";
 
 const staticReplay = import.meta.env.VITE_HOSTED_REPLAY === "true";
+const generatedRepairPullRequestUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/pull/1";
 
 const runningPhases = [
   "Tracing column-level lineage",
@@ -482,9 +484,20 @@ function WorkflowPanel({
         </button>
       ) : (
         <div className="completion-actions">
-          <button className="primary-button">
-            <GitPullRequestArrow size={17} /> Review {campaign.patches.length} generated patches
-          </button>
+          {campaign.patches.some((patch) => patch.pullRequest) ? (
+            <a
+              className="primary-button"
+              href={generatedRepairPullRequestUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <GitPullRequestArrow size={17} /> Review the generated PR
+            </a>
+          ) : (
+            <button className="primary-button">
+              <GitPullRequestArrow size={17} /> Review {campaign.patches.length} generated patches
+            </button>
+          )}
           <button className="reset-button" onClick={onReset}>
             <RefreshCcw size={15} /> Reset demo
           </button>
@@ -716,10 +729,21 @@ function PatchDrawer({
           <div>
             <CheckCircle2 size={15} /> SQL parse and contract checks passed
           </div>
-          <button className="primary-button compact-button">
-            <GitPullRequestArrow size={16} />
-            {patch.pullRequest ? `Open draft PR ${patch.pullRequest}` : "Draft PR pending"}
-          </button>
+          {patch.pullRequest ? (
+            <a
+              className="primary-button compact-button"
+              href={generatedRepairPullRequestUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <GitPullRequestArrow size={16} />
+              Open generated PR {patch.pullRequest}
+            </a>
+          ) : (
+            <button className="primary-button compact-button" disabled>
+              <GitPullRequestArrow size={16} /> Draft PR pending
+            </button>
+          )}
         </div>
       </aside>
     </div>

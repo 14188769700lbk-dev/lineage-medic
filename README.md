@@ -54,7 +54,7 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173), then select **Run guided re
 
 The scenario is based on DataHub's official [Fiction Retail datapack](https://github.com/datahub-project/static-assets/tree/main/datasets/fiction-retail). The small code repositories in this project are original, synthetic consumers created for the migration demonstration.
 
-[Browse the checked-in generated campaign](examples/generated/LM-204/) to inspect the final SQL, dbt contract, and DataHub Decision document without running the application. Complete before/after patches remain in the [live evidence manifest](examples/evidence/live-datahub-read-run.json).
+[Browse the checked-in generated campaign](examples/generated/LM-204/) to inspect the final SQL, dbt contract, and DataHub Decision document without running the application. Complete before/after patches remain in the [live evidence manifest](examples/evidence/live-datahub-read-run.json), and the same four generated artifacts are published in [repair PR #1](https://github.com/14188769700lbk-dev/lineage-medic/pull/1) with a successful CI check.
 
 ## Judge it without credentials
 
@@ -68,7 +68,7 @@ Fastest review path:
 
 1. Open the hosted replay and select **Run guided repair**.
 2. Open any generated patch and inspect the evidence timeline.
-3. Compare it with the checked-in live manifest.
+3. Inspect [repair PR #1](https://github.com/14188769700lbk-dev/lineage-medic/pull/1) and compare it with the checked-in live manifest.
 4. Run `npm ci && npm run demo` for a credential-free local reproduction.
 
 The full local application remains the source of truth for fixture execution and live MCP modes. Build the hosted replay with:
@@ -167,11 +167,11 @@ docs/                Architecture, live setup, demo, and submission material
 - The engine verifies that every generated path stays inside the run workspace.
 - Fixture mode cannot persist to DataHub.
 - Live `save_document` calls require a separate approval action after validation.
-- Repository publishing and draft-PR automation are intentionally downstream review steps; the current demo does not invent PR URLs.
+- Repository publishing remains a downstream review step. The hosted LM-204 replay links only to the real, CI-verified [generated repair PR #1](https://github.com/14188769700lbk-dev/lineage-medic/pull/1); other runs never invent PR URLs.
 
 ## Status
 
-The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, and sanitized live read-run evidence are implemented. Live `save_document` proof remains intentionally separate because it requires explicit approval at mutation time.
+The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, sanitized live read-run evidence, and a real generated-repair pull request are implemented. Live `save_document` proof remains intentionally separate because it requires explicit approval at mutation time.
 
 ## License
 

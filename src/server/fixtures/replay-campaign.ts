@@ -34,6 +34,7 @@ select
 from {{ source('retail', 'orders') }}
 `,
     status: "validated",
+    pullRequest: "#1",
   },
   {
     id: "patch-contract",
@@ -93,6 +94,7 @@ models:
         data_type: integer
 `,
     status: "validated",
+    pullRequest: "#1",
   },
   {
     id: "patch-migrate-shipping-performance",
@@ -115,6 +117,7 @@ from {{ ref('orders') }}
 group by country_code
 `,
     status: "validated",
+    pullRequest: "#1",
   },
   {
     id: "patch-preserve-revenue-by-market",
@@ -138,6 +141,7 @@ from {{ ref('orders') }}
 group by 1
 `,
     status: "validated",
+    pullRequest: "#1",
   },
 ];
 
