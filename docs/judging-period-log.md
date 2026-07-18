@@ -16,7 +16,7 @@ This file records public availability and external feedback after the Devpost su
 ### Maintenance decision
 
 - GitHub displayed a non-failing Node.js 20 deprecation warning for the v4 `checkout` and `setup-node` actions used by the historical repair PR check.
-- The main CI and Pages workflows were upgraded to the current official v7 actions. The evidence branches were left unchanged to preserve the submitted repair diff and commit history.
+- The main CI and Pages workflows were upgraded to the current official action releases: `checkout@v7`, `setup-node@v7`, `configure-pages@v6`, `upload-pages-artifact@v5`, and `deploy-pages@v5`. The evidence branches were left unchanged to preserve the submitted repair diff and commit history.
 
 ### Monitoring triggers
 
