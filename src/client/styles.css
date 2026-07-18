@@ -1195,6 +1195,49 @@ main {
   margin-top: 12px;
 }
 
+.verified-writeback {
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(109, 214, 176, 0.2);
+}
+
+.verified-writeback-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--mint);
+  font-size: 9px;
+}
+
+.verified-writeback p {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.verified-writeback > code {
+  display: block;
+  color: #9bc5b4;
+  font-size: 7px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.writeback-proof-actions {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.writeback-proof-actions .ghost-button {
+  width: 100%;
+  min-height: 32px;
+  padding-inline: 7px;
+  font-size: 8px;
+}
+
 .app-footer {
   min-height: 60px;
   padding: 14px 3px 0;

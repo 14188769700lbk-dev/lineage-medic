@@ -17,6 +17,7 @@ This file records public availability and external feedback after the Devpost su
 
 - GitHub displayed a non-failing Node.js 20 deprecation warning for the v4 `checkout` and `setup-node` actions used by the historical repair PR check.
 - The main CI and Pages workflows were upgraded to the current official action releases: `checkout@v7`, `setup-node@v7`, `configure-pages@v6`, `upload-pages-artifact@v5`, and `deploy-pages@v5`. The evidence branches were left unchanged to preserve the submitted repair diff and commit history.
+- A desktop judge-flow audit found that the public replay hid the strongest DataHub result behind external submission materials and exposed two non-functional top-bar controls. The replay now surfaces the persisted Decision URN plus direct proof and DataHub screenshot links, while explicitly remaining read-only; the inert controls were replaced by a real change-request link.
 
 ### Monitoring triggers
 

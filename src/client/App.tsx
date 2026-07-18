@@ -18,7 +18,6 @@ import {
   Network,
   Play,
   RefreshCcw,
-  Search,
   ServerCog,
   ShieldCheck,
   Sparkles,
@@ -43,6 +42,14 @@ import type {
 const staticReplay = import.meta.env.VITE_HOSTED_REPLAY === "true";
 const generatedRepairPullRequestUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/pull/1";
+const changeRequestUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/change-orders-country.json";
+const liveWritebackProofUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-writeback.json";
+const datahubDecisionScreenshotUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg";
+const verifiedWritebackUrn =
+  "urn:li:document:shared-2daff315-7440-4ffb-b1db-2fe18c765c30";
 
 const runningPhases = [
   "Tracing column-level lineage",
@@ -174,15 +181,17 @@ function Topbar() {
         Campaigns <ChevronRight size={14} /> <strong>LM-204</strong>
       </div>
       <div className="topbar-actions">
-        <button className="icon-button" aria-label="Search">
-          <Search size={17} />
-        </button>
         <span className="branch-chip">
           <GitBranch size={14} /> feature/country-code
         </span>
-        <button className="ghost-button">
-          <ExternalLink size={14} /> Source PR #204
-        </button>
+        <a
+          className="ghost-button"
+          href={changeRequestUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <ExternalLink size={14} /> Change request
+        </a>
       </div>
     </header>
   );
@@ -518,6 +527,10 @@ function PatchList({
   patches: PatchArtifact[];
   onSelect: (patch: PatchArtifact) => void;
 }) {
+  const validatedPatches = patches.filter(
+    (patch) => patch.status === "validated",
+  ).length;
+
   return (
     <section className="panel patches-panel" id="patches">
       <div className="panel-heading">
@@ -526,7 +539,7 @@ function PatchList({
           <h2>Changes teams can actually merge</h2>
         </div>
         <span className="success-badge">
-          <CheckCircle2 size={14} /> {patches.length} / {patches.length} validated
+          <CheckCircle2 size={14} /> {validatedPatches} / {patches.length} validated
         </span>
       </div>
 
@@ -571,6 +584,10 @@ function EvidencePanel({
   onApproveWriteback: () => void;
 }) {
   const live = campaign.execution.contextMode !== "fixture";
+  const verifiedReplayWriteback =
+    staticReplay &&
+    hasLiveMcpEvidence(campaign) &&
+    !campaign.execution.writebackPersisted;
 
   return (
     <section className="panel evidence-panel" id="evidence">
@@ -583,7 +600,9 @@ function EvidencePanel({
           <ShieldCheck size={13} />
           {campaign.execution.writebackPersisted
             ? "written back to DataHub"
-            : "writeback package ready"}
+            : verifiedReplayWriteback
+              ? "live writeback verified"
+              : "writeback package ready"}
         </span>
       </div>
       <div className="evidence-grid">
@@ -623,36 +642,70 @@ function EvidencePanel({
           <p>
             {campaign.execution.writebackPersisted
               ? "The reasoning, repair patches, validation results and removal window now live beside the affected assets—not in a disposable chat transcript."
-              : "A complete decision document is ready locally. The live save_document mutation remains behind an explicit human approval gate."}
+              : verifiedReplayWriteback
+                ? "This replay prepared the same Decision that a separate, explicitly approved live run persisted to DataHub."
+                : "A complete decision document is ready locally. The live save_document mutation remains behind an explicit human approval gate."}
           </p>
           <div className="writeback-row">
-            <span>Document</span>
+            <span>{verifiedReplayWriteback ? "Replay document" : "Document"}</span>
             <code>{campaign.writeback.documentUrn}</code>
           </div>
           <div className="writeback-row">
             <span>Lifecycle</span>
             <strong>{campaign.writeback.lifecycleProposal}</strong>
           </div>
-          <button
-            className="ghost-button wide"
-            disabled={!live || campaign.execution.writebackPersisted || isWritingBack}
-            onClick={onApproveWriteback}
-          >
-            {isWritingBack
-              ? "Writing decision to DataHub"
-              : campaign.execution.writebackPersisted
-                ? "Decision saved to DataHub"
-                : live
-                  ? "Approve DataHub writeback"
-                  : "Connect live DataHub to write back"}
-            {isWritingBack ? (
-              <LoaderCircle size={14} className="spin" />
-            ) : campaign.execution.writebackPersisted ? (
-              <CheckCircle2 size={14} />
-            ) : (
-              <ShieldCheck size={14} />
-            )}
-          </button>
+          {verifiedReplayWriteback ? (
+            <div className="verified-writeback">
+              <div className="verified-writeback-title">
+                <CheckCircle2 size={14} />
+                <strong>Verified live writeback</strong>
+              </div>
+              <p>
+                A separate approval-gated MCP run persisted this same Decision to
+                DataHub. The public replay stays read-only.
+              </p>
+              <code>{verifiedWritebackUrn}</code>
+              <div className="writeback-proof-actions">
+                <a
+                  className="ghost-button"
+                  href={liveWritebackProofUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <FileCode2 size={13} /> Proof JSON
+                </a>
+                <a
+                  className="ghost-button"
+                  href={datahubDecisionScreenshotUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <ExternalLink size={13} /> DataHub view
+                </a>
+              </div>
+            </div>
+          ) : (
+            <button
+              className="ghost-button wide"
+              disabled={!live || campaign.execution.writebackPersisted || isWritingBack}
+              onClick={onApproveWriteback}
+            >
+              {isWritingBack
+                ? "Writing decision to DataHub"
+                : campaign.execution.writebackPersisted
+                  ? "Decision saved to DataHub"
+                  : live
+                    ? "Approve DataHub writeback"
+                    : "Connect live DataHub to write back"}
+              {isWritingBack ? (
+                <LoaderCircle size={14} className="spin" />
+              ) : campaign.execution.writebackPersisted ? (
+                <CheckCircle2 size={14} />
+              ) : (
+                <ShieldCheck size={14} />
+              )}
+            </button>
+          )}
         </div>
       </div>
     </section>
@@ -670,7 +723,9 @@ function PatchDrawer({
     <div className="drawer-backdrop" role="presentation" onMouseDown={onClose}>
       <aside
         aria-label="Patch details"
+        aria-modal="true"
         className="patch-drawer"
+        role="dialog"
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="drawer-header">
