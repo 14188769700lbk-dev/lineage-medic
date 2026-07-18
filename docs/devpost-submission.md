@@ -66,6 +66,8 @@ It does not perform a global string replacement. DataHub identifies the affected
 
 Every code-bound lineage asset must receive a repair, and every generated artifact must pass deterministic validation before the campaign becomes reviewable.
 
+LineageMedic is a bounded, tool-using code-generation agent rather than a chat response. It observes through DataHub MCP, plans an owner-specific migration, acts only on isolated repository copies, proves every generated change, and writes the approved decision back as durable DataHub memory. The planner is deliberately deterministic so it cannot invent repositories, skip a lineage-bound asset, or bypass the mutation gate.
+
 ## What it does
 
 Given `shipping_country → country_code`, LineageMedic:

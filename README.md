@@ -4,6 +4,19 @@
 
 Built for the [DataHub Agent Hackathon](https://datahub.devpost.com/) and released under Apache 2.0.
 
+## Judge it in 90 seconds
+
+| What to verify | Direct evidence |
+| --- | --- |
+| Working product | [Public no-login replay](https://14188769700lbk-dev.github.io/lineage-medic/) |
+| Under-three-minute walkthrough | [2:45 demo video](https://youtu.be/WohjWxcAYfo) |
+| Real DataHub MCP reads | [Sanitized live run manifest](examples/evidence/live-datahub-read-run.json) |
+| Approval-gated DataHub writeback | [Persisted-URN proof](examples/evidence/live-datahub-writeback.json) and [DataHub Decision](docs/assets/datahub-decision.jpg) |
+| Mergeable generated code | [Four-file repair PR #1](https://github.com/14188769700lbk-dev/lineage-medic/pull/1) with a successful check |
+| Open-source contribution | [DataHub Skills PR #36](https://github.com/datahub-project/datahub-skills/pull/36) |
+
+The [judge testing guide](docs/judge-testing.md) gives a 90-second public path, a credential-free local run, and the live DataHub MCP setup.
+
 ## Why it exists
 
 Impact analysis can tell you that a field has consumers. It usually stops before the expensive part: coordinating the migration and producing changes that each owning team can merge.
@@ -19,6 +32,14 @@ LineageMedic closes that gap. For the included `shipping_country → country_cod
 7. Keeps `save_document` behind an explicit mutation approval gate.
 
 This is intentionally more than a chat answer, a lineage viewer, or a PR comment. The output is a reproducible set of mergeable artifacts plus the evidence that justified them.
+
+## The bounded agent loop
+
+LineageMedic is a tool-using code-generation agent with a deliberately constrained loop:
+
+**observe** through DataHub MCP → **plan** an owner-specific migration → **act** on isolated repository copies → **prove** every generated change → **remember** the approved decision in DataHub.
+
+Its planner is deterministic by design. Compatibility policy, repair coverage, and external mutation are review boundaries, so an unconstrained model cannot silently invent a repository, skip a downstream asset, or bypass the approval gate. DataHub context still changes the generated code: the producer receives an alias, an internal consumer migrates directly, and a public-contract consumer changes its input while keeping its output stable.
 
 ## Try it in 60 seconds
 
@@ -123,7 +144,7 @@ flowchart LR
     F -->|"explicit approval"| G["DataHub save_document"]
 ```
 
-The repair engine is deterministic by design. An LLM can be added as a proposal source later, but it cannot bypass the validators or mutation gate. See [architecture.md](docs/architecture.md) for the component boundaries and threat model.
+The repair engine is deterministic by design; no proposal source can bypass the validators or mutation gate. See [architecture.md](docs/architecture.md) for the component boundaries and threat model.
 
 ## Open-source contribution
 
