@@ -137,6 +137,6 @@ Judges can use the public replay with no login, run the deterministic engine wit
 - [x] Project thumbnail and ordered screenshot gallery uploaded
 - [x] DataHub Decision document screenshot and sanitized persisted-URN proof
 - [x] Most Valuable Feedback survey completed and opted in
-- [ ] Team, country, age, eligibility, and entrant attestations completed by the entrant
-- [ ] Final Devpost submission confirmation
+- [x] Team, country, age, eligibility, and entrant attestations completed by the entrant
+- [x] Final Devpost submission confirmation
 - [ ] Public demo, repository, and video kept available through the judging period
