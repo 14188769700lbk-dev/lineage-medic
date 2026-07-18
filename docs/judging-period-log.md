@@ -30,3 +30,9 @@ This file records public availability and external feedback after the Devpost su
 - Recheck the public Devpost page, replay, repository, evidence links, video, CI, and Pages after any deployment or repository change.
 - Keep all public judging artifacts available until the competition results and any required verification are complete.
 - Treat any DataHub writeback, Devpost attestation, or legal acceptance as a separate approval-gated action.
+
+### Public communication and announcements
+
+- Devpost notifications are empty, the hackathon discussion board has no topics, and the project gallery has not been published yet.
+- The organizer announced a free `From Zero to a Working DataHub Agent in 30 Minutes` build session for July 21, 2026 at 14:00 UTC. Attendance requires a person to register and join; monitor the official updates page for a recording or reusable references after the session rather than claiming attendance.
+- Published the factual Devpost update [Live DataHub MCP proof is public](https://devpost.com/software/lineagemedic/updates/797949). It links the no-login replay, sanitized live-read evidence, and approved writeback proof, and makes no new capability claim beyond already published artifacts.
