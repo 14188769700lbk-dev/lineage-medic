@@ -36,3 +36,9 @@ This file records public availability and external feedback after the Devpost su
 - Devpost notifications are empty, the hackathon discussion board has no topics, and the project gallery has not been published yet.
 - The organizer announced a free `From Zero to a Working DataHub Agent in 30 Minutes` build session for July 21, 2026 at 14:00 UTC. Attendance requires a person to register and join; monitor the official updates page for a recording or reusable references after the session rather than claiming attendance.
 - Published the factual Devpost update [Live DataHub MCP proof is public](https://devpost.com/software/lineagemedic/updates/797949). It links the no-login replay, sanitized live-read evidence, and approved writeback proof, and makes no new capability claim beyond already published artifacts.
+
+### Clean-clone reproducibility audit
+
+- A first shallow clone of the public repository on Windows exposed a real portability defect: Git's default CRLF checkout changed the checked-in SQL/YAML bytes while the engine emitted LF, causing the strict sample-parity test to fail even though the generated code was semantically identical.
+- Added `.gitattributes` rules that preserve LF for all source and published text artifacts. The byte-level assertion was intentionally kept strict rather than weakened through newline normalization. Vitest now also ignores the local `tools/` directory so nested audit clones cannot be mistaken for project tests.
+- A second public shallow clone at commit `3196e16`, forced to `core.autocrlf=true` and using only D-drive npm cache/temp paths, completed `npm ci`, `npm run demo`, `npm run verify`, and `npm run health:public`. It produced three complete fixture MCP reads, four patches, four passed validators, and nine files contained beneath `.lineage-medic/runs/LM-204/`; `git status --porcelain` remained empty.

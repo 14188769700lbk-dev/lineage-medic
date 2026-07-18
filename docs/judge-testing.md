@@ -18,6 +18,8 @@ The public build cannot write to DataHub and does not claim a live connection.
 
 Requirements: Node.js 22.13+.
 
+The repository pins source and published text artifacts to LF through `.gitattributes`, so the byte-parity test remains strict on Windows even when Git is configured with `core.autocrlf=true`.
+
 ```bash
 npm ci
 npm run verify
@@ -37,6 +39,7 @@ Follow [`live-datahub-setup.md`](live-datahub-setup.md). The checked-in seed cre
 - generated patches: 4 across 3 repositories;
 - validators: 4 passed, 0 failed;
 - checked-in generated files: byte-identical to a fresh engine run;
+- fresh Windows clone: `npm ci`, `npm run demo`, `npm run verify`, and `npm run health:public` succeed with `core.autocrlf=true`;
 - public live MCP evidence: complete and free of local endpoints, host paths, and authentication material;
 - public replay writeback: never persisted;
 - live writeback: persisted only after explicit approval, with the returned non-preview URN recorded in the separate proof.
