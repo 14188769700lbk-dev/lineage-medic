@@ -1,5 +1,9 @@
 # LineageMedic
 
+[![CI](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/ci.yml)
+[![Hosted replay](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/pages.yml)
+[![Judging assets health](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/judging-health.yml/badge.svg?branch=main)](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/judging-health.yml)
+
 **Renovate for breaking data changes.** LineageMedic turns a proposed schema rename into a lineage-grounded, cross-repository repair campaign that teams can review before the breaking change merges.
 
 Built for the [DataHub Agent Hackathon](https://datahub.devpost.com/) and released under Apache 2.0.
@@ -155,6 +159,14 @@ The project also contributed [DataHub metadata audit skill PR #36](https://githu
 ```bash
 npm run verify
 ```
+
+Check the complete public judging surface—hosted replay assets, live DataHub evidence, writeback proof, video, and both pull requests—with:
+
+```bash
+npm run health:public
+```
+
+The same dependency-free check runs twice daily in [Judging assets health](https://github.com/14188769700lbk-dev/lineage-medic/actions/workflows/judging-health.yml).
 
 Current automated checks cover:
 

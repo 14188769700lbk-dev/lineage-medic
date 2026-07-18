@@ -14,6 +14,7 @@
     "dev:server": "tsx watch src/server/index.ts",
     "dev:web": "vite --config vite.client.config.ts --host 127.0.0.1",
     "dev:site": "vinext dev",
+    "health:public": "node scripts/check-public-assets.mjs",
     "build": "npm run typecheck && vite build --config vite.client.config.ts && tsup src/server/index.ts --format esm --platform node --out-dir dist-server --clean",
     "build:pages": "vite build --config vite.client.config.ts --mode pages --base /lineage-medic/ --outDir pages-dist",
     "build:site": "vinext build",
