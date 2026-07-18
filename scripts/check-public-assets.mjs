@@ -12,6 +12,7 @@ const urls = {
     "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/examples/evidence/live-datahub-writeback.json",
   dataHubDecision:
     "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/docs/assets/datahub-decision.jpg",
+  repository: "https://github.com/14188769700lbk-dev/lineage-medic",
   repairPr: "https://github.com/14188769700lbk-dev/lineage-medic/pull/1",
   upstreamPr: "https://github.com/datahub-project/datahub-skills/pull/36",
   youtubeOEmbed:
@@ -127,6 +128,15 @@ const checks = [
       assert(contentType.startsWith("image/"), `unexpected content type: ${contentType}`);
       assert(bytes > 100_000, `screenshot is unexpectedly small: ${bytes} bytes`);
       return `${contentType}, ${bytes} bytes`;
+    },
+  },
+  {
+    name: "Public Apache-2.0 repository",
+    run: async () => {
+      const html = await fetchText(urls.repository);
+      assert(html.includes("Apache-2.0 license"), "GitHub did not detect Apache-2.0");
+      assert(html.includes("Judge it in 90 seconds"), "judge-first README entry is missing");
+      return "Apache-2.0 detected and judge-first README rendered";
     },
   },
   {
