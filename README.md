@@ -208,6 +208,10 @@ docs/                Architecture, live setup, demo, and submission material
 
 The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, hosted replay, UI, CI, sanitized live read-run evidence, and a real generated-repair pull request are implemented. A separate explicit approval also completed a real `save_document` call; the [sanitized writeback proof](examples/evidence/live-datahub-writeback.json), [LineageMedic result](docs/assets/datahub-writeback.jpg), and [published DataHub Decision](docs/assets/datahub-decision.jpg) record the returned document URN while the hosted replay remains stateless.
 
+## Commercial pilot
+
+LineageMedic is also available as a tightly scoped, human-approved pilot for teams planning a dbt or warehouse schema migration. The offer starts with read-only evidence, works on isolated repository copies, and does not require production write access. See the [paid pilot brief](COMMERCIAL.md) for scope, proof, proposed pricing, and the qualification checklist. These prices are an offer hypothesis; they are not a claim of existing customers or revenue.
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

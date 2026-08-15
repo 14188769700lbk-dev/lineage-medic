@@ -1,0 +1,68 @@
+name: Pilot inquiry
+description: Request a non-sensitive scope check for a LineageMedic schema-change pilot.
+title: "[Pilot] "
+labels:
+  - pilot-inquiry
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in a LineageMedic pilot. This issue is public. Do not include credentials, private schemas, customer data, internal hostnames, or confidential architecture.
+
+  - type: dropdown
+    id: pilot_type
+    attributes:
+      label: Pilot type
+      options:
+        - Schema Change Risk Review
+        - Repair Campaign Pilot
+        - Team Integration Sprint
+    validations:
+      required: true
+
+  - type: input
+    id: stack
+    attributes:
+      label: Public-safe stack summary
+      description: For example, DataHub Cloud + Snowflake + dbt + GitHub.
+    validations:
+      required: true
+
+  - type: textarea
+    id: change
+    attributes:
+      label: Representative change
+      description: Describe one change without sharing sensitive identifiers or data.
+      placeholder: Rename one warehouse field used by several dbt models and dashboards.
+    validations:
+      required: true
+
+  - type: input
+    id: scope
+    attributes:
+      label: Approximate scope
+      description: Number of domains, repositories, and affected owners.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timing
+    attributes:
+      label: Decision timing
+      options:
+        - Within 2 weeks
+        - Within 30 days
+        - This quarter
+        - Researching only
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public issue safety
+      options:
+        - label: I have not included credentials, private data, or confidential system details.
+          required: true
+        - label: I understand that any paid scope, access, privacy terms, and payment terms require a separate written agreement.
+          required: true
