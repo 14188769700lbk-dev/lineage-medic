@@ -48,6 +48,8 @@ const liveWritebackProofUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/examples/evidence/live-datahub-writeback.json";
 const datahubDecisionScreenshotUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg";
+const pilotInquiryUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/issues/new/choose";
 const verifiedWritebackUrn =
   "urn:li:document:shared-2daff315-7440-4ffb-b1db-2fe18c765c30";
 
@@ -184,6 +186,12 @@ function Topbar() {
         <span className="branch-chip">
           <GitBranch size={14} /> feature/country-code
         </span>
+        <a
+          className="ghost-button pilot-button"
+          href={pilotInquiryUrl}
+        >
+          <Users size={14} /> Request a pilot
+        </a>
         <a
           className="ghost-button"
           href={changeRequestUrl}

@@ -357,6 +357,17 @@ a:focus-visible {
   font-weight: 620;
 }
 
+.pilot-button {
+  color: var(--mint);
+  background: var(--mint-soft);
+  border-color: rgba(109, 214, 176, 0.22);
+}
+
+.pilot-button:hover {
+  color: #d8f8eb;
+  border-color: rgba(109, 214, 176, 0.48);
+}
+
 .branch-chip,
 .tool-badge,
 .success-badge {
@@ -1537,7 +1548,7 @@ main {
 
 @media (max-width: 820px) {
   .topbar-actions .branch-chip,
-  .topbar-actions .ghost-button {
+  .topbar-actions .ghost-button:not(.pilot-button) {
     display: none;
   }
 
