@@ -50,6 +50,10 @@ const datahubDecisionScreenshotUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg";
 const pilotInquiryUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/issues/new/choose";
+const sampleRiskReviewUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/sample-risk-review.md";
+const commercialBriefUrl =
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/COMMERCIAL.md";
 const verifiedWritebackUrn =
   "urn:li:document:shared-2daff315-7440-4ffb-b1db-2fe18c765c30";
 
@@ -720,6 +724,56 @@ function EvidencePanel({
   );
 }
 
+function PilotOffer() {
+  return (
+    <section className="panel pilot-offer" aria-labelledby="pilot-offer-title">
+      <div className="pilot-offer-copy">
+        <span className="section-kicker">Fixed-scope commercial pilot</span>
+        <h2 id="pilot-offer-title">
+          One risky schema change. Five days. No production writes.
+        </h2>
+        <p>
+          Get a read-only blast-radius, ownership, and contract-risk review for
+          one proposed rename, removal, or compatible type change. Start with
+          sanitized metadata and isolated repository snapshots.
+        </p>
+        <div className="pilot-proof-row" aria-label="Pilot boundaries">
+          <span>
+            <ShieldCheck size={13} /> Read-only discovery
+          </span>
+          <span>
+            <Clock3 size={13} /> Five-business-day target
+          </span>
+          <span>
+            <CheckCircle2 size={13} /> Reviewable evidence
+          </span>
+        </div>
+      </div>
+      <div className="pilot-offer-action">
+        <span>Schema Change Risk Review</span>
+        <strong>
+          <small>USD</small> 750
+        </strong>
+        <p>Fixed scope · one data domain · up to 25 catalog assets</p>
+        <a className="primary-button" href={pilotInquiryUrl}>
+          <Users size={16} /> Request a non-sensitive scope check
+        </a>
+        <div className="pilot-offer-links">
+          <a href={sampleRiskReviewUrl} rel="noreferrer" target="_blank">
+            Sample deliverable <ExternalLink size={12} />
+          </a>
+          <a href={commercialBriefUrl} rel="noreferrer" target="_blank">
+            Full scope <ExternalLink size={12} />
+          </a>
+        </div>
+        <small className="pilot-disclosure">
+          Offer hypothesis, not a claim of existing customers or revenue.
+        </small>
+      </div>
+    </section>
+  );
+}
+
 function PatchDrawer({
   patch,
   onClose,
@@ -946,6 +1000,7 @@ export function App() {
               />
             </>
           )}
+          <PilotOffer />
           <footer className="app-footer">
             <span>LineageMedic · Built for the DataHub Agent Hackathon</span>
             <span>

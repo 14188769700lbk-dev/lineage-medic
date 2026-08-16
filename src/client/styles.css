@@ -1249,6 +1249,154 @@ main {
   font-size: 8px;
 }
 
+.pilot-offer {
+  position: relative;
+  margin-top: 14px;
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: 34px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(109, 214, 176, 0.1), transparent 23rem),
+    linear-gradient(132deg, rgba(244, 125, 97, 0.05), transparent 50%),
+    var(--surface);
+}
+
+.pilot-offer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(90deg, black, transparent 86%);
+}
+
+.pilot-offer-copy,
+.pilot-offer-action {
+  position: relative;
+  z-index: 1;
+}
+
+.pilot-offer-copy h2 {
+  max-width: 680px;
+  margin: 9px 0 0;
+  font-size: clamp(20px, 2.4vw, 31px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.pilot-offer-copy > p {
+  max-width: 680px;
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.pilot-proof-row {
+  margin-top: 19px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pilot-proof-row span {
+  min-height: 29px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #adbbb5;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 8px;
+}
+
+.pilot-proof-row svg {
+  color: var(--mint);
+}
+
+.pilot-offer-action {
+  padding: 20px;
+  display: grid;
+  background: rgba(9, 12, 11, 0.74);
+  border: 1px solid rgba(109, 214, 176, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+.pilot-offer-action > span {
+  color: var(--mint);
+  font-size: 8px;
+  font-weight: 720;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.pilot-offer-action > strong {
+  margin-top: 8px;
+  font-size: 31px;
+  letter-spacing: -0.045em;
+}
+
+.pilot-offer-action > strong small {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.pilot-offer-action > p {
+  margin: 4px 0 14px;
+  color: var(--muted-2);
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.pilot-offer-action > .primary-button {
+  width: 100%;
+  text-decoration: none;
+}
+
+.pilot-offer-links {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.pilot-offer-links a {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #9da9a3;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 8px;
+  text-decoration: none;
+  transition: 150ms ease;
+}
+
+.pilot-offer-links a:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+  border-color: var(--border-strong);
+}
+
+.pilot-disclosure {
+  margin-top: 11px;
+  color: #56605b;
+  font-size: 7px;
+  line-height: 1.45;
+  text-align: center;
+}
+
 .app-footer {
   min-height: 60px;
   padding: 14px 3px 0;
@@ -1568,8 +1716,13 @@ main {
   }
 
   .main-grid,
-  .evidence-grid {
+  .evidence-grid,
+  .pilot-offer {
     grid-template-columns: 1fr;
+  }
+
+  .pilot-offer {
+    gap: 22px;
   }
 
   .timeline {
@@ -1647,6 +1800,14 @@ main {
   .app-footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .pilot-offer {
+    padding: 22px 18px;
+  }
+
+  .pilot-offer-links {
+    grid-template-columns: 1fr;
   }
 
   .drawer-footer {
