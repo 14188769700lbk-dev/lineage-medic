@@ -152,7 +152,7 @@ The dry-run path uses a checked synthetic extraction fixture and never contacts 
 
 The account owner must confirm before:
 
-- registering for the DevNetwork event;
+- registering for the DevNetwork event. The live registration form requires a truthful company/affiliation label and employee-count range, then separate acceptance of the eligibility requirements and the Official Rules/Devpost Terms. No company value or employee range has been supplied, so these fields must not be guessed;
 - creating a Nutrient account and accepting its current terms/privacy policy;
 - creating a SerpApi account and accepting its current terms/privacy policy;
 - sending any provider-support message;
