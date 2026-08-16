@@ -17,6 +17,7 @@ Prospects can inspect the complete technical proof before sharing any private da
 - [No-login hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/)
 - [2:45 product walkthrough](https://youtu.be/WohjWxcAYfo)
 - [Four-file generated repair PR](https://github.com/14188769700lbk-dev/lineage-medic/pull/1)
+- [Synthetic sample risk-review report](docs/sample-risk-review.md)
 - [Sanitized DataHub MCP run manifest](examples/evidence/live-datahub-read-run.json)
 - [Approval-gated writeback proof](examples/evidence/live-datahub-writeback.json)
 - [Automated verification](https://github.com/14188769700lbk-dev/lineage-medic/actions)
