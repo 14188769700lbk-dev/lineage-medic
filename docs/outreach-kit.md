@@ -38,7 +38,7 @@ Suggested first comment:
 
 > I built LineageMedic after noticing that lineage tools usually stop at showing impact. The harder part is deciding which consumers can migrate directly, which public outputs need compatibility, and whether every code-bound asset received a repair.
 >
-> The hosted replay uses a synthetic `shipping_country → country_code` change. It traces seven affected assets, assigns compatibility policy per consumer, generates a four-file SQL/YAML patch, and runs deterministic parser, ref, contract, and coverage checks. External writes stay behind explicit human approval.
+> The hosted replay uses a synthetic `shipping_country → country_code` change. It traces six affected assets, assigns compatibility policy per consumer, generates a four-file SQL/YAML patch, and runs deterministic parser, ref, contract, and coverage checks. External writes stay behind explicit human approval.
 >
 > You can try the complete replay without an account: https://14188769700lbk-dev.github.io/lineage-medic/
 >
