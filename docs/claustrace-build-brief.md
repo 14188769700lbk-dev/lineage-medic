@@ -2,7 +2,7 @@
 
 **Target:** DevNetwork API + Cloud + AI Hackathon 2026 — Nutrient DWS and SerpApi sponsor challenges
 **Build window:** August 17, 2026 10:00 AM PT through September 3, 2026 10:00 AM PT  
-**Status:** pre-event product and compliance plan only; no implementation repository has been initialized
+**Status:** DevNetwork registration completed August 16; pre-event product and compliance plan only; no implementation repository has been initialized
 
 ## One-line pitch
 
@@ -150,9 +150,12 @@ The dry-run path uses a checked synthetic extraction fixture and never contacts 
 
 ## External gates
 
-The account owner must confirm before:
+Completed gate:
 
-- registering for the DevNetwork event. The live registration form requires a truthful company/affiliation label and employee-count range, then separate acceptance of the eligibility requirements and the Official Rules/Devpost Terms. No company value or employee range has been supplied, so these fields must not be guessed;
+- DevNetwork registration was submitted on August 16 as a working-solo `Independent developer` entry in the `1 - 9` range, after the account owner explicitly confirmed eligibility and accepted the Official Rules and Devpost Terms.
+
+The account owner must still confirm before:
+
 - creating a Nutrient account and accepting its current terms/privacy policy;
 - creating a SerpApi account and accepting its current terms/privacy policy;
 - sending any provider-support message;

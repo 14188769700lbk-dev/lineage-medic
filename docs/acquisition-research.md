@@ -6,8 +6,8 @@ This list separates verified public opportunities from hypotheses. Listings can 
 
 | Priority | Opportunity | Verified signal | Fit | Next action |
 | --- | --- | --- | --- | --- |
-| 1 | [CALL-E hackathon](https://call-e.devpost.com/) | Registered; $10,000 cash; deadline September 14 at 11:45pm SGT; open to adults outside excluded regions | High for SchemaRelay | Submit the prepared official-repo PR after action-time approval, create a CALL-E account, place one authorized live call, and publish the verified video on YouTube or Vimeo |
-| 2 | [DevNetwork API + Cloud + AI — Nutrient DWS + SerpApi](https://api-cloud-ai-hackathon-2026.devpost.com/) | Event runs August 17–September 3; adults from any country; the official instructions allow one new project to select multiple sponsor challenges. Nutrient first place is a $750 Visa gift card plus credits; SerpApi first place is $1,000 cash plus credits | High for a new ClauseTrace build | Build from scratch after the opening time. Use DWS for cited extraction/review/evidence packets and SerpApi for live official-source discovery. Target both separately judged sponsor tracks without implying both prizes can be won |
+| 1 | [CALL-E hackathon](https://call-e.devpost.com/) | Registered; $10,000 cash; deadline September 14 at 11:45pm SGT; open to adults outside excluded regions; [official-list PR #173](https://github.com/CALLE-AI/awesome-phone-call-agents/pull/173) submitted and open without conflicts | High for SchemaRelay | Create a CALL-E account, place one authorized live call, publish the verified video on YouTube or Vimeo, and include PR #173 in the final submission evidence |
+| 2 | [DevNetwork API + Cloud + AI — Nutrient DWS + SerpApi](https://api-cloud-ai-hackathon-2026.devpost.com/) | Registration completed on August 16; submission period opens August 17 at 10:00am PDT and ends September 3. The official instructions allow one new project to select multiple sponsor challenges. Nutrient first place is a $750 Visa gift card plus credits; SerpApi first place is $1,000 cash plus credits | High for a new ClauseTrace build | Build from scratch after the opening time. Use DWS for cited extraction/review/evidence packets and SerpApi for live official-source discovery. Target both separately judged sponsor tracks without implying both prizes can be won |
 
 No paid marketplace lead passed the August 16 actionability audit strongly enough to remain in the priority table. That is a negative finding, not an absence of research: see the paid-lead audit below.
 
@@ -23,7 +23,7 @@ The August 16 search did not confirm a fresh, zero-upfront marketplace lead with
 
 ## New-build brief — ClauseTrace
 
-ClauseTrace is the best current fit for two separately judged DevNetwork sponsor challenges: Nutrient DWS and SerpApi. The official event instructions say teams may solve zero, one, or multiple challenges and select multiple sponsor prizes on one submission. It must still be a genuinely new repository and implementation created after the August 17 opening time.
+ClauseTrace is the best current fit for two separately judged DevNetwork sponsor challenges: Nutrient DWS and SerpApi. Registration is complete. The official event instructions say teams may solve zero, one, or multiple challenges and select multiple sponsor prizes on one submission. It must still be a genuinely new repository and implementation created after the August 17 opening time.
 
 The implementation-ready specification is in [`claustrace-build-brief.md`](claustrace-build-brief.md). Do not initialize its project repository or write implementation code before the official opening time.
 
