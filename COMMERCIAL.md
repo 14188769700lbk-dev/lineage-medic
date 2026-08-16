@@ -95,6 +95,6 @@ The default engagement uses sanitized metadata exports and isolated repository c
 
 ## Start a conversation
 
-Use the repository's **Pilot inquiry** issue form. Do not include credentials, private schemas, customer data, or confidential architecture in a public issue. The first step is a scope check using only non-sensitive information.
+Use the repository's [**Pilot inquiry** issue form](https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml). Do not include credentials, private schemas, customer data, or confidential architecture in a public issue. The first step is a scope check using only non-sensitive information.
 
 The delivery process and acceptance criteria are documented in [the pilot runbook](docs/pilot-delivery.md).

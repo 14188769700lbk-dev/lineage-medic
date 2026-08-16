@@ -210,7 +210,7 @@ The fixture path, live MCP transport, self-hosted DataHub seed, repair engine, h
 
 ## Commercial pilot
 
-LineageMedic is also available as a tightly scoped, human-approved pilot for teams planning a dbt or warehouse schema migration. The offer starts with read-only evidence, works on isolated repository copies, and does not require production write access. See the [paid pilot brief](COMMERCIAL.md) for scope, proof, proposed pricing, and the qualification checklist. These prices are an offer hypothesis; they are not a claim of existing customers or revenue.
+LineageMedic is also available as a tightly scoped, human-approved pilot for teams planning a dbt or warehouse schema migration. The offer starts with read-only evidence, works on isolated repository copies, and does not require production write access. See the [paid pilot brief](COMMERCIAL.md) for scope, proof, proposed pricing, and the qualification checklist, or [request a non-sensitive scope check](https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml). These prices are an offer hypothesis; they are not a claim of existing customers or revenue.
 
 ## License
 

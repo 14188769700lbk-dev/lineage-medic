@@ -49,7 +49,7 @@ const liveWritebackProofUrl =
 const datahubDecisionScreenshotUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg";
 const pilotInquiryUrl =
-  "https://github.com/14188769700lbk-dev/lineage-medic/issues/new/choose";
+  "https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml";
 const sampleRiskReviewUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/sample-risk-review.md";
 const commercialBriefUrl =
@@ -193,6 +193,8 @@ function Topbar() {
         <a
           className="ghost-button pilot-button"
           href={pilotInquiryUrl}
+          rel="noreferrer"
+          target="_blank"
         >
           <Users size={14} /> Request a pilot
         </a>
@@ -755,7 +757,12 @@ function PilotOffer() {
           <small>USD</small> 750
         </strong>
         <p>Fixed scope · one data domain · up to 25 catalog assets</p>
-        <a className="primary-button" href={pilotInquiryUrl}>
+        <a
+          className="primary-button"
+          href={pilotInquiryUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
           <Users size={16} /> Request a non-sensitive scope check
         </a>
         <div className="pilot-offer-links">
