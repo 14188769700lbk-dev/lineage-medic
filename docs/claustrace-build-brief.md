@@ -2,7 +2,7 @@
 
 **Target:** DevNetwork API + Cloud + AI Hackathon 2026 — Nutrient DWS and SerpApi sponsor challenges
 **Build window:** August 17, 2026 10:00 AM PT through September 3, 2026 10:00 AM PT  
-**Status:** DevNetwork registration completed August 16; pre-event product and compliance plan only; no implementation repository has been initialized
+**Status:** DevNetwork, Nutrient DWS, and SerpApi account signups completed; SerpApi verification and Nutrient key rotation remain pending; no implementation repository has been initialized
 
 ## One-line pitch
 
@@ -22,7 +22,7 @@ The Nutrient challenge asks for trustworthy document workflows where determinist
 The event's official instructions allow one new project to select multiple sponsor challenges. SerpApi is a coherent second track rather than a bolt-on:
 
 - [SerpApi's Google Search API](https://serpapi.com/search-api) returns structured organic results and a provider search ID/status from `GET https://serpapi.com/search?engine=google`.
-- [The free plan](https://serpapi.com/pricing) currently advertises 250 searches per month. Account terms still require explicit acceptance by the account owner.
+- [The free plan](https://serpapi.com/pricing) currently advertises 250 searches per month. Its post-signup plan screen labels the free tier non-commercial only, so it is suitable for the hackathon prototype but not an assumed commercial production entitlement.
 - The sponsor challenge awards a $1,000 cash first-place component plus $1,000 in credits, and asks for live structured search data that materially improves the AI workflow.
 - ClauseTrace uses search for current-source discovery and contradiction detection. It never treats a result title or snippet as proof of an underlying obligation.
 
@@ -153,11 +153,13 @@ The dry-run path uses a checked synthetic extraction fixture and never contacts 
 Completed gate:
 
 - DevNetwork registration was submitted on August 16 as a working-solo `Independent developer` entry in the `1 - 9` range, after the account owner explicitly confirmed eligibility and accepted the Official Rules and Devpost Terms.
+- Nutrient DWS signup completed through GitHub OAuth with read-only email access; the dashboard confirmed a Free plan with 50 monthly credits.
+- SerpApi signup completed through GitHub OAuth with read-only profile and email access; the welcome page confirmed the 250-search Free plan, with account verification still required.
 
 The account owner must still confirm before:
 
-- creating a [Nutrient DWS account](https://dashboard.nutrient.io/sign_up/?product=processor) and accepting its [Terms of Service](https://www.nutrient.io/api/terms/). GitHub or Google signup currently receives 50 monthly credits and higher file-size limits; email signup is limited to 5 MB and watermarked output. OAuth would transmit the selected account identity and email to Nutrient;
-- creating a [SerpApi free account](https://serpapi.com/users/sign_up?plan=free) and accepting its [Terms and Conditions](https://serpapi.com/legal). GitHub, Google, or direct email signup are available; OAuth would transmit the selected account identity and email to SerpApi;
+- rotating the automatically generated Nutrient API key before first use; rotation invalidates the current key and creates a replacement, which must remain outside logs, screenshots, fixtures, and Git history;
+- accessing the account owner's inbox to verify SerpApi, or asking the account owner to complete that step manually. Any later phone verification and one-time code must be handled with separate action-time confirmation;
 - sending any provider-support message;
 - publishing the final Devpost submission or video.
 
