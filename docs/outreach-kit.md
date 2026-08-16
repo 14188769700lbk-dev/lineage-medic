@@ -28,6 +28,39 @@ Do not add years of experience, client names, revenue, or certifications unless 
 
 Use this only where project sharing is permitted. Do not post the same copy repeatedly or hide the commercial connection.
 
+## Show HN launch
+
+Suggested title:
+
+> Show HN: LineageMedic – turn DataHub column lineage into reviewed dbt repair drafts
+
+Suggested first comment:
+
+> I built LineageMedic after noticing that lineage tools usually stop at showing impact. The harder part is deciding which consumers can migrate directly, which public outputs need compatibility, and whether every code-bound asset received a repair.
+>
+> The hosted replay uses a synthetic `shipping_country → country_code` change. It traces seven affected assets, assigns compatibility policy per consumer, generates a four-file SQL/YAML patch, and runs deterministic parser, ref, contract, and coverage checks. External writes stay behind explicit human approval.
+>
+> You can try the complete replay without an account: https://14188769700lbk-dev.github.io/lineage-medic/
+>
+> Source and evidence: https://github.com/14188769700lbk-dev/lineage-medic
+>
+> I would particularly value criticism of the compatibility-policy model and the cases where lineage evidence is still too weak to generate a safe draft.
+
+This follows Show HN's requirement that the linked artifact be substantial and directly usable. Do not ask for upvotes, hide the commercial pilot offer, or post unless the account owner can stay available to answer technical questions.
+
+## DataHub `#show-and-tell`
+
+> I built a small open-source experiment around a question I keep running into: once DataHub has shown the blast radius of a column change, how much of a safe repair plan can be derived without pretending lineage is complete?
+>
+> The replay maps each downstream asset to a compatibility policy, drafts dbt/SQL changes, blocks unknown repository bindings, and checks whether every code-bound consumer received a patch. It uses only synthetic metadata and keeps writeback behind human approval.
+>
+> Demo: https://14188769700lbk-dev.github.io/lineage-medic/
+> Source: https://github.com/14188769700lbk-dev/lineage-medic
+>
+> Feedback on the policy model and missing-evidence boundary would be very useful.
+
+Join and post only after reviewing the current workspace rules and obtaining action-time approval for the public message.
+
 ## Discovery-call structure
 
 1. Ask for the next concrete breaking change, not a generic platform wish list.
