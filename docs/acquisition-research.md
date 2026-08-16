@@ -17,6 +17,8 @@ This list separates verified public opportunities from hypotheses. Listings can 
 
 ClauseTrace is the best current fit for the DevNetwork Nutrient DWS sponsor challenge. It must be a genuinely new repository and implementation created after the August 17 opening time.
 
+The implementation-ready specification is in [`claustrace-build-brief.md`](claustrace-build-brief.md). Do not initialize its project repository or write implementation code before the official opening time.
+
 - Input: a contract, API change notice, or data-processing addendum in PDF form.
 - DWS role: extract clauses and tables with confidence, render uncertain passages for human review, and sign/archive the final evidence artifact.
 - Agent role: map accepted obligations to schema-migration constraints such as retention, compatibility windows, field restrictions, and approval owners.
