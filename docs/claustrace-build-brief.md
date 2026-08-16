@@ -156,8 +156,8 @@ Completed gate:
 
 The account owner must still confirm before:
 
-- creating a Nutrient account and accepting its current terms/privacy policy;
-- creating a SerpApi account and accepting its current terms/privacy policy;
+- creating a [Nutrient DWS account](https://dashboard.nutrient.io/sign_up/?product=processor) and accepting its [Terms of Service](https://www.nutrient.io/api/terms/). GitHub or Google signup currently receives 50 monthly credits and higher file-size limits; email signup is limited to 5 MB and watermarked output. OAuth would transmit the selected account identity and email to Nutrient;
+- creating a [SerpApi free account](https://serpapi.com/users/sign_up?plan=free) and accepting its [Terms and Conditions](https://serpapi.com/legal). GitHub, Google, or direct email signup are available; OAuth would transmit the selected account identity and email to SerpApi;
 - sending any provider-support message;
 - publishing the final Devpost submission or video.
 
