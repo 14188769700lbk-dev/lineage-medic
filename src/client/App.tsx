@@ -191,12 +191,13 @@ function Topbar() {
           <GitBranch size={14} /> feature/country-code
         </span>
         <a
+          aria-label="Scope a USD 750 schema change risk review"
           className="ghost-button pilot-button"
           href={pilotInquiryUrl}
           rel="noreferrer"
           target="_blank"
         >
-          <Users size={14} /> Request a pilot
+          <Users size={14} /> Scope a $750 review
         </a>
         <a
           className="ghost-button"
