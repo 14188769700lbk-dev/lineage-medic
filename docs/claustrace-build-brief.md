@@ -2,7 +2,7 @@
 
 **Target:** DevNetwork API + Cloud + AI Hackathon 2026 — Nutrient DWS and SerpApi sponsor challenges
 **Build window:** August 17, 2026 10:00 AM PT through September 3, 2026 10:00 AM PT  
-**Status:** DevNetwork, Nutrient DWS, and SerpApi account signups completed; SerpApi verification and Nutrient key rotation remain pending; no implementation repository has been initialized
+**Status:** DevNetwork, Nutrient DWS, and SerpApi account signups completed; the initial Nutrient key was rotated and SerpApi email confirmation was completed; SerpApi phone verification remains pending; no implementation repository has been initialized
 
 ## One-line pitch
 
@@ -153,13 +153,12 @@ The dry-run path uses a checked synthetic extraction fixture and never contacts 
 Completed gate:
 
 - DevNetwork registration was submitted on August 16 as a working-solo `Independent developer` entry in the `1 - 9` range, after the account owner explicitly confirmed eligibility and accepted the Official Rules and Devpost Terms.
-- Nutrient DWS signup completed through GitHub OAuth with read-only email access; the dashboard confirmed a Free plan with 50 monthly credits.
-- SerpApi signup completed through GitHub OAuth with read-only profile and email access; the welcome page confirmed the 250-search Free plan, with account verification still required.
+- Nutrient DWS signup completed through GitHub OAuth with read-only email access; the dashboard confirmed a Free plan with 50 monthly credits. The automatically generated key was rotated on August 17 before first use; the replacement was not read, copied, saved, or committed.
+- SerpApi signup completed through GitHub OAuth with read-only profile and email access; the welcome page confirmed the 250-search Free plan. The SerpApi confirmation email was found through a sender-scoped inbox search and its confirmation link was opened on August 17 without inspecting unrelated messages. The next GitHub sign-in redirected to SerpApi phone verification, where the workflow was stopped without submitting a phone number or requesting a code.
 
 The account owner must still confirm before:
 
-- rotating the automatically generated Nutrient API key before first use; rotation invalidates the current key and creates a replacement, which must remain outside logs, screenshots, fixtures, and Git history;
-- accessing the account owner's inbox to verify SerpApi, or asking the account owner to complete that step manually. Any later phone verification and one-time code must be handled with separate action-time confirmation;
+- completing SerpApi phone verification or handling any one-time code; the current authorization explicitly required stopping at this gate;
 - sending any provider-support message;
 - publishing the final Devpost submission or video.
 
