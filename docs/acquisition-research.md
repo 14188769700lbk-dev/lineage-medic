@@ -1,4 +1,4 @@
-# Acquisition research — 2026-08-16
+# Acquisition research — 2026-08-17
 
 This list separates verified public opportunities from hypotheses. Listings can close or change; re-check the source before spending proposal credits or making a commitment.
 
@@ -6,10 +6,10 @@ This list separates verified public opportunities from hypotheses. Listings can 
 
 | Priority | Opportunity | Verified signal | Fit | Next action |
 | --- | --- | --- | --- | --- |
-| 1 | [CALL-E hackathon](https://call-e.devpost.com/) | Registered; $10,000 cash; deadline September 14 at 11:45pm SGT; open to adults outside excluded regions; [official-list PR #173](https://github.com/CALLE-AI/awesome-phone-call-agents/pull/173) submitted and open without conflicts | High for SchemaRelay | Create a CALL-E account, place one authorized live call, publish the verified video on YouTube or Vimeo, and include PR #173 in the final submission evidence |
-| 2 | [DevNetwork API + Cloud + AI — Nutrient DWS + SerpApi](https://api-cloud-ai-hackathon-2026.devpost.com/) | Registration completed on August 16; submission period opens August 17 at 10:00am PDT and ends September 3. The official instructions allow one new project to select multiple sponsor challenges. Nutrient first place is a $750 Visa gift card plus credits; SerpApi first place is $1,000 cash plus credits | High for a new ClauseTrace build | Build from scratch after the opening time. Use DWS for cited extraction/review/evidence packets and SerpApi for live official-source discovery. Target both separately judged sponsor tracks without implying both prizes can be won |
+| 1 | [CALL-E hackathon](https://call-e.devpost.com/) | Registered; $10,000 cash; deadline September 14 at 11:45pm SGT; open to adults outside excluded regions; [official-list PR #173](https://github.com/CALLE-AI/awesome-phone-call-agents/pull/173) submitted and open without conflicts. The official login flow is prepared, but logging in explicitly accepts CALL-E's Terms of Service and Privacy Policy and therefore remains uncompleted | High for SchemaRelay | After specific terms confirmation, complete CALL-E authentication, place one authorized live call, publish the verified video on YouTube or Vimeo, and include PR #173 in the final submission evidence |
+| 2 | [DevNetwork API + Cloud + AI — Nutrient DWS + SerpApi](https://api-cloud-ai-hackathon-2026.devpost.com/) | Registration and both provider-account setups are complete; submission period opens August 17 at 10:00am PDT and ends September 3. On August 17 the official overview displayed 661 participants and $45,500 across the event, but ClauseTrace's directly targeted first-place components remain the $750 Nutrient Visa gift card and $1,000 SerpApi cash award plus provider credits | High for a new ClauseTrace build | Build from scratch after the opening time. Use DWS for cited extraction/review/evidence packets and SerpApi for live official-source discovery. Target both separately judged sponsor tracks without treating the total event pool as expected revenue |
 
-No paid marketplace lead passed the August 16 actionability audit strongly enough to remain in the priority table. That is a negative finding, not an absence of research: see the paid-lead audit below.
+No paid marketplace lead currently passes every actionability gate strongly enough to enter the priority table. That is a negative finding, not an absence of research: see the paid-lead audit below.
 
 ## Paid-lead audit
 
@@ -18,8 +18,10 @@ No paid marketplace lead passed the August 16 actionability audit strongly enoug
 | [Data warehousing and AI integration](https://www.upwork.com/freelance-jobs/apply/Data-Warehousing-Expert-Needed-for-Integrations_~022010778210812530617/) | The public page now shows 20–50 proposals, ten interviews, one hire, and that the client last viewed it four weeks ago | Remove from outreach queue; the $3,600 headline is not a useful signal after a hire |
 | [Short dbt/Databricks project](https://www.upwork.com/freelance-jobs/apply/Dbt-related-project_~022014003843433217840/) | The canonical job URL now redirects to an unrelated structural-engineering category page | Treat as closed; do not spend proposal credits |
 | [dbt testing and CI training](https://www.upwork.com/freelance-jobs/apply/DBT-Training-for-script-development-for-business-logic_~022012175636033364781/) | Public page still renders; $12–$30/hour, 5–10 proposals, five interviews, client last viewed three weeks ago | Technically aligned but weak timing. Apply only if the account already has unused Connects and the profile can truthfully support dbt/SQL/GitHub CI work |
+| [Experience Data Engineer](https://www.upwork.com/freelance-jobs/apply/Experience-Data-Engineer_~022006471027377981341/) | The August 17 canonical page still renders as worldwide, $15–$35/hour, 15–20 proposals, one interview, and last viewed five days ago. It asks for Python, SQL, schema/data migration, dbt and several cloud tools in a 6+ month contract-to-hire engagement | Stronger timing and stack fit than the stale leads, but not executable without a truthful Upwork profile, availability, identity checks, and any proposal-credit decision. Prepare a proof-led proposal only after those gates exist; do not invent broad cloud experience |
+| [Space and Time Algora bounties](https://algora.io/spaceandtimelabs/home) | Algora still advertises a $10,000 nullable-column bounty, but its canonical GitHub issue #183 is closed. The advertised test-performance issue #557 is also closed; the remaining $100 Scalar-conversion issue #228 is open but already links several competing pull requests | Reject the displayed headline as stale or over-contested; do not divert from the higher-fit hackathons |
 
-The August 16 search did not confirm a fresh, zero-upfront marketplace lead with low proposal competition. Search-engine snippets that say “posted yesterday” were rejected whenever the canonical Upwork URL redirected or the live page showed stale activity. A listing is not counted as executable until its canonical page still renders and shows recent client activity.
+The August 17 search confirmed one still-active worldwide listing, but not a zero-dependency application path: an Upwork identity/profile, truthful availability, and any Connects cost remain unresolved. Search-engine snippets that say “posted yesterday” were rejected whenever the canonical Upwork URL redirected or the live page showed stale activity. A listing is not counted as executable until its canonical page still renders and every account, identity, location, and proposal-cost gate can be satisfied truthfully.
 
 ## New-build brief — ClauseTrace
 
@@ -36,6 +38,15 @@ The implementation-ready specification is in [`claustrace-build-brief.md`](claus
 - Commercial follow-through: offer the same workflow as a paid pre-migration contract review, without presenting it as legal advice.
 
 The Nutrient challenge offers free DWS event access but requires a Nutrient account and meaningful live API/SDK/Viewer use. SerpApi advertises a free plan with 250 searches per month; its challenge requires live structured search data to materially improve the AI experience. Both account creations and acceptance of provider terms require the account owner's confirmation. The event's overall Top 5 must be physically onsite in Santa Clara for the final pitch, so the current plan targets the remotely judged sponsor challenges unless travel is separately confirmed.
+
+## DevNetwork sponsor portfolio audit — August 17
+
+The live event page added several sponsor tracks after the first audit. Most are either still marked “Coming Soon” or would require a separate product direction. One optional extension is coherent enough to retain:
+
+- [Doctavian — Generate It Right. Sign It Tight.](https://api-cloud-ai-hackathon-2026.devpost.com/) offers a $500 first-place cash component plus subscription value and requires the agent to call Doctavian's generation API. ClauseTrace already needs to turn reviewed structured data into an evidence document, so a `PacketBuilder` adapter could use Doctavian without changing the product story.
+- This is an extension gate, not part of the minimum build. Nutrient extraction/review and SerpApi current-source discovery must pass their live acceptance tests first. Only then should the project compare Doctavian integration cost against its additional prize probability.
+- Doctavian says entrants must contact the sponsor for credentials. No message has been sent, because outbound provider contact remains a separately confirmed action.
+- Foxit, Apptio, useBruno and Wundergraph were still listed as “Coming Soon” on August 17. Xano requires a meaningful Xano backend and a coupon checkout flow; name.com requires a functionally central domain API. Neither is a credible bolt-on to ClauseTrace.
 
 ## Deliberate exclusions
 

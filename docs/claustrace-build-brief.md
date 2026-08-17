@@ -161,4 +161,6 @@ The account owner must still confirm before:
 - sending any provider-support message;
 - publishing the final Devpost submission or video.
 
+An optional Doctavian `PacketBuilder` adapter may be evaluated only after the Nutrient and SerpApi live acceptance paths pass. It is not part of the minimum build, requires sponsor-provided credentials obtained through an outbound message, and must not displace the two higher-value core tracks merely to add another sponsor logo.
+
 No credit card, paid upgrade, real contract, or confidential document is authorized by this brief.
