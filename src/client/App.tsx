@@ -51,7 +51,7 @@ const datahubDecisionScreenshotUrl =
 const pilotInquiryUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml";
 const sampleRiskReviewUrl =
-  "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/output/pdf/sample-schema-change-risk-review.pdf";
+  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/output/pdf/sample-schema-change-risk-review.pdf";
 const commercialBriefUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/COMMERCIAL.md";
 const verifiedWritebackUrn =
