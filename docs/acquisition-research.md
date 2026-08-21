@@ -1,6 +1,6 @@
 # Acquisition research — 2026-08-17
 
-> Historical snapshot. For the current operating view and corrected event totals, see [`acquisition-research-2026-08-19.md`](acquisition-research-2026-08-19.md).
+> Historical snapshot. For the current operating view and verified AWS/Google event comparison, see [`acquisition-research-2026-08-21.md`](acquisition-research-2026-08-21.md).
 
 This list separates verified public opportunities from hypotheses. Listings can close or change; re-check the source before spending proposal credits or making a commitment.
 
