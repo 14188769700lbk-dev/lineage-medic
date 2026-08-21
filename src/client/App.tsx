@@ -50,8 +50,7 @@ const datahubDecisionScreenshotUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/docs/assets/datahub-decision.jpg";
 const pilotInquiryUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml";
-const sampleRiskReviewUrl =
-  "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/output/pdf/sample-schema-change-risk-review.pdf";
+const sampleRiskReviewUrl = `${import.meta.env.BASE_URL}sample-schema-change-risk-review.pdf`;
 const commercialBriefUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/COMMERCIAL.md";
 const verifiedWritebackUrn =
@@ -767,8 +766,8 @@ function PilotOffer() {
           <Users size={16} /> Request a non-sensitive scope check
         </a>
         <div className="pilot-offer-links">
-          <a href={sampleRiskReviewUrl} rel="noreferrer" target="_blank">
-            Sample deliverable <ExternalLink size={12} />
+          <a href={sampleRiskReviewUrl} download>
+            Download sample PDF <ExternalLink size={12} />
           </a>
           <a href={commercialBriefUrl} rel="noreferrer" target="_blank">
             Full scope <ExternalLink size={12} />

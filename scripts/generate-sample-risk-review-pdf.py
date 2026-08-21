@@ -396,7 +396,7 @@ def build_story():
         ("revenue_by_market", "Finance Data", "Public mart exposes the legacy name", "Read country_code internally; continue publishing shipping_country"),
         ("fulfillment_daily", "Fulfillment Platform", "Schedules the affected model before 06:00", "Confirm schedule and rollback; no patch without a repository binding"),
         ("Delivery health", "Ops Leadership", "46 weekly viewers through fulfillment model", "Validate unchanged dashboard semantics after migration"),
-        ("Global revenue pulse", "FP&A", "Board-reporting asset with 19 weekly viewers", "Preserve output contract; require owner sign-off before later rename"),
+        ("Global revenue pulse", "FP&amp;A", "Board-reporting asset with 19 weekly viewers", "Preserve output contract; require owner sign-off before later rename"),
     ]
     story.append(
         data_table(
@@ -450,7 +450,7 @@ def build_story():
     for text in [
         "<b>Retail Platform:</b> can both fields remain readable through September 1, including ingestion and warehouse retention behavior?",
         "<b>Fulfillment Analytics:</b> is the 06:00 SLA tested against the changed model and its rollback path?",
-        "<b>Finance Data and FP&A:</b> is shipping_country a contractual public name, and what process authorizes its eventual removal?",
+        "<b>Finance Data and FP&amp;A:</b> is shipping_country a contractual public name, and what process authorizes its eventual removal?",
         "<b>Ops Leadership:</b> which dashboard checks establish that the semantic result is unchanged?",
     ]:
         story.append(bullet(text))
