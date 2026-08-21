@@ -6,6 +6,8 @@ const USER_AGENT =
 
 const urls = {
   demo: "https://14188769700lbk-dev.github.io/lineage-medic/",
+  sampleReport:
+    "https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf",
   readEvidence:
     "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/examples/evidence/live-datahub-read-run.json",
   writebackEvidence:
@@ -76,6 +78,18 @@ const checks = [
         assetPaths.map((path) => fetchResponse(new URL(path, urls.demo).toString())),
       );
       return `${assetPaths.length} bundled assets reachable`;
+    },
+  },
+  {
+    name: "Downloadable synthetic risk-review sample",
+    run: async () => {
+      const response = await fetchResponse(urls.sampleReport);
+      const contentType = response.headers.get("content-type") ?? "";
+      const bytes = Buffer.from(await response.arrayBuffer());
+      assert(contentType.includes("application/pdf"), `unexpected content type: ${contentType}`);
+      assert(bytes.length > 10_000, `PDF is unexpectedly small: ${bytes.length} bytes`);
+      assert(bytes.subarray(0, 5).toString("ascii") === "%PDF-", "PDF signature is missing");
+      return `${contentType}, ${bytes.length} bytes`;
     },
   },
   {
