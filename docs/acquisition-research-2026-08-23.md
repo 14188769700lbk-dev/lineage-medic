@@ -35,6 +35,20 @@ Taskmaster is the honest category for ChangeFleet today. It is a complete autono
 
 This is an engineering recommendation, not an organizer ruling.
 
+## Paid open-source bounty screen
+
+A 2026-08-23 screen of Algora, IssueHunt, Opire, and recent GitHub bounty-labelled issues did not produce a candidate that met all of the operating gates: an open underlying issue, maintainer-backed acceptance and payout terms, fewer than three active claimants, a TypeScript/Python fit without paid API or specialist hardware dependencies, and a payout route verified for the developer's location.
+
+- Algora still listed the calcom/font/sans issue #2 as open even though the underlying GitHub issue was closed.
+- IssueHunt surfaced funded issues that were closed or several years stale.
+- Opire's public rewards feed was materially unreliable as a work queue. It showed a closed, explicitly `zero-bounty` MisakaNet issue as USD 1,500. Among the four TypeScript/Python/JavaScript/Shell entries with no more than two listed claimants, the MisakaNet and restfuncs issues were closed, the electron-template repository returned 404, and the pixelsocial issue returned GitHub 410 (deleted).
+- Two recent Tenstorrent issues mentioned USD 750 and USD 1,500 in their titles/bodies, but they were opened by a non-member who said they already had the fix, had competing attempts, and contained no verified maintainer payout commitment.
+- Opire's terms say payouts are transferred to a developer's Stripe account. Stripe's published Connect account country list includes Hong Kong SAR and Macao SAR but not mainland China. Unless the developer has a lawful supported-country Stripe setup, the payout path is unverified.
+
+Decision: do not spend implementation time or post claims/PRs for this batch. Re-screen only when a primary source satisfies every gate above. This is a rejection of the current candidates, not a claim that paid open-source work never exists.
+
+Primary references: https://algora.io/cal/bounties?status=open, https://github.com/calcom/sans/issues/2, https://app.opire.dev/home, https://opire.dev/terms-of-service, https://github.com/Ikalus1988/MisakaNet/issues/932, https://github.com/bogeeee/restfuncs/issues/6, https://github.com/Tenstorrent/tt-metal/issues/54055, https://github.com/Tenstorrent/tt-metal/issues/54054, and https://docs.stripe.com/connect/how-connect-works.
+
 ## External action gates
 
 These actions are prepared but not yet authorized:
