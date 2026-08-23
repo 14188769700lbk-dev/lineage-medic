@@ -1,6 +1,6 @@
 # Acquisition research — 2026-08-19
 
-> Historical snapshot. For the current operating view and newly verified AWS/Google event comparison, see [`acquisition-research-2026-08-21.md`](acquisition-research-2026-08-21.md).
+> Historical snapshot. For the current operating view, including the newly audited ChangeFleet asset and the restricted LineageMedic inquiry path, see [`acquisition-research-2026-08-23.md`](acquisition-research-2026-08-23.md).
 
 This is the current operating snapshot. It distinguishes an addressable channel from an action that is actually authorized and executable. Prize totals, listing activity, rules, and community access can change and must be rechecked at action time.
 

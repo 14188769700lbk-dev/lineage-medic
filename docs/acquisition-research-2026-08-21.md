@@ -1,5 +1,7 @@
 # Acquisition research — 2026-08-21
 
+> Superseded by [`acquisition-research-2026-08-23.md`](acquisition-research-2026-08-23.md), after the existing ChangeFleet repository and the restricted LineageMedic inquiry path were audited.
+
 This snapshot separates current official facts, an engineering-fit judgment, and actions that still require account-owner consent. Prize pools are upside, not revenue, and event pages must be rechecked immediately before registration or submission.
 
 ## Decision
