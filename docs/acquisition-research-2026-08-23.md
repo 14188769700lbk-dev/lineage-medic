@@ -12,9 +12,9 @@ This makes ChangeFleet a real candidate rather than a hypothetical greenfield pr
 
 | Order | Opportunity | Confirmed current state | Decision |
 | --- | --- | --- | --- |
-| 1 | Restore LineageMedic inquiry intake | The public repository says “Issue creation is restricted in this repository.” The product and README both send prospects to that issue form, so the current CTA cannot accept an external inquiry | Disable the external-issue restriction as soon as the owner confirms; do not claim the funnel is operational before anonymous verification |
-| 2 | ChangeFleet → All Things Agentic | Eligible recorded build timing; local UI, 7 backend tests, regular and static builds, architecture diagram, safety verifier, and secret/history scan pass | Join and request event credits before the earlier credit deadline, then deploy to Cloud Run and record truthful live proof |
-| 3 | ClauseTrace → DevNetwork Nutrient + SerpApi | Real provider acceptance exists; repo, screenshots, and a verified local 3:26 video exist | Enable Pages, verify anonymous demo, then authorize public video and final Devpost submission |
+| 1 | Restore LineageMedic inquiry intake | External GitHub issue creation is enabled and the public issues URL returns HTTP 200 | Observe whether real, qualified inquiries arrive; do not treat configuration repair as demand |
+| 2 | ChangeFleet → All Things Agentic | Eligible recorded build timing; 7 backend tests, official-registry frontend install/builds, safety verifier, secret/history scan, and the public fixture demo pass | Obtain verifiable event-registration evidence, request credits before the earlier deadline, then deploy to Cloud Run and record truthful live proof |
+| 3 | ClauseTrace → DevNetwork Nutrient + SerpApi | Real provider acceptance exists; repo, screenshots, a verified local 3:26 video, and the public Pages demo exist | Authorize public video and final Devpost submission only after the remaining claims are independently verified |
 | 4 | Agents for Humans | Strong technical fit, but a new AWS account can require payment-method and phone verification | Keep as watchlist unless an already usable AWS account exists |
 
 The first item is a conversion repair, not evidence of demand. The second and third are prize attempts, not revenue.
@@ -67,11 +67,11 @@ Primary references: https://revenuecat-shipaton-2026.devpost.com/rules, https://
 
 ## External action gates
 
-These actions are prepared but not yet authorized:
+The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition for payment, phone, CAPTCHA, identity, verification-code, and recovery-credential prompts. Current execution state:
 
-1. Allow external GitHub users to create issues in LineageMedic while retaining the existing non-sensitive Pilot inquiry form.
-2. Enable GitHub Pages with GitHub Actions for ClauseTrace and ChangeFleet, without publishing a message or submission.
-3. Join All Things Agentic with the current Devpost identity, accept the official rules and current Google Cloud terms, create a dedicated cloud project, and request event credits. Stop before any card, purchase, phone verification, CAPTCHA, identity verification, or recovery-credential request.
+1. External GitHub issue creation is enabled for LineageMedic; the public issues URL returns HTTP 200.
+2. ClauseTrace Pages and ChangeFleet Pages are enabled with GitHub Actions. Both deployments completed successfully and both public URLs return HTTP 200: https://14188769700lbk-dev.github.io/claustrace/ and https://14188769700lbk-dev.github.io/changefleet/.
+3. The precise Devpost registration URL redirects an unauthenticated request to account registration but redirects the signed-in browser to the event homepage. This is consistent with a successful or pre-existing registration, but page-state inspection repeatedly timed out, so registration remains unverified. The signed-in Google Cloud project-creation page opens, but its form cannot currently be inspected safely through the browser control connection; no cloud project or credit request has been verified.
 4. Upload public videos and make final Devpost submissions only after the live URLs and claims have been independently verified.
 
 ## Current funnel truth
@@ -83,4 +83,4 @@ As of this snapshot:
 - paying customers: 0;
 - recognized revenue: USD 0.
 
-LineageMedic has a public product, a scoped offer, and a downloadable sample. Its inquiry path is currently restricted. ChangeFleet and ClauseTrace are contest assets, not customers or revenue.
+LineageMedic has a public product, a scoped offer, a downloadable sample, and an open issue-intake path. ChangeFleet and ClauseTrace have public fixture demos. None of those facts proves demand, a customer, a prize, or revenue.
