@@ -16,6 +16,7 @@ This makes ChangeFleet a real candidate rather than a hypothetical greenfield pr
 | 2 | ChangeFleet → All Things Agentic | Eligible recorded build timing; 7 backend tests, official-registry frontend install/builds, safety verifier, secret/history scan, and the public fixture demo pass | Obtain verifiable event-registration evidence, request credits before the earlier deadline, then deploy to Cloud Run and record truthful live proof |
 | 3 | ClauseTrace → DevNetwork Nutrient + SerpApi | Real provider acceptance exists; repo, screenshots, a verified local 3:26 video, and the public Pages demo exist | Authorize public video and final Devpost submission only after the remaining claims are independently verified |
 | 4 | Agents for Humans | Strong technical fit, but a new AWS account can require payment-method and phone verification | Keep as watchlist unless an already usable AWS account exists |
+| 5 | AI Builders Hackathon | The full rules admit individual developers worldwide and the build window runs 2026-08-21 through 2026-09-15, but the public eligibility tag still says students only and the rules list prizes as TBD while the overview advertises a cash award and service credits | Do not register or start another build until the organizer resolves the eligibility and prize contradictions; it does not outrank the two nearly complete entries |
 
 The first item is a conversion repair, not evidence of demand. The second and third are prize attempts, not revenue.
 
@@ -42,12 +43,24 @@ A 2026-08-23 screen of Algora, IssueHunt, Opire, and recent GitHub bounty-labell
 - Algora still listed the calcom/font/sans issue #2 as open even though the underlying GitHub issue was closed.
 - IssueHunt surfaced funded issues that were closed or several years stale.
 - Opire's public rewards feed was materially unreliable as a work queue. It showed a closed, explicitly `zero-bounty` MisakaNet issue as USD 1,500. Among the four TypeScript/Python/JavaScript/Shell entries with no more than two listed claimants, the MisakaNet and restfuncs issues were closed, the electron-template repository returned 404, and the pixelsocial issue returned GitHub 410 (deleted).
+- Opire also showed USD 590 for TypeORM issue #3357. The underlying issue is open, but a maintainer pinned a 2026-06-06 notice saying the project is not accepting community PRs for that issue and will close AI-generated attempts. The bounty listing is therefore not authorization to work on the issue and is not an executable earning route.
 - Two recent Tenstorrent issues mentioned USD 750 and USD 1,500 in their titles/bodies, but they were opened by a non-member who said they already had the fix, had competing attempts, and contained no verified maintainer payout commitment.
 - Opire's terms say payouts are transferred to a developer's Stripe account. Stripe's published Connect account country list includes Hong Kong SAR and Macao SAR but not mainland China. Unless the developer has a lawful supported-country Stripe setup, the payout path is unverified.
 
 Decision: do not spend implementation time or post claims/PRs for this batch. Re-screen only when a primary source satisfies every gate above. This is a rejection of the current candidates, not a claim that paid open-source work never exists.
 
-Primary references: https://algora.io/cal/bounties?status=open, https://github.com/calcom/sans/issues/2, https://app.opire.dev/home, https://opire.dev/terms-of-service, https://github.com/Ikalus1988/MisakaNet/issues/932, https://github.com/bogeeee/restfuncs/issues/6, https://github.com/Tenstorrent/tt-metal/issues/54055, https://github.com/Tenstorrent/tt-metal/issues/54054, and https://docs.stripe.com/connect/how-connect-works.
+Primary references: https://algora.io/cal/bounties?status=open, https://github.com/calcom/sans/issues/2, https://app.opire.dev/home, https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT, https://github.com/typeorm/typeorm/issues/3357, https://opire.dev/terms-of-service, https://github.com/Ikalus1988/MisakaNet/issues/932, https://github.com/bogeeee/restfuncs/issues/6, https://github.com/Tenstorrent/tt-metal/issues/54055, https://github.com/Tenstorrent/tt-metal/issues/54054, and https://docs.stripe.com/connect/how-connect-works.
+
+## Additional live-event screen — 2026-08-23
+
+No newly screened event displaced ChangeFleet / All Things Agentic or ClauseTrace / DevNetwork in expected value and delivery readiness.
+
+- **AI Builders Hackathon:** the full rules say individual software developers and startup founders worldwide are eligible, with new work required from 2026-08-21 through 2026-09-15. However, the public Devpost eligibility block says `Students only`; the rules say prizes are `TBD`; and the overview separately advertises a USD 4,000 cash award plus Tin Computer credits. Until the organizer resolves those contradictions, eligibility and actual prize terms are not strong enough to justify a fresh build.
+- **Hyperbloom September** and **Prometheus September AI Challenge 2:** both official pages restrict participation to students. The owner has confirmed being an independent developer but has not claimed student status, so both are ineligible unless truthful student eligibility is separately established.
+- **Galuxium Nexus V2:** its page asks visitors to ignore Devpost's student-only eligibility tag, moved the displayed deadline from August 31 to October 31, labels Backboard service credits as cash, requires winners to keep a USD 5/month Backboard account active, and describes the separate seed fund as discretionary. This is not a clean cash-prize opportunity and is rejected.
+- **Agents for Humans:** still the strongest technical watchlist candidate after the current deadlines. It requires a newly created Strands Agents project, an AWS Builder ID, and an AWS account; Hong Kong is explicitly excluded, and the account/payment/phone path has not been verified for the owner's true residence. Do not register or create AWS resources until those facts and the current terms are confirmed.
+
+Primary references: https://ai-builders-hackathon-2026.devpost.com/rules, https://ai-builders-hackathon-2026.devpost.com/, https://hyperbloom-september.devpost.com/, https://prometheus-september-ai-2.devpost.com/, https://galuxium-nexus-v2-29411.devpost.com/, https://agentsforhumans.devpost.com/, and https://agentsforhumans.devpost.com/details/faqs.
 
 ## Mobile monetization route screened on 2026-08-23
 
