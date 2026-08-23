@@ -96,4 +96,14 @@ As of this snapshot:
 - paying customers: 0;
 - recognized revenue: USD 0.
 
+The authenticated GitHub Traffic API provided a 14-day baseline on 2026-08-23:
+
+| Repository | Views / unique viewers | Clones / unique cloners | Stars | Forks | Open non-PR issues |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| LineageMedic | 31 / 1 | 182 / 55 | 0 | 0 | 0 |
+| ChangeFleet | 5 / 1 | 21 / 13 | 0 | 0 | 0 |
+| ClauseTrace | 5 / 1 | 22 / 15 | 0 | 0 | 0 |
+
+These counts do not establish audience demand. The LineageMedic clone spikes occurred on the same dates as high GitHub Actions activity, no external referrer was recorded, and there were no stars, forks, or pilot issues. The reasonable working inference is that much of the clone traffic came from CI or owner activity; the API does not expose enough attribution to prove the exact source. On the current Windows host, re-run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-acquisition-funnel.ps1` for a read-only snapshot without printing the stored GitHub token. The one-process bypass does not change the system execution policy.
+
 LineageMedic has a public product, a scoped offer, a downloadable sample, and an open issue-intake path. ChangeFleet and ClauseTrace have public fixture demos. None of those facts proves demand, a customer, a prize, or revenue.
