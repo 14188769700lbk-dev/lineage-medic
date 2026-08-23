@@ -71,7 +71,7 @@ The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition 
 
 1. External GitHub issue creation is enabled for LineageMedic; the public issues URL returns HTTP 200.
 2. ClauseTrace Pages and ChangeFleet Pages are enabled with GitHub Actions. Both deployments completed successfully and both public URLs return HTTP 200: https://14188769700lbk-dev.github.io/claustrace/ and https://14188769700lbk-dev.github.io/changefleet/.
-3. The precise Devpost registration URL redirects an unauthenticated request to account registration but redirects the signed-in browser to the event homepage. This is consistent with a successful or pre-existing registration, but page-state inspection repeatedly timed out, so registration remains unverified. The signed-in Google Cloud project-creation page opens, but its form cannot currently be inspected safely through the browser control connection; no cloud project or credit request has been verified.
+3. All Things Agentic registration is verified: the signed-in account can access the event-specific “My hackathon projects” page, which shows “Start a Project” and “Create project.” No Devpost project has been created or submitted. Google Cloud project creation is paused at first-use account onboarding: the page requires an account country/region and acceptance of the current terms before a project can be created. No cloud project or credit request has been verified.
 4. Upload public videos and make final Devpost submissions only after the live URLs and claims have been independently verified.
 
 ## Current funnel truth
