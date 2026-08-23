@@ -74,6 +74,25 @@ Use this as a private draft for a project catalog or services marketplace. Publi
 
 > The public implementation proves the workflow with DataHub and dbt. Other catalogs or warehouses require a scope check before any compatibility claim or estimate.
 
+## Marketplace channel decision — 2026-08-23
+
+**Primary candidate: Upwork Project Catalog.** Upwork's current help center explicitly lists China/CNY and Hong Kong among Direct to Local Bank destinations. Project Catalog supports fixed-price service listings, client requirements, PDFs, tiers, and a visibility toggle. It is an inbound route, so the service can be discoverable without buying Connects for outbound proposals. Upwork still applies a contract-specific freelancer fee of 0–15%, reviews each listing before publication, and requires accurate account/payment identity; a withdrawal method can be flagged when its name does not match the account.
+
+**Secondary candidate: Contra.** Contra states that it supports global payouts, CNY currency conversion, local bank/Payoneer/PayPal/crypto options, escrow or milestone projects, and no platform commission for Independents. The actual payout methods depend on the country that issued the user's identification, identity verification is required, and processor/FX fees still apply. Treat it as executable only after the owner confirms the true country, legal name, acceptable payout method, and current terms.
+
+**Rejected for now: Opire.** Its work feed was not reliable enough to prove that a listed issue was open and maintainer-accepted, while its normal payout flow depends on a configured Stripe account. Do not create an account or implement a listed issue merely because the aggregator shows a dollar amount.
+
+Do not create an Upwork or Contra account, accept platform terms, transmit identity documents, configure a bank/Payoneer/PayPal/crypto payout, or publish the service listing without action-time owner approval. If mainland China is the confirmed residence, Upwork's published CNY local-bank support makes it the cleaner first verification path; this is a channel recommendation, not a guarantee that onboarding or payout approval will succeed.
+
+Official references:
+
+- https://support.upwork.com/hc/en-us/articles/211063888-How-to-withdraw-earnings-with-Direct-to-Local-Bank
+- https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
+- https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee
+- https://contra.com/blog/payments
+- https://contra.com/blog/setting-up-payments
+- https://help.contra.com/en/articles/13754797-how-can-independents-get-paid-on-contra
+
 ## Upwork proposal — dbt migration or governance work
 
 > Hi [name] — your requirement around [exact requirement from the post] matches a workflow I have already built and made publicly inspectable. LineageMedic takes a proposed schema change, traces downstream impact, drafts repository-specific dbt/SQL repairs, and validates parser, ref, contract, and coverage gates before review.
