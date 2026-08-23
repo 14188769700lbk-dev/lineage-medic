@@ -54,6 +54,15 @@ Use this as a private draft for a project catalog or services marketplace. Publi
 - Generated four-file repair PR: https://github.com/14188769700lbk-dev/lineage-medic/pull/1
 - Source, checks, and sanitized evidence: https://github.com/14188769700lbk-dev/lineage-medic
 
+**Prepared gallery assets — private draft, not published**
+
+- Marketplace cover: `docs/assets/lineage-medic-service-cover-4x3.png` (PNG, 1448×1086, exact 4:3, 1.53 MiB).
+- Wider reusable cover: `docs/assets/lineage-medic-service-cover.png` (PNG, 1672×941).
+- Delivery sample: `public/sample-schema-change-risk-review.pdf`.
+- Product proof: use a clean screenshot of the no-login replay or the architecture section only after checking that no secret, contact information, customer claim, or third-party brand is visible.
+
+The 4:3 cover was prepared against Upwork's current gallery guidance: PNG/JPEG, under 10 MB, no more than 4000 px, and a 4:3 composition (ideally 1000×750). It contains no price, contact information, customer/award/certification claim, or third-party logo. These files are supporting assets only; publishing a listing remains an external representational action requiring action-time owner approval.
+
 **Qualification questions**
 
 1. What exact field or contract is expected to change?
@@ -88,6 +97,7 @@ Official references:
 
 - https://support.upwork.com/hc/en-us/articles/211063888-How-to-withdraw-earnings-with-Direct-to-Local-Bank
 - https://support.upwork.com/hc/en-us/articles/360057397533-How-to-create-a-project-in-Project-Catalog
+- https://support.upwork.com/hc/en-us/articles/1500011309082-How-to-add-images-and-video-to-your-Project-Catalog-project
 - https://support.upwork.com/hc/en-us/articles/211062538-Learn-about-the-Freelancer-Service-Fee
 - https://contra.com/blog/payments
 - https://contra.com/blog/setting-up-payments
