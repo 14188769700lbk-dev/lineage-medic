@@ -49,6 +49,22 @@ Decision: do not spend implementation time or post claims/PRs for this batch. Re
 
 Primary references: https://algora.io/cal/bounties?status=open, https://github.com/calcom/sans/issues/2, https://app.opire.dev/home, https://opire.dev/terms-of-service, https://github.com/Ikalus1988/MisakaNet/issues/932, https://github.com/bogeeee/restfuncs/issues/6, https://github.com/Tenstorrent/tt-metal/issues/54055, https://github.com/Tenstorrent/tt-metal/issues/54054, and https://docs.stripe.com/connect/how-connect-works.
 
+## Mobile monetization route screened on 2026-08-23
+
+RevenueCat Shipaton 2026 is a credible second-phase opportunity, not an immediate replacement for the two nearly complete submissions above.
+
+- Official deadline: 2026-09-30 23:45 Pacific Time. The official rules list USD 740,000 in cash prizes and do not name mainland China among the excluded locations.
+- A non-student entry must be a new iOS, iPadOS, macOS, or Android app first published during the event on Apple App Store, Google Play, or Galaxy Store. It must integrate RevenueCat for at least one real in-app purchase or RevenueCat Ads, provide a public under-two-minute video, and remain downloadable in the United States for judging.
+- Google officially supports developer and merchant registration in China, but a new personal Play account requires a USD 25 registration fee, government identity and address verification, access to an Android device, and a closed test with at least 12 opted-in testers continuously for 14 days before production access.
+- Galaxy Store has no sign-up or annual publishing fee, but even free apps require commercial seller status. Samsung requires identity and financial verification, says approval and international bank verification can take several business days, and states that seller name, phone number, address, support email, and privacy-policy URL are shown on the public app details page.
+- RevenueCat's rules allow monetary prizes to be paid electronically to the entrant's bank account after identity and eligibility verification, with the entrant responsible for tax, foreign-exchange, and bank compliance.
+
+Decision: keep Shipaton as a conditional September build. Do not create the Google Play, Samsung Seller, or RevenueCat accounts, pay a fee, submit identity or bank documents, recruit testers, or publish an app without action-time owner confirmation. The immediate expected-value order remains ChangeFleet / All Things Agentic, then ClauseTrace / DevNetwork, because their code and evidence already exist and their deadlines arrive first.
+
+TikTok TechJam 2026 was rejected. Its official page restricts entry to college students in specified countries. The developer has confirmed being a solo independent developer but has not claimed student status, so eligibility cannot be assumed.
+
+Primary references: https://revenuecat-shipaton-2026.devpost.com/rules, https://support.google.com/googleplay/android-developer/answer/9306917, https://support.google.com/googleplay/android-developer/answer/15633622?co=GENIE.CountryCode%3DCN, https://support.google.com/googleplay/android-developer/answer/14151465, https://developer.samsung.com/galaxy-store/prepare.html, https://developer.samsung.com/galaxy-store/faq.html, and https://tiktoktechjam2026.devpost.com/.
+
 ## External action gates
 
 These actions are prepared but not yet authorized:
