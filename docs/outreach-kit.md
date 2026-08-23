@@ -6,6 +6,74 @@ Every message below is grounded in public evidence. Replace bracketed fields wit
 
 > I built LineageMedic, an open-source DataHub and dbt repair workflow that traces a breaking schema change, drafts contract-aware SQL/YAML repairs across repositories, and keeps every external mutation behind human approval.
 
+## Fixed-price marketplace service draft
+
+Use this as a private draft for a project catalog or services marketplace. Publishing it, accepting marketplace terms, configuring payouts, or promising availability requires action-time owner approval.
+
+**Title**
+
+> I will map the blast radius of one risky dbt or warehouse schema change
+
+**Price and delivery target**
+
+- USD 750 fixed price.
+- Five business days after the agreed, non-sensitive inputs are available.
+- The timing and price are an offer, not a claim of prior sales or guaranteed availability.
+
+**Buyer-facing summary**
+
+> Before renaming, removing, or changing a warehouse field, get a reviewable map of the affected assets, owners, and contracts. I will analyze one representative schema change using read-only metadata and up to three repository snapshots, then deliver an evidence-backed risk review and migration sequence. No production system or source repository is modified.
+
+**Included deliverables**
+
+1. Blast-radius inventory for one data domain and up to 25 catalog assets.
+2. Ownership and repository-binding gaps that need human resolution.
+3. Consumer-by-consumer compatibility recommendation: migrate directly, preserve an alias/output, or block pending evidence.
+4. Prioritized risk register and removal-window checklist.
+5. One 45-minute handoff call and a written next-step plan.
+
+**Inputs requested from the buyer**
+
+- One concrete proposed field rename, removal, or compatible type change.
+- Sanitized lineage/catalog export or read-only metadata access through an agreed private channel.
+- Up to three repository snapshots containing the affected SQL, dbt models, or contracts.
+- A technical owner who can answer evidence gaps and validate the findings.
+
+**Explicit exclusions**
+
+- Production, catalog, or repository writes.
+- Credentials or private schemas in a public ticket.
+- A guarantee that no outage, data-quality regression, or downstream break will occur.
+- Legal, regulatory, tax, or data-protection certification.
+- Unlimited assets, repositories, or custom warehouse adapters.
+
+**Public proof before purchase**
+
+- No-login replay: https://14188769700lbk-dev.github.io/lineage-medic/
+- Synthetic sample PDF: https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf
+- Generated four-file repair PR: https://github.com/14188769700lbk-dev/lineage-medic/pull/1
+- Source, checks, and sanitized evidence: https://github.com/14188769700lbk-dev/lineage-medic
+
+**Qualification questions**
+
+1. What exact field or contract is expected to change?
+2. Which warehouse/catalog and transformation tools are involved?
+3. How many catalog assets and repositories are plausibly in scope?
+4. Can you provide sanitized exports or read-only access without placing secrets in a public thread?
+5. Who will validate the findings and approve any later implementation work?
+
+**FAQ: Do you change my production code?**
+
+> No. This entry service is read-only. If the review identifies a bounded repair campaign, implementation is separately scoped and remains human-approved.
+
+**FAQ: Can you guarantee the lineage is complete?**
+
+> No. The review distinguishes observed evidence from missing bindings and unknown consumers. An incomplete lineage graph is reported as a risk, not silently treated as complete.
+
+**FAQ: Is this limited to DataHub?**
+
+> The public implementation proves the workflow with DataHub and dbt. Other catalogs or warehouses require a scope check before any compatibility claim or estimate.
+
 ## Upwork proposal — dbt migration or governance work
 
 > Hi [name] — your requirement around [exact requirement from the post] matches a workflow I have already built and made publicly inspectable. LineageMedic takes a proposed schema change, traces downstream impact, drafts repository-specific dbt/SQL repairs, and validates parser, ref, contract, and coverage gates before review.
