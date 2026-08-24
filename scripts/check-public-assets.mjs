@@ -9,6 +9,8 @@ const urls = {
   sampleReport:
     "https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf",
   sitemap: "https://14188769700lbk-dev.github.io/lineage-medic/sitemap.xml",
+  indexNowKey:
+    "https://14188769700lbk-dev.github.io/lineage-medic/6dcd543be1a739ee0488b73c14a1539a.txt",
   readEvidence:
     "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/examples/evidence/live-datahub-read-run.json",
   writebackEvidence:
@@ -96,9 +98,10 @@ const checks = [
   {
     name: "Search discovery metadata",
     run: async () => {
-      const [html, sitemap] = await Promise.all([
+      const [html, sitemap, indexNowKeyText] = await Promise.all([
         fetchText(urls.demo),
         fetchText(urls.sitemap),
+        fetchText(urls.indexNowKey),
       ]);
 
       assert(html.includes('type="application/ld+json"'), "structured service data is missing");
@@ -106,7 +109,9 @@ const checks = [
       assert(html.includes('rel="sitemap"'), "sitemap link is missing");
       assert(sitemap.includes(urls.demo), "homepage is missing from sitemap");
       assert(sitemap.includes(urls.sampleReport), "sample report is missing from sitemap");
-      return "structured service offer and 2 sitemap URLs reachable";
+      const indexNowKey = indexNowKeyText.trim();
+      assert(indexNowKey === "6dcd543be1a739ee0488b73c14a1539a", "IndexNow key is invalid");
+      return "structured service offer, 2 sitemap URLs, and IndexNow key reachable";
     },
   },
   {
