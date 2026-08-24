@@ -112,6 +112,8 @@ Primary references: https://remoteai.io/v2/jobs/etl-pipeline-developer-real-time
 
 ## External action gates
 
+The concise, current handoff for identity, marketplace, Cloud, and public-communication gates is [`revenue-activation-checklist.md`](revenue-activation-checklist.md).
+
 The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition for payment, phone, CAPTCHA, identity, verification-code, and recovery-credential prompts. Current execution state:
 
 1. External GitHub issue creation is enabled for LineageMedic; the public issues URL returns HTTP 200.
