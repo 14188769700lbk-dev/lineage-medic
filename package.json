@@ -11,7 +11,7 @@
   "scripts": {
     "demo": "tsx src/cli.ts",
     "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
-    "dev:server": "tsx watch src/server/index.ts",
+    "dev:server": "node --watch --import tsx src/server/index.ts",
     "dev:web": "vite --config vite.client.config.ts --host 127.0.0.1",
     "dev:site": "vinext dev",
     "health:public": "node scripts/check-public-assets.mjs",
