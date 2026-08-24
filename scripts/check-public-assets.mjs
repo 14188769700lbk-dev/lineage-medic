@@ -171,8 +171,12 @@ const checks = [
     run: async () => {
       const html = await fetchText(urls.repository);
       assert(html.includes("Apache-2.0 license"), "GitHub did not detect Apache-2.0");
+      assert(
+        html.includes("Scope a USD 750 read-only risk review"),
+        "repository buyer CTA is missing",
+      );
       assert(html.includes("Judge it in 90 seconds"), "judge-first README entry is missing");
-      return "Apache-2.0 detected and judge-first README rendered";
+      return "Apache-2.0, buyer CTA, and judge-first README rendered";
     },
   },
   {
