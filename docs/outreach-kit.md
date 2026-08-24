@@ -83,6 +83,40 @@ The 4:3 cover was prepared against Upwork's current gallery guidance: PNG/JPEG, 
 
 > The public implementation proves the workflow with DataHub and dbt. Other catalogs or warehouses require a scope check before any compatibility claim or estimate.
 
+## Marketplace profile draft
+
+Use this on Upwork, Contra, or RemoteAI only after replacing the legal-name, location, availability, and payout fields with verified owner information. It deliberately makes no claim about years of experience, prior clients, employment, certifications, or revenue.
+
+**Professional title**
+
+> Data change risk reviews | DataHub, dbt, SQL, TypeScript
+
+**Overview**
+
+> I build evidence-backed workflows for risky warehouse and dbt schema changes. My public LineageMedic project traces downstream impact through DataHub, separates direct migrations from compatibility-preserving changes, drafts reviewable SQL/YAML repairs on isolated repository copies, and blocks external writes until explicit approval.
+>
+> I offer a fixed-scope, read-only review for one proposed field rename, removal, or compatible type change. The deliverable maps affected assets and owners, records missing evidence, recommends a consumer-by-consumer migration policy, and provides a prioritized migration sequence. I do not need production write access for this entry scope.
+>
+> Public proof includes a no-login hosted replay, a synthetic sample risk-review PDF, a four-file generated repair pull request with passing checks, and sanitized DataHub MCP evidence. Other catalogs, warehouses, or implementation work are scoped only after the evidence and access boundaries are clear.
+
+**Skills supported by public artifacts**
+
+- DataHub and metadata lineage
+- dbt contracts and model migration
+- SQL and schema evolution
+- TypeScript, React, Fastify, and Vitest
+- Model Context Protocol (MCP)
+- Evidence capture, validation gates, and human approval boundaries
+
+**Portfolio links**
+
+- Hosted replay: https://14188769700lbk-dev.github.io/lineage-medic/
+- Sample deliverable: https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf
+- Source and tests: https://github.com/14188769700lbk-dev/lineage-medic
+- Generated repair PR: https://github.com/14188769700lbk-dev/lineage-medic/pull/1
+
+Do not publish an hourly rate or availability that the owner has not confirmed. Keep USD 750 as the fixed-price entry offer; any hourly rate is a separate marketplace setting and financial commitment.
+
 ## Marketplace channel decision — 2026-08-23
 
 **Primary candidate: Upwork Project Catalog.** Upwork's current help center explicitly lists China/CNY and Hong Kong among Direct to Local Bank destinations. Project Catalog supports fixed-price service listings, client requirements, PDFs, tiers, and a visibility toggle. It is an inbound route, so the service can be discoverable without buying Connects for outbound proposals. Upwork still applies a contract-specific freelancer fee of 0–15%, reviews each listing before publication, and requires accurate account/payment identity; a withdrawal method can be flagged when its name does not match the account.
