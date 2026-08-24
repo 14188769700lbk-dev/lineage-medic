@@ -89,6 +89,17 @@ The latest screen found one credible October watchlist event but no reason to di
 
 Primary references: https://hackapertus.devpost.com/, https://hackapertus.devpost.com/rules, https://hackapertus.ch/terms-and-conditions, https://gibc-v2.devpost.com/, https://prompt-wars-2026.devpost.com/, https://oneaquahealth-ieee-hackathon.devpost.com/, https://hack-the-habitat-2026.devpost.com/rules, https://compsphere12.devpost.com/rules, https://launchhacks-v.devpost.com/, https://arbiter-hacks-v1.devpost.com/, and https://call-e.devpost.com/.
 
+## Bounty and small-cash re-screen — 2026-08-24
+
+No newly screened bounty is executable under the current public-communication and payout constraints.
+
+- **iFlytek Domux HER Hack-Astron #4 is genuine but blocked by the no-public-message instruction.** The maintainer-authored issue runs from August 24 through August 30 and offers one RMB 500 cash award. A valid entry must run the Domux model, publish the complete case in the official public Hugging Face Discussion, and then submit a GitHub PR. The cash amount is real, but the mandatory public Discussion conflicts with the owner's explicit instruction not to publish messages. Do not enter unless that restriction is later changed at action time.
+- **The current Algora/GitHub bounty surface remains noisy and stale.** An authenticated GitHub search screened the 100 most recently updated, open, unassigned issues carrying the exact `💎 Bounty` label and excluded already rewarded labels. Only two entries combined a maintainer/owner author with an explicit dollar label: both were synthetic bounty-testing repositories. The USD 50 `oss-hunter-livefire` issue already linked ten competing pull requests. The displayed USD 200 Drizzle issue has an active August 20 claim PR plus several competing implementations. Algora still displayed two ProjectDiscovery bounties whose canonical issues are now closed; one is explicitly marked rewarded. These are not clean authorization or expected-value paths.
+- **MiLyfe bounties are token-denominated, not verified cash.** The new repository advertises rewards in its own `$MLY` unit, has zero stars, and gives no authoritative fiat conversion, liquidity, or payout mechanism. Do not treat `50-150 $MLY` as USD or recognized revenue.
+- **Search indexing is still unverified.** Exact-title and `site:` searches returned no LineageMedic result after the IndexNow HTTP 202 response. That is normal for a recent notification but means discoverability has not yet produced evidence of crawling, indexing, inquiries, or demand.
+
+Primary references: https://github.com/iflytek/domux/issues/20, https://github.com/tine1117/oss-hunter-livefire/issues/1, https://github.com/drizzle-team/drizzle-orm/issues/1188, https://github.com/drizzle-team/drizzle-orm/pull/6151, https://github.com/projectdiscovery/nuclei/issues/6674, https://github.com/projectdiscovery/nuclei/issues/6532, https://github.com/RealMiLyfe/MiLyfe-Platform, and https://www.indexnow.org/documentation.
+
 ## External action gates
 
 The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition for payment, phone, CAPTCHA, identity, verification-code, and recovery-credential prompts. Current execution state:
