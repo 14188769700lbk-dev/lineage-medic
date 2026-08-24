@@ -100,6 +100,16 @@ No newly screened bounty is executable under the current public-communication an
 
 Primary references: https://github.com/iflytek/domux/issues/20, https://github.com/tine1117/oss-hunter-livefire/issues/1, https://github.com/drizzle-team/drizzle-orm/issues/1188, https://github.com/drizzle-team/drizzle-orm/pull/6151, https://github.com/projectdiscovery/nuclei/issues/6674, https://github.com/projectdiscovery/nuclei/issues/6532, https://github.com/RealMiLyfe/MiLyfe-Platform, and https://www.indexnow.org/documentation.
 
+## Contract-lead re-screen — 2026-08-24
+
+The latest contract search did not produce a truthful zero-profile application path.
+
+- RemoteAI currently exposes several fixed-price data and AI missions, including a USD 5,000–9,000 real-time ETL engagement and a USD 22,000 pipeline-audit engagement. The canonical descriptions require production-grade ETL, Kafka/Airflow or Databricks, and in the larger role at least four years of experience. LineageMedic is relevant portfolio evidence for schema evolution and audit structure, but it does not prove those production tools, years, employers, or customer outcomes. Do not apply by substituting project work for the stated experience requirement.
+- Current Wellfound results either restrict hiring geography, require one to five years of experience, or are full-time jobs rather than a small fixed-scope service. The apparently worldwide one-year data-engineer result is posted by an account named `Mcdonagh demo`; a search result and recruiter activity badge are not enough to establish that it is a genuine buyer.
+- Indexed Upwork results for dbt/data-pipeline work were largely stale 2025 listings despite search snippets describing them as recent. None displaced the inbound Project Catalog plan, which avoids paying proposal Connects before the owner has a verified profile and experience statement.
+
+Primary references: https://remoteai.io/v2/jobs/etl-pipeline-developer-real-time-data-integration-tV4AQT-01kpz3jtpd8b4pvx9wyf57b2sw, https://remoteai.io/v2/jobs/blockchain-data-engineer-s12-Uo36R-01kqz58c4bsgnefmvfzpmtv1c5, https://wellfound.com/jobs/4602438-data-engineer, and https://www.upwork.com/freelance-jobs/apply/Real-time-Database-Solution-for-Platform-Data_~021958962620175401611/.
+
 ## External action gates
 
 The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition for payment, phone, CAPTCHA, identity, verification-code, and recovery-credential prompts. Current execution state:
