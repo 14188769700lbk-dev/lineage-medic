@@ -96,25 +96,27 @@ The owner authorized items 1–3 on 2026-08-23, with an explicit stop condition 
 1. External GitHub issue creation is enabled for LineageMedic; the public issues URL returns HTTP 200.
 2. ClauseTrace Pages and ChangeFleet Pages are enabled with GitHub Actions. Both deployments completed successfully and both public URLs return HTTP 200: https://14188769700lbk-dev.github.io/claustrace/ and https://14188769700lbk-dev.github.io/changefleet/.
 3. All Things Agentic registration is verified: the signed-in account can access the event-specific “My hackathon projects” page, which shows “Start a Project” and “Create project.” No Devpost project has been created or submitted. Google Cloud project creation is paused at first-use account onboarding: the page requires an account country/region and acceptance of the current terms before a project can be created. No cloud project or credit request has been verified.
-4. Upload public videos and make final Devpost submissions only after the live URLs and claims have been independently verified.
+4. Do not upload public videos or make final Devpost submissions. The owner's current instruction prohibits both unless a later action-time authorization explicitly changes that restriction.
 
 ## Current funnel truth
 
-As of this snapshot:
+As of the read-only funnel audit at 2026-08-24 21:53 China Standard Time:
 
 - prize money received: USD 0;
 - paid inquiries: 0;
 - paying customers: 0;
 - recognized revenue: USD 0.
 
-The authenticated GitHub Traffic API provided a 14-day baseline on 2026-08-23:
+The authenticated GitHub Traffic API provided this rolling 14-day snapshot:
 
 | Repository | Views / unique viewers | Clones / unique cloners | Stars | Forks | Open non-PR issues |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| LineageMedic | 31 / 1 | 182 / 55 | 0 | 0 | 0 |
-| ChangeFleet | 5 / 1 | 21 / 13 | 0 | 0 | 0 |
-| ClauseTrace | 5 / 1 | 22 / 15 | 0 | 0 | 0 |
+| LineageMedic | 34 / 2 | 335 / 115 | 0 | 0 | 0 |
+| ChangeFleet | 5 / 1 | 45 / 24 | 0 | 0 | 0 |
+| ClauseTrace | 5 / 1 | 37 / 24 | 0 | 0 | 0 |
 
-These counts do not establish audience demand. The LineageMedic clone spikes occurred on the same dates as high GitHub Actions activity, no external referrer was recorded, and there were no stars, forks, or pilot issues. The reasonable working inference is that much of the clone traffic came from CI or owner activity; the API does not expose enough attribution to prove the exact source. On the current Windows host, re-run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-acquisition-funnel.ps1` for a read-only snapshot without printing the stored GitHub token. The one-process bypass does not change the system execution policy.
+These counts do not establish audience demand. LineageMedic recorded no referrer, while ChangeFleet and ClauseTrace each recorded only one unique `github.com` referrer. The clone increases occurred alongside high GitHub Actions activity, and there were still no stars, forks, or pilot issues. The reasonable working inference is that much of the clone traffic came from CI or owner activity; the API does not expose enough attribution to prove the exact source. On the current Windows host, re-run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-acquisition-funnel.ps1` for a read-only snapshot without printing the stored GitHub token. The one-process bypass does not change the system execution policy.
+
+LineageMedic's hosted offer now publishes a machine-readable USD 750 fixed-scope service offer and a two-URL sitemap. Commit `f4a6fd5` passed CI, Pages deployment, and the post-deployment public-assets workflow. This improves crawler access and offer clarity; it is not evidence of indexing, traffic, inquiries, or revenue.
 
 LineageMedic has a public product, a scoped offer, a downloadable sample, and an open issue-intake path. ChangeFleet and ClauseTrace have public fixture demos. None of those facts proves demand, a customer, a prize, or revenue.
