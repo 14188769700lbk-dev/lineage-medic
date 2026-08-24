@@ -121,4 +121,6 @@ LineageMedic's hosted offer now publishes a machine-readable USD 750 fixed-scope
 
 The GitHub repository description now leads with the truthful read-only schema-change risk review instead of describing the project only as a hackathon build. Its existing technical topics were retained and `data-engineering`, `impact-analysis`, and `schema-evolution` were added. This is public repository metadata, not a post, customer claim, or demand signal.
 
+The homepage and sample PDF were submitted once to the official IndexNow global endpoint after a scoped ownership key became publicly reachable under `/lineage-medic/`. The endpoint returned HTTP 202, which means the URLs were received while key validation was pending. IndexNow shares notifications with participating search engines; this response does not prove that any engine crawled, indexed, ranked, or sent traffic to the site.
+
 LineageMedic has a public product, a scoped offer, a downloadable sample, and an open issue-intake path. ChangeFleet and ClauseTrace have public fixture demos. None of those facts proves demand, a customer, a prize, or revenue.
