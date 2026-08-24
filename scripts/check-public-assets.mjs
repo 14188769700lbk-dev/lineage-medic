@@ -8,6 +8,7 @@ const urls = {
   demo: "https://14188769700lbk-dev.github.io/lineage-medic/",
   sampleReport:
     "https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf",
+  sitemap: "https://14188769700lbk-dev.github.io/lineage-medic/sitemap.xml",
   readEvidence:
     "https://raw.githubusercontent.com/14188769700lbk-dev/lineage-medic/main/examples/evidence/live-datahub-read-run.json",
   writebackEvidence:
@@ -90,6 +91,22 @@ const checks = [
       assert(bytes.length > 10_000, `PDF is unexpectedly small: ${bytes.length} bytes`);
       assert(bytes.subarray(0, 5).toString("ascii") === "%PDF-", "PDF signature is missing");
       return `${contentType}, ${bytes.length} bytes`;
+    },
+  },
+  {
+    name: "Search discovery metadata",
+    run: async () => {
+      const [html, sitemap] = await Promise.all([
+        fetchText(urls.demo),
+        fetchText(urls.sitemap),
+      ]);
+
+      assert(html.includes('type="application/ld+json"'), "structured service data is missing");
+      assert(html.includes("LineageMedic Schema Change Risk Review"), "service name is missing");
+      assert(html.includes('rel="sitemap"'), "sitemap link is missing");
+      assert(sitemap.includes(urls.demo), "homepage is missing from sitemap");
+      assert(sitemap.includes(urls.sampleReport), "sample report is missing from sitemap");
+      return "structured service offer and 2 sitemap URLs reachable";
     },
   },
   {

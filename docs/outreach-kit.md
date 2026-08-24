@@ -89,9 +89,13 @@ The 4:3 cover was prepared against Upwork's current gallery guidance: PNG/JPEG, 
 
 **Secondary candidate: Contra.** Contra states that it supports global payouts, CNY currency conversion, local bank/Payoneer/PayPal/crypto options, escrow or milestone projects, and no platform commission for Independents. The actual payout methods depend on the country that issued the user's identification, identity verification is required, and processor/FX fees still apply. Treat it as executable only after the owner confirms the true country, legal name, acceptable payout method, and current terms.
 
+**Experimental candidate: RemoteAI.** A talent profile is currently free, candidates receive 20 free applications per day, and the platform exposes contract and freelance opportunities. Its terms make RemoteAI a facilitator rather than a party to the resulting employment or contract, so payment terms, invoicing, disputes, and a lawful payout rail must be handled directly with the client. The profile requires a truthful full name, email, experience, rate, and availability; public profiles are visible to employers, and the privacy policy allows international data transfers. Use it only after the owner confirms the true identity fields and can lawfully contract and receive payment. This is lower platform-fee friction, not a claim that the platform will produce work.
+
+**Rejected for now: Fiverr.** Fiverr pays freelancers 80% of cleared order value and requires phone verification before offering services. New-freelancer verification can also require a security question, legal-name/address data, an original government ID, a smartphone selfie, and in some cases a one-time verification fee. Those costs and verification steps make it a weaker first channel than Upwork Project Catalog, Contra, or a free RemoteAI profile for the current owner constraints.
+
 **Rejected for now: Opire.** Its work feed was not reliable enough to prove that a listed issue was open and maintainer-accepted, while its normal payout flow depends on a configured Stripe account. Do not create an account or implement a listed issue merely because the aggregator shows a dollar amount.
 
-Do not create an Upwork or Contra account, accept platform terms, transmit identity documents, configure a bank/Payoneer/PayPal/crypto payout, or publish the service listing without action-time owner approval. If mainland China is the confirmed residence, Upwork's published CNY local-bank support makes it the cleaner first verification path; this is a channel recommendation, not a guarantee that onboarding or payout approval will succeed.
+Do not create an Upwork, Contra, RemoteAI, or Fiverr account, accept platform terms, transmit identity documents, configure a bank/Payoneer/PayPal/crypto payout, or publish a profile or service listing without action-time owner approval. If mainland China is the confirmed residence, Upwork's published CNY local-bank support makes it the cleaner first verification path; this is a channel recommendation, not a guarantee that onboarding or payout approval will succeed.
 
 Official references:
 
@@ -102,6 +106,13 @@ Official references:
 - https://contra.com/blog/payments
 - https://contra.com/blog/setting-up-payments
 - https://help.contra.com/en/articles/13754797-how-can-independents-get-paid-on-contra
+- https://remoteai.io/terms
+- https://remoteai.io/privacy
+- https://remoteai.io/trust-safety
+- https://remoteai.io/register
+- https://help.fiverr.com/hc/en-us/articles/34069565843985-How-Fiverr-works-for-freelancers
+- https://help.fiverr.com/hc/en-us/articles/37552021347985-Phone-verification-Secure-your-Fiverr-account
+- https://help.fiverr.com/hc/en-us/articles/6348992414097-Verifying-your-identity-as-a-new-freelancer
 
 ## Upwork proposal — dbt migration or governance work
 
