@@ -119,4 +119,6 @@ These counts do not establish audience demand. LineageMedic recorded no referrer
 
 LineageMedic's hosted offer now publishes a machine-readable USD 750 fixed-scope service offer and a two-URL sitemap. Commit `f4a6fd5` passed CI, Pages deployment, and the post-deployment public-assets workflow. This improves crawler access and offer clarity; it is not evidence of indexing, traffic, inquiries, or revenue.
 
+The GitHub repository description now leads with the truthful read-only schema-change risk review instead of describing the project only as a hackathon build. Its existing technical topics were retained and `data-engineering`, `impact-analysis`, and `schema-evolution` were added. This is public repository metadata, not a post, customer claim, or demand signal.
+
 LineageMedic has a public product, a scoped offer, a downloadable sample, and an open issue-intake path. ChangeFleet and ClauseTrace have public fixture demos. None of those facts proves demand, a customer, a prize, or revenue.
