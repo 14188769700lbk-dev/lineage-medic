@@ -1,12 +1,10 @@
 name: Judging assets health
 
 on:
-  push:
+  workflow_run:
+    workflows: [Deploy hosted replay]
     branches: [main]
-    paths:
-      - .github/workflows/judging-health.yml
-      - scripts/check-public-assets.mjs
-      - package.json
+    types: [completed]
   schedule:
     - cron: "17 2,14 * * *"
   workflow_dispatch:
@@ -20,10 +18,13 @@ concurrency:
 
 jobs:
   check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v7
         with:
           node-version: 24
