@@ -22,9 +22,10 @@ This file is the durable handoff for actions that cannot be completed truthfully
   Never commit or publish that file.
 - RemoteAI account creation through Google OAuth is complete, the freelancer
   account type is selected, and onboarding is paused at `/signup/basic-info`.
-  The Google display name is not the owner's supplied legal name, so it must not
-  be submitted. Basic identity fields remain unsubmitted pending action-time
-  confirmation.
+  The owner authorized the truthful basic fields and they were entered, but the
+  site rejected the one-character Chinese surname because it requires at least
+  two characters. The form remains unsubmitted pending the owner's decision on
+  using a truthful romanization; no validation workaround was attempted.
 - No Upwork account exists. The Google signup control did not open an OAuth flow
   in the in-app browser. Email signup was not completed because it would require
   creating and securely retaining a separate password.
