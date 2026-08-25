@@ -12,6 +12,28 @@ This file is the durable handoff for actions that cannot be completed truthfully
 - Upwork Project Catalog is the first marketplace candidate if the owner's true residence and payout route match Upwork's current support. RemoteAI is an experimental second route; Contra is secondary; Fiverr is rejected for now.
 - Prize money received: USD 0. Paid inquiries: 0. Paying customers: 0. Recognized revenue: USD 0.
 
+## Account-continuity status (redacted public copy)
+
+- A local-only account handoff is stored at
+  `.private-handoff/ACCOUNT-HANDOFF.md` and excluded through
+  `.git/info/exclude`. It contains the authorized account identifiers needed for
+  another Codex/GPT login on this computer, but no password, token, API key,
+  cookie, phone number, verification code, ID, bank data, or recovery credential.
+  Never commit or publish that file.
+- RemoteAI account creation through Google OAuth is complete, the freelancer
+  account type is selected, and onboarding is paused at `/signup/basic-info`.
+  The Google display name is not the owner's supplied legal name, so it must not
+  be submitted. Basic identity fields remain unsubmitted pending action-time
+  confirmation.
+- No Upwork account exists. The Google signup control did not open an OAuth flow
+  in the in-app browser. Email signup was not completed because it would require
+  creating and securely retaining a separate password.
+- Nutrient DWS and SerpApi provider accounts remain set up through the logged-in
+  GitHub identity. Provider API keys exist only in their dashboards and are not
+  stored in the repository or handoff.
+- PayPal is only a confirmed payout-route type; no PayPal account identifier is
+  recorded or connected.
+
 ## Gate A — marketplace identity and contracting
 
 Before creating or publishing any freelancer account, obtain all of the following from the owner exactly as they are true:
