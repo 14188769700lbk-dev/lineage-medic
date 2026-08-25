@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://14188769700lbk-dev.github.io/lineage-medic/sitemap.xml

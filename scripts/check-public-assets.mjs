@@ -9,6 +9,7 @@ const urls = {
   sampleReport:
     "https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf",
   sitemap: "https://14188769700lbk-dev.github.io/lineage-medic/sitemap.xml",
+  robots: "https://14188769700lbk-dev.github.io/lineage-medic/robots.txt",
   indexNowKey:
     "https://14188769700lbk-dev.github.io/lineage-medic/6dcd543be1a739ee0488b73c14a1539a.txt",
   readEvidence:
@@ -98,9 +99,10 @@ const checks = [
   {
     name: "Search discovery metadata",
     run: async () => {
-      const [html, sitemap, indexNowKeyText] = await Promise.all([
+      const [html, sitemap, robots, indexNowKeyText] = await Promise.all([
         fetchText(urls.demo),
         fetchText(urls.sitemap),
+        fetchText(urls.robots),
         fetchText(urls.indexNowKey),
       ]);
 
@@ -109,9 +111,11 @@ const checks = [
       assert(html.includes('rel="sitemap"'), "sitemap link is missing");
       assert(sitemap.includes(urls.demo), "homepage is missing from sitemap");
       assert(sitemap.includes(urls.sampleReport), "sample report is missing from sitemap");
+      assert(robots.includes("User-agent: *"), "robots policy is missing");
+      assert(robots.includes(`Sitemap: ${urls.sitemap}`), "robots sitemap pointer is missing");
       const indexNowKey = indexNowKeyText.trim();
       assert(indexNowKey === "6dcd543be1a739ee0488b73c14a1539a", "IndexNow key is invalid");
-      return "structured service offer, 2 sitemap URLs, and IndexNow key reachable";
+      return "structured service offer, robots policy, 2 sitemap URLs, and IndexNow key reachable";
     },
   },
   {
