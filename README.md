@@ -6,7 +6,7 @@
 
 **Renovate for breaking data changes.** LineageMedic turns a proposed schema rename into a lineage-grounded, cross-repository repair campaign that teams can review before the breaking change merges.
 
-Assessing a real dbt or warehouse change? [Scope a USD 750 read-only risk review](https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml) for one proposed change and up to 25 catalog assets. Review the [synthetic sample deliverable](https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf) before opening an inquiry. No production or source-repository writes are included.
+Assessing a real dbt or warehouse change? [Scope a USD 750 read-only risk review](https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml) for one proposed change and up to 25 catalog assets. Review the [one-page buyer brief](https://14188769700lbk-dev.github.io/lineage-medic/lineage-medic-buyer-brief.pdf) and [synthetic sample deliverable](https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf) before opening an inquiry. No production or source-repository writes are included.
 
 Built for the [DataHub Agent Hackathon](https://datahub.devpost.com/) and released under Apache 2.0.
 

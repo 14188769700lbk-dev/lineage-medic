@@ -15,6 +15,7 @@ This is a commercial offer draft, not a claim of existing customers, revenue, or
 Prospects can inspect the complete technical proof before sharing any private data:
 
 - [No-login hosted replay](https://14188769700lbk-dev.github.io/lineage-medic/)
+- [One-page scope and pricing brief](https://14188769700lbk-dev.github.io/lineage-medic/lineage-medic-buyer-brief.pdf)
 - [2:45 product walkthrough](https://youtu.be/WohjWxcAYfo)
 - [Four-file generated repair PR](https://github.com/14188769700lbk-dev/lineage-medic/pull/1)
 - [Downloadable synthetic sample risk-review PDF](https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf)

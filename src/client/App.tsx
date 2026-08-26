@@ -51,6 +51,7 @@ const datahubDecisionScreenshotUrl =
 const pilotInquiryUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/issues/new?template=pilot-interest.yml";
 const sampleRiskReviewUrl = `${import.meta.env.BASE_URL}sample-schema-change-risk-review.pdf`;
+const buyerBriefUrl = `${import.meta.env.BASE_URL}lineage-medic-buyer-brief.pdf`;
 const commercialBriefUrl =
   "https://github.com/14188769700lbk-dev/lineage-medic/blob/main/COMMERCIAL.md";
 const verifiedWritebackUrn =
@@ -766,6 +767,9 @@ function PilotOffer() {
           <Users size={16} /> Request a non-sensitive scope check
         </a>
         <div className="pilot-offer-links">
+          <a href={buyerBriefUrl} download>
+            One-page buyer brief <ExternalLink size={12} />
+          </a>
           <a href={sampleRiskReviewUrl} download>
             Download sample PDF <ExternalLink size={12} />
           </a>

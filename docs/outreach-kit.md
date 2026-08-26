@@ -58,6 +58,7 @@ Use this as a private draft for a project catalog or services marketplace. Publi
 
 - Marketplace cover: `docs/assets/lineage-medic-service-cover-4x3.png` (PNG, 1448×1086, exact 4:3, 1.53 MiB).
 - Wider reusable cover: `docs/assets/lineage-medic-service-cover.png` (PNG, 1672×941).
+- One-page buyer brief: `public/lineage-medic-buyer-brief.pdf` (PDF, A4, fixed scope, price, inputs, boundaries, and proof links).
 - Delivery sample: `public/sample-schema-change-risk-review.pdf`.
 - Product proof: use a clean screenshot of the no-login replay or the architecture section only after checking that no secret, contact information, customer claim, or third-party brand is visible.
 

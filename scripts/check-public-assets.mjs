@@ -6,6 +6,8 @@ const USER_AGENT =
 
 const urls = {
   demo: "https://14188769700lbk-dev.github.io/lineage-medic/",
+  buyerBrief:
+    "https://14188769700lbk-dev.github.io/lineage-medic/lineage-medic-buyer-brief.pdf",
   sampleReport:
     "https://14188769700lbk-dev.github.io/lineage-medic/sample-schema-change-risk-review.pdf",
   sitemap: "https://14188769700lbk-dev.github.io/lineage-medic/sitemap.xml",
@@ -97,6 +99,18 @@ const checks = [
     },
   },
   {
+    name: "Downloadable one-page buyer brief",
+    run: async () => {
+      const response = await fetchResponse(urls.buyerBrief);
+      const contentType = response.headers.get("content-type") ?? "";
+      const bytes = Buffer.from(await response.arrayBuffer());
+      assert(contentType.includes("application/pdf"), `unexpected content type: ${contentType}`);
+      assert(bytes.length > 5_000, `PDF is unexpectedly small: ${bytes.length} bytes`);
+      assert(bytes.subarray(0, 5).toString("ascii") === "%PDF-", "PDF signature is missing");
+      return `${contentType}, ${bytes.length} bytes`;
+    },
+  },
+  {
     name: "Search discovery metadata",
     run: async () => {
       const [html, sitemap, robots, indexNowKeyText] = await Promise.all([
@@ -110,12 +124,13 @@ const checks = [
       assert(html.includes("LineageMedic Schema Change Risk Review"), "service name is missing");
       assert(html.includes('rel="sitemap"'), "sitemap link is missing");
       assert(sitemap.includes(urls.demo), "homepage is missing from sitemap");
+      assert(sitemap.includes(urls.buyerBrief), "buyer brief is missing from sitemap");
       assert(sitemap.includes(urls.sampleReport), "sample report is missing from sitemap");
       assert(robots.includes("User-agent: *"), "robots policy is missing");
       assert(robots.includes(`Sitemap: ${urls.sitemap}`), "robots sitemap pointer is missing");
       const indexNowKey = indexNowKeyText.trim();
       assert(indexNowKey === "6dcd543be1a739ee0488b73c14a1539a", "IndexNow key is invalid");
-      return "structured service offer, robots policy, 2 sitemap URLs, and IndexNow key reachable";
+      return "structured service offer, robots policy, 3 sitemap URLs, and IndexNow key reachable";
     },
   },
   {
